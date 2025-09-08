@@ -50,6 +50,7 @@ wp_footer();
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script src="<?= asset('scripts/global.js') ?>"></script>
 <script src="<?= asset('scripts/index.js') ?>"></script>
+<script src="<?= asset('scripts/production-detail.js')?>?v=<?=time()?>" ></script>
 
 </body>
 

@@ -12,7 +12,7 @@ view('header/header');
         </div>
         <div class="hero-content">
             <h1>About</h1>
-            <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus lacus. Proin purus nisi porta arcu eget pretium.</p>
+            <p>TOD Studios is the original content label of the digital entertainment platform TOD and beIN Media Group. </p>
         </div>
     </section>
 
@@ -20,10 +20,9 @@ view('header/header');
     <section class="about-section about-intro bg-dark">
         <div class="about-container">
             <div class="intro-text">
-                <p>Commodo et arcu nullam ornare. Viverra non lectus semper proin quis condimentum. Vitae magna quam vehicula mattis. Duis bibendum urna feugiat luctus feugiat. Platea in tempor volutpat iaculis nullam rutrum ullamcorper posuere. Quis purus fusce cras eu mi sociis. Eu nam arcu pellentesque sed lacus egestas amet interdum. Et mi non feugiat pharetra lobortis rutrum molestie consectetur. Non id sem malesuada elementum lectus.</p>
-                <p>Ut non volutpat sit purus. A accumsan cras aliquam mi elementum. Tempus egestas amet sit vitae nec eleifend a elementum at. Pellentesque sagittis arcu pellentesque odio dolor. In convallis nullam pellentesque diam sit amet. At justo fermentum vivamus aliquam egestas facilisis. Integer imperdiet in in sit penatibus dui. Dolor volutpat auctor penatibus cras nec egestas amet ipsum. Pellentesque dictum odio aliquam sit varius cursus. Nunc venenatis morbi volutpat nunc lectus volutpat. Bibendum viverra eu curabitur ac magna habitant pharetra arcu. At sed ac integer vel facilisis non felis. Dictum dolor vivamus duis senectus mattis. Accumsan eget commodo tellus id nisl luctus et. Risus odio ultrices aliquet amet enim lorem lobortis iaculis.</p>
-                <p>Fusce purus etiam consectetur purus. Ac facilisis sit sit mauris nec euismod enim eros eget leo. Integer dolor convallis vitae aliquam sagittis aliquam malesuada nisl. Sed at lectus nulla ornare. Sed imperdiet malesuada venenatis vehicula nunc laoreet faucibus.</p>
-                <p>Eget lorem pretium fermentum nibh. Nulla nibh vel sit metus tincidunt tincidunt. Commodo purus amet phasellus amet penates. Platea amet eget quam molestie fusce cras lobortis gravida. Orci elementum nunc volutpat non nam. Sit at lacus finibus porta pretium amet a quam enim. Quisque ullamcorper enim nibh iaculis aliquet non et placerat blandit. Sit semper commodo tellus id quis ac lorem sit arcu.</p>
+                
+                <p>Established with a bold vision to create high-quality, locally rooted and globally relevant productions, TOD Studios develops original series, lifestyle, documentaries and sports content tailored to today’s diverse audiences. With a strong focus on storytelling, creative talent, and production excellence, TOD Studios aims to become a leading force in MENA and Turkiye’s content ecosystem, offering compelling stories that resonate across borders.</p>
+
             </div>
 
             <div class="intro-highlight">

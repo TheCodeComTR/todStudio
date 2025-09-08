@@ -1,4 +1,5 @@
 <?php
+
 /**
 
  * 
@@ -19,7 +20,7 @@ view('header/header');
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
 					<div class="hero-container">
-						<img src="<?= asset('images/sliders/slider-1.png')?>" alt="Zamanin Kapilari">
+						<img src="<?= asset('images/sliders/slider-1.png') ?>" alt="Zamanin Kapilari">
 					</div>
 					<div class="hero-content">
 						<h1>LOREM IPSUM DOLOR SIT</h1>
@@ -27,7 +28,7 @@ view('header/header');
 				</div>
 				<div class="swiper-slide">
 					<div class="hero-container">
-						<img src="<?= asset('images/sliders/slider-1.png')?>" alt="The Lumina Chronicles">
+						<img src="<?= asset('images/sliders/slider-1.png') ?>" alt="The Lumina Chronicles">
 					</div>
 					<div class="hero-content">
 						<h1>LOREM IPSUM DOLOR SIT</h1>
@@ -35,7 +36,7 @@ view('header/header');
 				</div>
 				<div class="swiper-slide">
 					<div class="hero-container">
-						<img src="<?= asset('images/sliders/slider-1.png')?>" alt="Serap">
+						<img src="<?= asset('images/sliders/slider-1.png') ?>" alt="Serap">
 					</div>
 					<div class="hero-content">
 						<h1>LOREM IPSUM DOLOR SIT</h1>
@@ -44,10 +45,10 @@ view('header/header');
 			</div>
 			<div class="hero-pagination swiper-pagination"></div>
 			<button class="hero-prev" aria-label="Previous">
-				<img src="<?= asset('images/arrow_white.svg')?>" alt="prev">
+				<img src="<?= asset('images/arrow_white.svg') ?>" alt="prev">
 			</button>
 			<button class="hero-next" aria-label="Next">
-				<img src="<?= asset('images/arrow_white.svg')?>" alt="next">
+				<img src="<?= asset('images/arrow_white.svg') ?>" alt="next">
 			</button>
 		</div>
 	</section>
@@ -61,24 +62,88 @@ view('header/header');
 			</div>
 			<div class="stats">
 				<div class="counter">
-					<div class="icon"><img src="<?= asset('images/film.svg')?>" alt="movies"></div>
+					<div class="icon"><img src="<?= asset('images/film.svg') ?>" alt="movies"></div>
 					<div class="value">96</div>
 					<div class="name">NUMBER OF MOVIES</div>
 				</div>
 				<div class="counter">
-					<div class="icon"><img src="<?= asset('images/streamline.svg')?>" alt="viewers"></div>
+					<div class="icon"><img src="<?= asset('images/streamline.svg') ?>" alt="viewers"></div>
 					<div class="value">128K</div>
 					<div class="name">NUMBER OF VIEWERS</div>
 				</div>
 				<div class="counter">
-					<div class="icon"><img src="<?= asset('images/date.svg')?>" alt="hours"></div>
+					<div class="icon"><img src="<?= asset('images/date.svg') ?>" alt="hours"></div>
 					<div class="value">32K</div>
 					<div class="name">HOUR TIME</div>
 				</div>
 			</div>
 		</div>
 	</section>
+	<?php
+	// Gösterilecek kategoriler
+	$categories = ['series', 'life-style', 'kids'];
 
+	foreach ($categories as $cat_slug):
+
+		// Kategori bilgisi
+		$category = get_category_by_slug($cat_slug);
+		if (!$category) continue; // kategori yoksa atla
+
+		$args = [
+			'post_type'      => 'filim',
+			'posts_per_page' => 10,
+			'post_status'    => 'publish',
+			'tax_query'      => [
+				[
+					'taxonomy' => 'category',
+					'field'    => 'slug',
+					'terms'    => $cat_slug,
+				]
+			],
+		];
+
+		$filim_query = new WP_Query($args);
+		if ($filim_query->have_posts()): ?>
+
+			<section class="productions">
+				<div class="productions-header">
+					<div class="productions-header-left">
+						<h2><?= esc_html($category->name) ?></h2>
+						<p><?= esc_html($category->description) ?></p>
+					</div>
+					<div class="productions-header-right">
+						<a href="<?="productions/" //esc_url(get_category_link($category->term_id)) ?>" class="see-all">
+							<img src="<?= asset('images/film_rulo.svg') ?>" alt="arrow"> See All
+						</a>
+					</div>
+				</div>
+
+				<div class="swiper <?= esc_attr($cat_slug) ?>-swiper">
+					<div class="swiper-wrapper">
+						<?php while ($filim_query->have_posts()): $filim_query->the_post(); ?>
+							<div class="swiper-slide">
+								<a href="<?php the_permalink(); ?>" class="swiper-card">
+									<?php if (has_post_thumbnail()): ?>
+										<?php the_post_thumbnail('medium'); ?>
+									<?php else: ?>
+										<img src="<?= asset('images/placeholder.png') ?>" alt="<?php the_title(); ?>">
+									<?php endif; ?>
+									<span class="swiper-caption"><?php the_title(); ?></span>
+								</a>
+							</div>
+						<?php endwhile; ?>
+					</div>
+					<div class="<?= esc_attr($cat_slug) ?>-pagination swiper-pagination"></div>
+				</div>
+			</section>
+
+	<?php
+			wp_reset_postdata();
+		endif;
+
+	endforeach;
+	/*
+	?>
 	<!-- Series Slider (Swiper like PD related) -->
 	<section class="productions">
 		<div class="productions-header">
@@ -87,44 +152,44 @@ view('header/header');
 				<p>Curabitur sit ipsum integer id egestas nibh.</p>
 			</div>
 			<div class="productions-header-right">
-				<a href="#" class="see-all"><img src="<?= asset('images/film_rulo.svg')?>" alt="arrow"> See All</a>
+				<a href="#" class="see-all"><img src="<?= asset('images/film_rulo.svg') ?>" alt="arrow"> See All</a>
 			</div>
 		</div>
 		<div class="swiper series-swiper">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/zamanin-kapilari.png')?>" alt="Zamanin Kapilari">
+						<img src="<?= asset('images/productions/zamanin-kapilari.png') ?>" alt="Zamanin Kapilari">
 						<span class="swiper-caption">ZAMANIN KAPILARI</span>
 					</a>
 				</div>
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/39b3b20407d9d119f7d8e914b3049e3f501bac4a.jpg')?>" alt="The Lumina Chronicles">
+						<img src="<?= asset('images/productions/39b3b20407d9d119f7d8e914b3049e3f501bac4a.jpg') ?>" alt="The Lumina Chronicles">
 						<span class="swiper-caption">THE LUMINA CHRONICLES</span>
 					</a>
 				</div>
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/26da47b7b731d60d5b8802bd9463da1289d5ad46.png')?>" alt="Serap">
+						<img src="<?= asset('images/productions/26da47b7b731d60d5b8802bd9463da1289d5ad46.png') ?>" alt="Serap">
 						<span class="swiper-caption">SERAP</span>
 					</a>
 				</div>
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/77cbc70ffef6ab3084120705e8ea91829c594a5c.png')?>" alt="Donum Noktasi">
+						<img src="<?= asset('images/productions/77cbc70ffef6ab3084120705e8ea91829c594a5c.png') ?>" alt="Donum Noktasi">
 						<span class="swiper-caption">DÖNÜM NOKTASI</span>
 					</a>
 				</div>
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/42b443d04eeb3954572dd36b78b0683d1c3f57df.png')?>" alt="Erkek Severse">
+						<img src="<?= asset('images/productions/42b443d04eeb3954572dd36b78b0683d1c3f57df.png') ?>" alt="Erkek Severse">
 						<span class="swiper-caption">ERKEK SEVERSE</span>
 					</a>
 				</div>
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/zamanin-kapilari.png')?>" alt="Zamanin Kapilari">
+						<img src="<?= asset('images/productions/zamanin-kapilari.png') ?>" alt="Zamanin Kapilari">
 						<span class="swiper-caption">ZAMANIN KAPILARI</span>
 					</a>
 				</div>
@@ -141,44 +206,44 @@ view('header/header');
 				<p>Ut egestas velit porta quisque vitae mollis nam</p>
 			</div>
 			<div class="productions-header-right">
-				<a href="#" class="see-all"><img src="<?= asset('images/popcorn.svg')?>" alt="arrow"> See All</a>
+				<a href="#" class="see-all"><img src="<?= asset('images/popcorn.svg') ?>" alt="arrow"> See All</a>
 			</div>
 		</div>
 		<div class="swiper life-style-swiper">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/zamanin-kapilari.png')?>" alt="Zamanin Kapilari">
+						<img src="<?= asset('images/productions/zamanin-kapilari.png') ?>" alt="Zamanin Kapilari">
 						<span class="swiper-caption">ZAMANIN KAPILARI</span>
 					</a>
 				</div>
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/39b3b20407d9d119f7d8e914b3049e3f501bac4a.jpg')?>" alt="The Lumina Chronicles">
+						<img src="<?= asset('images/productions/39b3b20407d9d119f7d8e914b3049e3f501bac4a.jpg') ?>" alt="The Lumina Chronicles">
 						<span class="swiper-caption">THE LUMINA CHRONICLES</span>
 					</a>
 				</div>
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/26da47b7b731d60d5b8802bd9463da1289d5ad46.png')?>" alt="Serap">
+						<img src="<?= asset('images/productions/26da47b7b731d60d5b8802bd9463da1289d5ad46.png') ?>" alt="Serap">
 						<span class="swiper-caption">SERAP</span>
 					</a>
 				</div>
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/77cbc70ffef6ab3084120705e8ea91829c594a5c.png')?>" alt="Donum Noktasi">
+						<img src="<?= asset('images/productions/77cbc70ffef6ab3084120705e8ea91829c594a5c.png') ?>" alt="Donum Noktasi">
 						<span class="swiper-caption">DÖNÜM NOKTASI</span>
 					</a>
 				</div>
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/42b443d04eeb3954572dd36b78b0683d1c3f57df.png')?>" alt="Erkek Severse">
+						<img src="<?= asset('images/productions/42b443d04eeb3954572dd36b78b0683d1c3f57df.png') ?>" alt="Erkek Severse">
 						<span class="swiper-caption">ERKEK SEVERSE</span>
 					</a>
 				</div>
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/zamanin-kapilari.png')?>" alt="Zamanin Kapilari">
+						<img src="<?= asset('images/productions/zamanin-kapilari.png') ?>" alt="Zamanin Kapilari">
 						<span class="swiper-caption">ZAMANIN KAPILARI</span>
 					</a>
 				</div>
@@ -195,44 +260,44 @@ view('header/header');
 				<p>Morbi consequat enim ut integer pellentesque quis</p>
 			</div>
 			<div class="productions-header-right">
-				<a href="#" class="see-all"><img src="<?= asset('images/kite.svg')?>" alt="arrow"> See All</a>
+				<a href="#" class="see-all"><img src="<?= asset('images/kite.svg') ?>" alt="arrow"> See All</a>
 			</div>
 		</div>
 		<div class="swiper kids-swiper">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/zamanin-kapilari.png')?>" alt="Zamanin Kapilari">
+						<img src="<?= asset('images/productions/zamanin-kapilari.png') ?>" alt="Zamanin Kapilari">
 						<span class="swiper-caption">ZAMANIN KAPILARI</span>
 					</a>
 				</div>
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/39b3b20407d9d119f7d8e914b3049e3f501bac4a.jpg')?>" alt="The Lumina Chronicles">
+						<img src="<?= asset('images/productions/39b3b20407d9d119f7d8e914b3049e3f501bac4a.jpg') ?>" alt="The Lumina Chronicles">
 						<span class="swiper-caption">THE LUMINA CHRONICLES</span>
 					</a>
 				</div>
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/26da47b7b731d60d5b8802bd9463da1289d5ad46.png')?>" alt="Serap">
+						<img src="<?= asset('images/productions/26da47b7b731d60d5b8802bd9463da1289d5ad46.png') ?>" alt="Serap">
 						<span class="swiper-caption">SERAP</span>
 					</a>
 				</div>
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/77cbc70ffef6ab3084120705e8ea91829c594a5c.png')?>" alt="Donum Noktasi">
+						<img src="<?= asset('images/productions/77cbc70ffef6ab3084120705e8ea91829c594a5c.png') ?>" alt="Donum Noktasi">
 						<span class="swiper-caption">DÖNÜM NOKTASI</span>
 					</a>
 				</div>
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/42b443d04eeb3954572dd36b78b0683d1c3f57df.png')?>" alt="Erkek Severse">
+						<img src="<?= asset('images/productions/42b443d04eeb3954572dd36b78b0683d1c3f57df.png') ?>" alt="Erkek Severse">
 						<span class="swiper-caption">ERKEK SEVERSE</span>
 					</a>
 				</div>
 				<div class="swiper-slide">
 					<a href="#" class="swiper-card">
-						<img src="<?= asset('images/productions/zamanin-kapilari.png')?>" alt="Zamanin Kapilari">
+						<img src="<?= asset('images/productions/zamanin-kapilari.png') ?>" alt="Zamanin Kapilari">
 						<span class="swiper-caption">ZAMANIN KAPILARI</span>
 					</a>
 				</div>
@@ -240,23 +305,21 @@ view('header/header');
 			<div class="kids-pagination swiper-pagination"></div>
 		</div>
 	</section>
-
+ 	*/?>
 	<!-- Who We Are -->
 	<section class="about-section features-section bg-dark">
 		<div class="about-container">
 			<div class="feature-row">
 				<div class="feature-media">
-					<img src="<?= asset('images/Tod_Studios.png')?>" alt="brand">
+					<img src="<?= asset('images/Tod_Studios.png') ?>" alt="brand">
 				</div>
 				<div class="feature-text">
 					<h3>Who We Are</h3>
-					<p>Auctor ut senectus ac non diam maecenas pellentesque. Elementum dapibus ac in rhoncus. Congue
-						duis vitae lobortis nam magna quam egestas lacinia curabitur. Vitae proin amet convallis
-						integer sed. A nisl accumsan velit facilisi. Feugiat vitae cursus egestas lobortis enim
-						pellentesque. Faucibus eu elementum egestas commodo faucibus eget vitae. Neque tristique
-						justo vel volutpat pretium in odio sed suspendisse. Eget volutpat luctus quam sodales dictum
-						sem. </p>
-					<div class="see-details"><a href="#">DETAILS <img src="<?= asset('images/arrow_white.svg')?>" alt=""></a></div>
+					<p>
+						TOD Studios is the original content label of the digital entertainment platform TOD and beIN Media Group. Established with a bold vision to create high-quality, locally rooted and globally relevant productions, TOD Studios develops original series, lifestyle, documentaries and sports content tailored to today’s diverse audiences. With a strong focus on storytelling, creative talent, and production excellence, TOD Studios aims to become a leading force in MENA and Turkiye’s content ecosystem, offering compelling stories that resonate across borders.
+
+					</p>
+					<div class="see-details"><a href="/about/">DETAILS <img src="<?= asset('images/arrow_white.svg') ?>" alt=""></a></div>
 				</div>
 			</div>
 		</div>

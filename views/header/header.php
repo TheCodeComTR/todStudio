@@ -10,23 +10,32 @@
 
 <head>
 
-
-
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="<?= asset('styles/global.css') ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="<?= asset('styles/index.css') ?>">   
-    <link rel="stylesheet" href="<?= asset('styles/production-detail.css')?>" >
-    <link rel="stylesheet" href="<?= asset('styles/contact.css')?>" >
-    <link rel="stylesheet" href="<?= asset('styles/about.css')?>" >
+    <link rel="stylesheet" href="<?= asset('styles/index.css') ?>">
+    <?
 
-    <?php
+
+    if (is_page_template('page-about.php')) 
+    {
+        echo '<link rel="stylesheet" href="' . asset('styles/about.css') . '">';
+    } 
+    else if (is_page_template('page.contact.php') || is_page_template('page-contact.php'))
+    {
+        echo '<link rel="stylesheet" href="' . asset('styles/contact.css') . '">';
+    } 
+
+
+    if (is_singular('filim')) {
+        echo '<link rel="stylesheet" href="' . asset('styles/production-detail.css') . '">';
+    }
+
+
     wp_head();
-
-
     ?>
 
 </head>

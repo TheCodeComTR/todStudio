@@ -39,7 +39,7 @@ $(function () {
           576: { slidesPerView: 2, spaceBetween: 12 },
           768: { slidesPerView: 3, spaceBetween: 16 },
           1200: { slidesPerView: 4, spaceBetween: 16 },
-          1400: { slidesPerView: 6, spaceBetween: 24 },
+          1400: { slidesPerView: 4.5, spaceBetween: 16 },
         },
         on: {
           init: function () {
