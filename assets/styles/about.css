@@ -12,7 +12,6 @@
 .about-intro .intro-text p {
   font-weight: 300;
   font-size: 1.6rem;
-  line-height: 100%;
   color: #fff;
 }
 .about-intro .intro-highlight {
@@ -24,7 +23,6 @@
   font-weight: 400;
   font-style: Medium;
   font-size: 2.4rem;
-  line-height: 100%;
   letter-spacing: 0.08em;
   text-align: center;
   text-transform: uppercase;
@@ -36,7 +34,6 @@
   font-weight: 325;
   font-style: Book;
   font-size: 1.4rem;
-  line-height: 100%;
   letter-spacing: 0;
   text-align: center;
 }
@@ -69,7 +66,6 @@
   font-weight: 400;
   font-style: Bold;
   font-size: 4.8rem;
-  line-height: 100%;
   letter-spacing: 0;
   text-align: center;
   color: #fff;
@@ -79,7 +75,6 @@
   font-weight: 400;
   font-style: Medium;
   font-size: 1rem;
-  line-height: 100%;
   letter-spacing: 0;
   text-align: center;
   text-transform: uppercase;
@@ -96,7 +91,6 @@
   font-weight: 400;
   font-style: Medium;
   font-size: 2.4rem;
-  line-height: 100%;
   letter-spacing: 0.08em;
   text-align: center;
   text-transform: uppercase;
@@ -106,7 +100,6 @@
   font-weight: 325;
   font-style: Book;
   font-size: 1.2rem;
-  line-height: 100%;
   letter-spacing: 0;
   text-align: center;
   color: #fff;
@@ -196,7 +189,6 @@
 .company-stats .stats .counter .value {
   font-weight: 700;
   font-size: 4.8rem;
-  line-height: 100%;
   letter-spacing: 0%;
   text-align: center;
   color: #fff;
@@ -205,7 +197,6 @@
   font-weight: 300;
   font-style: Medium;
   font-size: 1rem;
-  line-height: 100%;
   letter-spacing: 0%;
   text-align: center;
   text-transform: uppercase;

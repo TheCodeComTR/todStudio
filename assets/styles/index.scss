@@ -60,7 +60,6 @@
       will-change: opacity, transform;
     }
 
-    /* Arka planı opaklıkla geçişli yönetmek için ayrı katman */
     &::after {
       content: "";
       position: absolute;
@@ -152,7 +151,7 @@
             .slider-slide-right-content-item-header {
               font-weight: 100;
               font-size: 1rem;
-              line-height: 100%;
+
               text-transform: uppercase;
               color: rgba(255, 255, 255, 0.64);
               margin-bottom: 4px;
@@ -161,7 +160,7 @@
             .slider-slide-right-content-item-content {
               font-weight: 300;
               font-size: 1.4rem;
-              line-height: 100%;
+
               color: #fff;
             }
           }
@@ -180,7 +179,7 @@
             font-weight: 300;
             font-style: Book;
             font-size: 1.4rem;
-            line-height: 100%;
+
             letter-spacing: 0.08em;
             text-transform: uppercase;
             padding: 8px;
@@ -196,28 +195,9 @@
       }
     }
   }
-
-  .see-details {
-    margin-top: auto;
-    padding-top: 16px;
-
-    a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 350;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      color: #ffbc00;
-      text-decoration: none !important;
-      border-bottom: 1px solid #ffbc00;
-      border-top: 1px solid #ffbc00;
-      padding: 9px 0;
-      transition: all 0.3s ease;
-    }
-  }
 }
-/* Aktif/pasif durumlar ve küçük kart ölçüleri */
+
+/* Aktif/pasif durumlar */
 .productions {
   .slider-track {
     .slider-slide {
@@ -281,7 +261,7 @@
       font-weight: 400;
       font-style: Medium;
       font-size: 2.4rem;
-      line-height: 100%;
+
       letter-spacing: 1px;
       text-transform: uppercase;
       color: #ffbc00;
@@ -292,7 +272,7 @@
       font-weight: 325;
       font-style: Book;
       font-size: 1.2rem;
-      line-height: 100%;
+
       letter-spacing: 0%;
       color: #fff;
       opacity: 0.64;
@@ -303,26 +283,315 @@
     display: flex;
     align-items: center;
     gap: 24px;
+  }
+}
 
-    button {
-      width: 24px;
-      height: 24px;
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      border-top: 1px solid #FFBC00;
-      border-bottom: 1px solid #FFBC00;
-      padding: 8px;
-      box-sizing: content-box;
-      
-      img {
-        width: 100%;
-        height: 100%;
+/* Metrics strip - use company-stats layout */
+.about-section {
+  padding: 40px 108px;
+}
+.company-stats {
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .brand-block {
+    h3 {
+      color: #ffbc00;
+      font-weight: 400;
+      font-style: Medium;
+      font-size: 2.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    p {
+      color: #fff;
+      opacity: 0.64;
+      font-weight: 325;
+      font-style: Book;
+      font-size: 1.2rem;
+      letter-spacing: 0;
+      max-width: 200px;
+    }
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 0 89px;
+  }
+  .counter {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+    background: rgba(0, 0, 0, 0.16);
+    padding: 24px;
+    border-radius: 8px;
+    color: #fff;
+    gap: 24px;
+  }
+  .counter .icon img {
+    width: 24px;
+    height: 24px;
+  }
+  .counter .value {
+    font-weight: 700;
+    font-size: 4.8rem;
+
+    color: #fff;
+  }
+  .counter .name {
+    font-weight: 300;
+    font-style: Medium;
+    font-size: 1rem;
+
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.64);
+  }
+}
+
+/* Series Swiper styles (PD related eşleşmesi) */
+.swiper-swiper {
+  overflow: hidden;
+}
+
+.swiper-card {
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.swiper-card img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.24);
+}
+
+.swiper-card .swiper-caption {
+  font-weight: 400;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.swiper-pagination {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+  position: relative;
+  margin: 0 !important;
+  border-radius: 0;
+}
+
+.swiper-pagination-bullet-active {
+  width: 24px;
+}
+
+.swiper-pagination-bullet .fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  background: #ffbc00;
+  transition: all 0.3s linear;
+}
+
+.see-all {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  text-decoration: none;
+  padding: 8px 0;
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+/* Who We Are */
+.features-section {
+  padding: 40px 0 0;
+  .feature-row {
+    padding: 0 108px 40px 108px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+
+    &.reverse {
+      grid-auto-flow: dense;
+      padding-top: 40px;
+      .feature-text {
+        order: 1;
       }
-
-      &.slider-prev {
-        transform: rotate(180deg);
+      .feature-media {
+        order: 2;
       }
     }
+
+    .feature-media {
+      box-shadow: 0px 8px 24px 0px #0000003d;
+
+      img {
+        width: 100%;
+        max-height: 335px;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+      }
+    }
+
+    .feature-text {
+      h3 {
+        color: #ffbc00;
+        font-weight: 400;
+        font-style: Medium;
+        font-size: 2.4rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+      p {
+        color: #fff;
+        opacity: 0.64;
+        font-weight: 300;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        letter-spacing: 0.08em;
+      }
+    }
+  }
+}
+
+/* Home hero-specific (slider) styles */
+.hero {
+  .hero-content {
+    height: 342;
+    opacity: 1;
+    padding-top: 56px;
+    padding-right: 108px;
+    padding-bottom: 56px;
+    padding-left: 108px;
+    background: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, #1d1d1d 100%);
+
+    h1 {
+      max-width: 725px;
+      font-weight: 600;
+      font-size: 9.6rem;
+      text-transform: uppercase;
+    }
+  }
+  .hero-swiper {
+    position: relative;
+    width: 100%;
+    height: 810px;
+  }
+
+  .hero-prev,
+  .hero-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    padding: 8px;
+    box-sizing: content-box;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .hero-prev {
+    left: 0;
+    transform: translateY(-50%) rotate(180deg);
+  }
+  .hero-next {
+    right: 0;
+  }
+
+  .hero-pagination {
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    bottom: 32px;
+
+    .swiper-pagination-bullet {
+      width: 12px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      opacity: 1;
+      position: relative;
+      margin: 0 !important;
+      border-radius: 0;
+    }
+
+    .swiper-pagination-bullet-active {
+      width: 24px;
+    }
+
+    .swiper-pagination-bullet .fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0%;
+      background: #ffbc00;
+      transition: all 0.3s linear;
+    }
+  }
+}
+
+.swiper-wrapper {
+  padding-bottom: 32px;
+}
+
+.see-details {
+  margin-top: 24px;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 350;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none !important;
+    padding: 9px 0;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  
   }
 }

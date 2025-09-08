@@ -127,7 +127,6 @@
 .pd-info .pd-info-stats .pd-info-kv-value {
   font-weight: 400;
   font-size: 1.2rem;
-  line-height: 100%;
   letter-spacing: 0.08em;
   color: #fff;
 }
@@ -224,7 +223,6 @@
   border: none;
   font-weight: 400;
   font-size: 1.2rem;
-  line-height: 100%;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #fff;

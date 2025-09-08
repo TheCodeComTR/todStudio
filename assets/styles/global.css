@@ -60,11 +60,9 @@ body.menu-open {
   cursor: pointer;
   font-weight: 325;
   font-style: Book;
-  line-height: 100%;
   font-weight: 325;
   font-style: Book;
   font-size: 1.4rem;
-  line-height: 100%;
   letter-spacing: 2px;
   color: #fff;
 }
@@ -89,7 +87,6 @@ body.menu-open {
   font-weight: 325;
   font-style: Book;
   font-size: 1.4rem;
-  line-height: 100%;
   letter-spacing: 2px;
 }
 
@@ -242,7 +239,6 @@ body.menu-open {
   font-weight: 350;
   font-style: Medium;
   font-size: 3.2rem;
-  line-height: 100%;
   letter-spacing: 8%;
   text-transform: uppercase;
 }
