@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;300;500;600;700;800&display=swap");
+.about-section {
+  padding: 40px 108px;
+}
+
+.about-intro .intro-text {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  color: #fff;
+}
+.about-intro .intro-text p {
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 100%;
+  color: #fff;
+}
+.about-intro .intro-highlight {
+  margin-top: 32px;
+  padding: 24px 0;
+}
+.about-intro .intro-highlight h3 {
+  color: #ffbc00;
+  font-weight: 400;
+  font-style: Medium;
+  font-size: 2.4rem;
+  line-height: 100%;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.about-intro .intro-highlight p {
+  color: #fff;
+  opacity: 0.64;
+  font-weight: 325;
+  font-style: Book;
+  font-size: 1.4rem;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+}
+.about-intro .about-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 56px;
+  gap: 24px;
+  margin-top: 32px;
+}
+.about-intro .about-metrics .metric {
+  background: rgba(0, 0, 0, 0.16);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  color: #fff;
+}
+.about-intro .about-metrics .metric .metric-label {
+  font-weight: 350;
+  font-style: Medium;
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0.64;
+  margin-bottom: 24px;
+}
+.about-intro .about-metrics .metric .metric-value {
+  font-weight: 400;
+  font-style: Bold;
+  font-size: 4.8rem;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.about-intro .about-metrics .metric .metric-caption {
+  font-weight: 400;
+  font-style: Medium;
+  font-size: 1rem;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0.64;
+}
+
+.awards-section .section-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.awards-section .section-header h2 {
+  color: #ffbc00;
+  font-weight: 400;
+  font-style: Medium;
+  font-size: 2.4rem;
+  line-height: 100%;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.awards-section .section-header p {
+  font-weight: 325;
+  font-style: Book;
+  font-size: 1.2rem;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #fff;
+  opacity: 0.64;
+}
+.awards-section .awards-parallax {
+  overflow: hidden;
+  display: grid;
+  gap: 16px;
+  padding: 0 16px;
+}
+.awards-section .awards-parallax .awards-row {
+  position: relative;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  will-change: transform;
+}
+.awards-section .awards-parallax .awards-row .awards-track {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: stretch;
+  gap: 16px;
+  width: -moz-max-content;
+  width: max-content;
+}
+.awards-section .awards-parallax .award-card {
+  background-color: rgba(0, 0, 0, 0.16);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 90px;
+  min-width: 260px;
+  height: 140px;
+}
+.awards-section .awards-parallax .award-card img {
+  width: 110px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.company-stats .stats-row {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 32px;
+  align-items: center;
+}
+.company-stats .brand-block h3 {
+  color: #ffbc00;
+  font-weight: 400;
+  font-style: Medium;
+  font-size: 2.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.company-stats .brand-block p {
+  color: #fff;
+  opacity: 0.64;
+  font-weight: 325;
+  font-style: Book;
+  font-size: 1.2rem;
+  letter-spacing: 0%;
+  max-width: 200px;
+}
+.company-stats .stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 0 89px;
+}
+.company-stats .stats .counter {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  justify-items: center;
+  background: rgba(0, 0, 0, 0.16);
+  padding: 24px;
+  border-radius: 8px;
+  color: #fff;
+  gap: 24px;
+}
+.company-stats .stats .counter .icon img {
+  width: 24px;
+  height: 24px;
+}
+.company-stats .stats .counter .value {
+  font-weight: 700;
+  font-size: 4.8rem;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #fff;
+}
+.company-stats .stats .counter .name {
+  font-weight: 300;
+  font-style: Medium;
+  font-size: 1rem;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.features-section {
+  padding: 40px 0 0;
+}
+.features-section .feature-row {
+  padding: 0 108px 40px 108px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+}
+.features-section .feature-row.reverse {
+  grid-auto-flow: dense;
+  padding-top: 40px;
+}
+.features-section .feature-row.reverse .feature-text {
+  order: 1;
+}
+.features-section .feature-row.reverse .feature-media {
+  order: 2;
+}
+.features-section .feature-row .feature-media {
+  box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.2392156863);
+}
+.features-section .feature-row .feature-media img {
+  width: 100%;
+  max-height: 335px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+.features-section .feature-row .feature-text h3 {
+  color: #ffbc00;
+  font-weight: 400;
+  font-style: Medium;
+  font-size: 2.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.features-section .feature-row .feature-text p {
+  color: #fff;
+  opacity: 0.64;
+  font-weight: 300;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 1200px) {
+  .awards-section .awards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 992px) {
+  .about-intro .about-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .company-stats .stats-row {
+    grid-template-columns: 1fr;
+  }
+  .features-section .feature-row {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .awards-section .awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}/*# sourceMappingURL=about.css.map */

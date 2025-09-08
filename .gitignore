@@ -1,0 +1,55 @@
+# WordPress core files
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/backups/
+wp-content/upgrade/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-content/plugins/hello.php
+
+# Sensitive files
+*.log
+*.sql
+*.sqlite
+*.env
+.vscode/*
+_eski/*
+
+
+# OS X files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# IDE/editor files
+*.sublime-workspace
+*.sublime-project
+*.idea/
+*.vscode/
+*.swp
+*.bak
+*.tmp
+*.orig
+*.save
+
+# Node modules (if using)
+node_modules/

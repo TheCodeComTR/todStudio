@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/styles/global.css">
+    <link rel="stylesheet" href="assets/styles/index.css">
+    
+    <title>TOD Studios</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-menu header-item">
+            <button id="menu-button">
+                <img src="assets/images/menu-icon.svg" alt="menu">
+                MENU
+            </button>
+        </div>
+        <div class="header-logo header-item">
+            <img src="assets/logo/logo.svg" alt="logo">
+        </div>
+        <div class="header-search header-item">
+            <button id="search-button">
+                <img src="assets/images/search.svg" alt="search">
+                SEARCH
+            </button>
+        </div>
+    </header>
+
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas-overlay" id="offcanvas-overlay">
+        <div class="offcanvas-menu">
+            <nav class="offcanvas-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <button class="close-btn" id="close-btn">
+                            <img src="assets/images/close-button.svg" alt="close">
+                            CLOSE
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">PRODUCTIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">CONTACT</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="offcanvas-social">
+                <a href="#" class="social-link">
+                    <img src="assets/images/social-medias/facebook.svg" alt="facebook">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="assets/images/social-medias/instagram.svg" alt="instagram">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="assets/images/social-medias/twitter.svg" alt="twitter">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="assets/images/social-medias/linkedin.svg" alt="linkedin">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="assets/images/social-medias/youtube.svg" alt="youtube">
+                </a>
+            </div>
+        </div>
+        <div class="offcanvas-backdrop"></div>
+    </div>
+
+    <!-- Search Offcanvas -->
+    <div class="search-offcanvas-overlay" id="search-offcanvas-overlay">
+        <div class="search-offcanvas">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <img src="assets/images/search.svg" alt="search" class="search-icon">
+                    <input type="text" placeholder="SEARCH" class="search-input" id="search-input">
+                    <button class="search-close-btn" id="search-close-btn">
+                        <span>
+                            <img src="assets/images/close-button.svg" alt="close">
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="search-buttons">
+                <button class="search-category-btn">
+                    <img src="assets/images/sorgu.svg" alt="search">
+                    SORGU
+                </button>
+                <button class="search-category-btn">
+                    <img src="assets/images/sorgu.svg" alt="search">
+                    ZAMANIN KAPILARI
+                </button>
+                <button class="search-category-btn">
+                    <img src="assets/images/sorgu.svg" alt="search">
+                    SERAP
+                </button>
+            </div>
+        </div>
+        <div class="search-offcanvas-backdrop"></div>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-container">
+                <img src="assets/images/hero_section.jpg" alt="hero">
+            </div>
+            <div class="hero-content">
+                <h1>Productions</h1>
+                <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod nam proin egestas sed.
+                    Nibh ullamcorper quis ultrices diam morbi nisl lectus lacus. Proin purus nisi porta arcu eget
+                    pretium.</p>
+            </div>
+        </section>
+        <section class="productions">
+            <div class="productions-header">
+                <div class="productions-header-left">
+                    <h2>Series</h2>
+                    <p>Cursus id ipsum integer id egestas nibh</p>
+                </div>
+                <div class="productions-header-right">
+                    <button class="slider-prev">
+                        <img src="assets/images/arrow.svg" alt="arrow">
+                    </button>
+                    <button class="slider-next">
+                        <img src="assets/images/arrow.svg" alt="arrow">
+                    </button>
+                </div>
+            </div>
+            <div class="custom-slider">
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                    <div class="slider-slide">
+                        <div class="slider-slide-content"
+                            style="--bg-image: url('../images/productions/zamanin-kapilari.png');">
+                            <div class="slider-slide-left">
+                                <img src="assets/images/productions/zamanin-kapilari.png" alt="production">
+                            </div>
+                            <div class="slider-slide-right">
+                                <div class="slider-slide-right-header">
+                                    <h3>Zamanın Kapıları</h3>
+                                    <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod
+                                        nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus
+                                        lacus. Proin purus nisi porta arcu eget pretium.</p>
+                                </div>
+                                <div class="slider-slide-right-content">
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/director.svg" alt="director">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Directors
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Mustafa Kotan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/peoples.svg" alt="peoples">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Cast
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item-flex">
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/thriller.svg" alt="thriller">
+                                            Thriller
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/date.svg" alt="thriller">
+                                            2022
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/clock.svg" alt="thriller">
+                                            01.48
+                                        </div>
+                                    </div>
+
+                                    <div class="see-details">
+                                        <a href="#">
+                                            SEE DETAILS
+                                            <img src="assets/images/arrow.svg" alt="arrow">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <div class="slider-slide-content"
+                            style="--bg-image: url('../images/productions/zamanin-kapilari.png');">
+                            <div class="slider-slide-left">
+                                <img src="assets/images/productions/zamanin-kapilari.png" alt="production">
+                            </div>
+                            <div class="slider-slide-right">
+                                <div class="slider-slide-right-header">
+                                    <h3>Zamanın Kapıları</h3>
+                                    <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod
+                                        nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus
+                                        lacus. Proin purus nisi porta arcu eget pretium.</p>
+                                </div>
+                                <div class="slider-slide-right-content">
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/director.svg" alt="director">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Directors
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Mustafa Kotan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/peoples.svg" alt="peoples">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Cast
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item-flex">
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/thriller.svg" alt="thriller">
+                                            Thriller
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/date.svg" alt="thriller">
+                                            2022
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/clock.svg" alt="thriller">
+                                            01.48
+                                        </div>
+                                    </div>
+
+                                    <div class="see-details">
+                                        <a href="#">
+                                            SEE DETAILS
+                                            <img src="assets/images/arrow.svg" alt="arrow">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <div class="slider-slide-content"
+                            style="--bg-image: url('../images/productions/zamanin-kapilari.png');">
+                            <div class="slider-slide-left">
+                                <img src="assets/images/productions/zamanin-kapilari.png" alt="production">
+                            </div>
+                            <div class="slider-slide-right">
+                                <div class="slider-slide-right-header">
+                                    <h3>Zamanın Kapıları</h3>
+                                    <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod
+                                        nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus
+                                        lacus. Proin purus nisi porta arcu eget pretium.</p>
+                                </div>
+                                <div class="slider-slide-right-content">
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/director.svg" alt="director">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Directors
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Mustafa Kotan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/peoples.svg" alt="peoples">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Cast
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item-flex">
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/thriller.svg" alt="thriller">
+                                            Thriller
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/date.svg" alt="thriller">
+                                            2022
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/clock.svg" alt="thriller">
+                                            01.48
+                                        </div>
+                                    </div>
+
+                                    <div class="see-details">
+                                        <a href="#">
+                                            SEE DETAILS
+                                            <img src="assets/images/arrow.svg" alt="arrow">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <div class="slider-slide-content"
+                            style="--bg-image: url('../images/productions/zamanin-kapilari.png');">
+                            <div class="slider-slide-left">
+                                <img src="assets/images/productions/zamanin-kapilari.png" alt="production">
+                            </div>
+                            <div class="slider-slide-right">
+                                <div class="slider-slide-right-header">
+                                    <h3>Zamanın Kapıları</h3>
+                                    <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod
+                                        nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus
+                                        lacus. Proin purus nisi porta arcu eget pretium.</p>
+                                </div>
+                                <div class="slider-slide-right-content">
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/director.svg" alt="director">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Directors
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Mustafa Kotan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/peoples.svg" alt="peoples">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Cast
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item-flex">
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/thriller.svg" alt="thriller">
+                                            Thriller
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/date.svg" alt="thriller">
+                                            2022
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/clock.svg" alt="thriller">
+                                            01.48
+                                        </div>
+                                    </div>
+
+                                    <div class="see-details">
+                                        <a href="#">
+                                            SEE DETAILS
+                                            <img src="assets/images/arrow.svg" alt="arrow">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <div class="slider-slide-content"
+                            style="--bg-image: url('../images/productions/zamanin-kapilari.png');">
+                            <div class="slider-slide-left">
+                                <img src="assets/images/productions/zamanin-kapilari.png" alt="production">
+                            </div>
+                            <div class="slider-slide-right">
+                                <div class="slider-slide-right-header">
+                                    <h3>Zamanın Kapıları</h3>
+                                    <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod
+                                        nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus
+                                        lacus. Proin purus nisi porta arcu eget pretium.</p>
+                                </div>
+                                <div class="slider-slide-right-content">
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/director.svg" alt="director">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Directors
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Mustafa Kotan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/peoples.svg" alt="peoples">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Cast
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item-flex">
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/thriller.svg" alt="thriller">
+                                            Thriller
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/date.svg" alt="thriller">
+                                            2022
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/clock.svg" alt="thriller">
+                                            01.48
+                                        </div>
+                                    </div>
+
+                                    <div class="see-details">
+                                        <a href="#">
+                                            SEE DETAILS
+                                            <img src="assets/images/arrow.svg" alt="arrow">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="productions">
+            <div class="productions-header">
+                <div class="productions-header-left">
+                    <h2>Series</h2>
+                    <p>Cursus id ipsum integer id egestas nibh</p>
+                </div>
+                <div class="productions-header-right">
+                    <button class="slider-prev">
+                        <img src="assets/images/arrow.svg" alt="arrow">
+                    </button>
+                    <button class="slider-next">
+                        <img src="assets/images/arrow.svg" alt="arrow">
+                    </button>
+                </div>
+            </div>
+            <div class="custom-slider">
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                    <div class="slider-slide">
+                        <div class="slider-slide-content"
+                            style="--bg-image: url('../images/productions/zamanin-kapilari.png');">
+                            <div class="slider-slide-left">
+                                <img src="assets/images/productions/zamanin-kapilari.png" alt="production">
+                            </div>
+                            <div class="slider-slide-right">
+                                <div class="slider-slide-right-header">
+                                    <h3>Zamanın Kapıları</h3>
+                                    <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod
+                                        nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus
+                                        lacus. Proin purus nisi porta arcu eget pretium.</p>
+                                </div>
+                                <div class="slider-slide-right-content">
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/director.svg" alt="director">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Directors
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Mustafa Kotan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/peoples.svg" alt="peoples">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Cast
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item-flex">
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/thriller.svg" alt="thriller">
+                                            Thriller
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/date.svg" alt="thriller">
+                                            2022
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/clock.svg" alt="thriller">
+                                            01.48
+                                        </div>
+                                    </div>
+
+                                    <div class="see-details">
+                                        <a href="#">
+                                            SEE DETAILS
+                                            <img src="assets/images/arrow.svg" alt="arrow">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <div class="slider-slide-content"
+                            style="--bg-image: url('../images/productions/zamanin-kapilari.png');">
+                            <div class="slider-slide-left">
+                                <img src="assets/images/productions/zamanin-kapilari.png" alt="production">
+                            </div>
+                            <div class="slider-slide-right">
+                                <div class="slider-slide-right-header">
+                                    <h3>Zamanın Kapıları</h3>
+                                    <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod
+                                        nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus
+                                        lacus. Proin purus nisi porta arcu eget pretium.</p>
+                                </div>
+                                <div class="slider-slide-right-content">
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/director.svg" alt="director">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Directors
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Mustafa Kotan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/peoples.svg" alt="peoples">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Cast
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item-flex">
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/thriller.svg" alt="thriller">
+                                            Thriller
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/date.svg" alt="thriller">
+                                            2022
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/clock.svg" alt="thriller">
+                                            01.48
+                                        </div>
+                                    </div>
+
+                                    <div class="see-details">
+                                        <a href="#">
+                                            SEE DETAILS
+                                            <img src="assets/images/arrow.svg" alt="arrow">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <div class="slider-slide-content"
+                            style="--bg-image: url('../images/productions/zamanin-kapilari.png');">
+                            <div class="slider-slide-left">
+                                <img src="assets/images/productions/zamanin-kapilari.png" alt="production">
+                            </div>
+                            <div class="slider-slide-right">
+                                <div class="slider-slide-right-header">
+                                    <h3>Zamanın Kapıları</h3>
+                                    <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod
+                                        nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus
+                                        lacus. Proin purus nisi porta arcu eget pretium.</p>
+                                </div>
+                                <div class="slider-slide-right-content">
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/director.svg" alt="director">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Directors
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Mustafa Kotan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/peoples.svg" alt="peoples">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Cast
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item-flex">
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/thriller.svg" alt="thriller">
+                                            Thriller
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/date.svg" alt="thriller">
+                                            2022
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/clock.svg" alt="thriller">
+                                            01.48
+                                        </div>
+                                    </div>
+
+                                    <div class="see-details">
+                                        <a href="#">
+                                            SEE DETAILS
+                                            <img src="assets/images/arrow.svg" alt="arrow">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <div class="slider-slide-content"
+                            style="--bg-image: url('../images/productions/zamanin-kapilari.png');">
+                            <div class="slider-slide-left">
+                                <img src="assets/images/productions/zamanin-kapilari.png" alt="production">
+                            </div>
+                            <div class="slider-slide-right">
+                                <div class="slider-slide-right-header">
+                                    <h3>Zamanın Kapıları</h3>
+                                    <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod
+                                        nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus
+                                        lacus. Proin purus nisi porta arcu eget pretium.</p>
+                                </div>
+                                <div class="slider-slide-right-content">
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/director.svg" alt="director">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Directors
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Mustafa Kotan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/peoples.svg" alt="peoples">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Cast
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item-flex">
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/thriller.svg" alt="thriller">
+                                            Thriller
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/date.svg" alt="thriller">
+                                            2022
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/clock.svg" alt="thriller">
+                                            01.48
+                                        </div>
+                                    </div>
+
+                                    <div class="see-details">
+                                        <a href="#">
+                                            SEE DETAILS
+                                            <img src="assets/images/arrow.svg" alt="arrow">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <div class="slider-slide-content"
+                            style="--bg-image: url('../images/productions/zamanin-kapilari.png');">
+                            <div class="slider-slide-left">
+                                <img src="assets/images/productions/zamanin-kapilari.png" alt="production">
+                            </div>
+                            <div class="slider-slide-right">
+                                <div class="slider-slide-right-header">
+                                    <h3>Zamanın Kapıları</h3>
+                                    <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod
+                                        nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus
+                                        lacus. Proin purus nisi porta arcu eget pretium.</p>
+                                </div>
+                                <div class="slider-slide-right-content">
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/director.svg" alt="director">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Directors
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Mustafa Kotan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/peoples.svg" alt="peoples">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Cast
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item-flex">
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/thriller.svg" alt="thriller">
+                                            Thriller
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/date.svg" alt="thriller">
+                                            2022
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/clock.svg" alt="thriller">
+                                            01.48
+                                        </div>
+                                    </div>
+
+                                    <div class="see-details">
+                                        <a href="#">
+                                            SEE DETAILS
+                                            <img src="assets/images/arrow.svg" alt="arrow">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="productions">
+            <div class="productions-header">
+                <div class="productions-header-left">
+                    <h2>Series</h2>
+                    <p>Cursus id ipsum integer id egestas nibh</p>
+                </div>
+                <div class="productions-header-right">
+                    <button class="slider-prev">
+                        <img src="assets/images/arrow.svg" alt="arrow">
+                    </button>
+                    <button class="slider-next">
+                        <img src="assets/images/arrow.svg" alt="arrow">
+                    </button>
+                </div>
+            </div>
+            <div class="custom-slider">
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                    <div class="slider-slide">
+                        <div class="slider-slide-content"
+                            style="--bg-image: url('../images/productions/zamanin-kapilari.png');">
+                            <div class="slider-slide-left">
+                                <img src="assets/images/productions/zamanin-kapilari.png" alt="production">
+                            </div>
+                            <div class="slider-slide-right">
+                                <div class="slider-slide-right-header">
+                                    <h3>Zamanın Kapıları</h3>
+                                    <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod
+                                        nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus
+                                        lacus. Proin purus nisi porta arcu eget pretium.</p>
+                                </div>
+                                <div class="slider-slide-right-content">
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/director.svg" alt="director">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Directors
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Mustafa Kotan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/peoples.svg" alt="peoples">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Cast
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item-flex">
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/thriller.svg" alt="thriller">
+                                            Thriller
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/date.svg" alt="thriller">
+                                            2022
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/clock.svg" alt="thriller">
+                                            01.48
+                                        </div>
+                                    </div>
+
+                                    <div class="see-details">
+                                        <a href="#">
+                                            SEE DETAILS
+                                            <img src="assets/images/arrow.svg" alt="arrow">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <div class="slider-slide-content"
+                            style="--bg-image: url('../images/productions/zamanin-kapilari.png');">
+                            <div class="slider-slide-left">
+                                <img src="assets/images/productions/zamanin-kapilari.png" alt="production">
+                            </div>
+                            <div class="slider-slide-right">
+                                <div class="slider-slide-right-header">
+                                    <h3>Zamanın Kapıları</h3>
+                                    <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod
+                                        nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus
+                                        lacus. Proin purus nisi porta arcu eget pretium.</p>
+                                </div>
+                                <div class="slider-slide-right-content">
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/director.svg" alt="director">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Directors
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Mustafa Kotan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/peoples.svg" alt="peoples">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Cast
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item-flex">
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/thriller.svg" alt="thriller">
+                                            Thriller
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/date.svg" alt="thriller">
+                                            2022
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/clock.svg" alt="thriller">
+                                            01.48
+                                        </div>
+                                    </div>
+
+                                    <div class="see-details">
+                                        <a href="#">
+                                            SEE DETAILS
+                                            <img src="assets/images/arrow.svg" alt="arrow">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <div class="slider-slide-content"
+                            style="--bg-image: url('../images/productions/zamanin-kapilari.png');">
+                            <div class="slider-slide-left">
+                                <img src="assets/images/productions/zamanin-kapilari.png" alt="production">
+                            </div>
+                            <div class="slider-slide-right">
+                                <div class="slider-slide-right-header">
+                                    <h3>Zamanın Kapıları</h3>
+                                    <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod
+                                        nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus
+                                        lacus. Proin purus nisi porta arcu eget pretium.</p>
+                                </div>
+                                <div class="slider-slide-right-content">
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/director.svg" alt="director">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Directors
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Mustafa Kotan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/peoples.svg" alt="peoples">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Cast
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item-flex">
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/thriller.svg" alt="thriller">
+                                            Thriller
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/date.svg" alt="thriller">
+                                            2022
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/clock.svg" alt="thriller">
+                                            01.48
+                                        </div>
+                                    </div>
+
+                                    <div class="see-details">
+                                        <a href="#">
+                                            SEE DETAILS
+                                            <img src="assets/images/arrow.svg" alt="arrow">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <div class="slider-slide-content"
+                            style="--bg-image: url('../images/productions/zamanin-kapilari.png');">
+                            <div class="slider-slide-left">
+                                <img src="assets/images/productions/zamanin-kapilari.png" alt="production">
+                            </div>
+                            <div class="slider-slide-right">
+                                <div class="slider-slide-right-header">
+                                    <h3>Zamanın Kapıları</h3>
+                                    <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod
+                                        nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus
+                                        lacus. Proin purus nisi porta arcu eget pretium.</p>
+                                </div>
+                                <div class="slider-slide-right-content">
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/director.svg" alt="director">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Directors
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Mustafa Kotan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/peoples.svg" alt="peoples">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Cast
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item-flex">
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/thriller.svg" alt="thriller">
+                                            Thriller
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/date.svg" alt="thriller">
+                                            2022
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/clock.svg" alt="thriller">
+                                            01.48
+                                        </div>
+                                    </div>
+
+                                    <div class="see-details">
+                                        <a href="#">
+                                            SEE DETAILS
+                                            <img src="assets/images/arrow.svg" alt="arrow">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <div class="slider-slide-content"
+                            style="background-image: url('assets/images/productions/zamanin-kapilari.png');">
+                            <div class="slider-slide-left">
+                                <img src="assets/images/productions/zamanin-kapilari.png" alt="production">
+                            </div>
+                            <div class="slider-slide-right">
+                                <div class="slider-slide-right-header">
+                                    <h3>Zamanın Kapıları</h3>
+                                    <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod
+                                        nam proin egestas sed. Nibh ullamcorper quis ultrices diam morbi nisl lectus
+                                        lacus. Proin purus nisi porta arcu eget pretium.</p>
+                                </div>
+                                <div class="slider-slide-right-content">
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/director.svg" alt="director">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Directors
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Mustafa Kotan
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item">
+                                        <div class="slider-slide-right-content-item-left">
+                                            <img src="assets/images/peoples.svg" alt="peoples">
+                                        </div>
+                                        <div class="slider-slide-right-content-item-right">
+                                            <div class="slider-slide-right-content-item-header">
+                                                Cast
+                                            </div>
+                                            <div class="slider-slide-right-content-item-content">
+                                                Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-slide-right-content-item-flex">
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/thriller.svg" alt="thriller">
+                                            Thriller
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/date.svg" alt="thriller">
+                                            2022
+                                        </div>
+                                        <div class="slider-slide-right-content-item-flex-item">
+                                            <img src="assets/images/clock.svg" alt="thriller">
+                                            01.48
+                                        </div>
+                                    </div>
+
+                                    <div class="see-details">
+                                        <a href="#">
+                                            SEE DETAILS
+                                            <img src="assets/images/arrow.svg" alt="arrow">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <div class="footer-brand">
+                    <img src="assets/logo/logo.svg" alt="TOD Studios" class="footer-logo">
+                </div>
+                <ul class="footer-social">
+                    <li><a href="#" aria-label="Facebook"><img src="assets/images/social-medias/facebook.svg" alt="facebook"></a></li>
+                    <li><a href="#" aria-label="Instagram"><img src="assets/images/social-medias/instagram.svg" alt="instagram"></a></li>
+                    <li><a href="#" aria-label="X"><img src="assets/images/social-medias/twitter.svg" alt="x"></a></li>
+                    <li><a href="#" aria-label="LinkedIn"><img src="assets/images/social-medias/linkedin.svg" alt="linkedin"></a></li>
+                    <li><a href="#" aria-label="YouTube"><img src="assets/images/social-medias/youtube.svg" alt="youtube"></a></li>
+                </ul>
+                <div class="footer-copy">© 2025</div>
+            </div>
+            <div class="footer-right">
+                <nav class="footer-nav">
+                    <a href="index.html">PRODUCTIONS</a>
+                    <a href="about.html">ABOUT</a>
+                    <a href="#">CULTURE</a>
+                    <a href="contact.html">CONTACT</a>
+                </nav>
+                <div class="footer-legal">
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Personal Data Protection</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+
+    <script src="assets/scripts/global.js"></script>
+    <script src="assets/scripts/index.js"></script>
+</body>
+
+</html>

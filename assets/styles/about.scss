@@ -1,0 +1,319 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;300;500;600;700;800&display=swap");
+
+.about-section {
+  padding: 40px 108px;
+}
+
+.about-intro {
+  .intro-text {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    color: #fff;
+    p {
+      font-weight: 300;
+      font-size: 1.6rem;
+      line-height: 100%;
+      color: #fff;
+    }
+  }
+
+  .intro-highlight {
+    margin-top: 32px;
+    padding: 24px 0;
+
+    h3 {
+      color: #ffbc00;
+      font-weight: 400;
+      font-style: Medium;
+      font-size: 2.4rem;
+      line-height: 100%;
+      letter-spacing: 0.08em;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: #fff;
+      opacity: 0.64;
+      font-weight: 325;
+      font-style: Book;
+      font-size: 1.4rem;
+      line-height: 100%;
+      letter-spacing: 0;
+      text-align: center;
+    }
+  }
+
+  .about-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 56px;
+    gap: 24px;
+    margin-top: 32px;
+
+    .metric {
+      background: rgba(0, 0, 0, 0.16);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      color: #fff;
+
+      .metric-label {
+        font-weight: 350;
+        font-style: Medium;
+        font-size: 1rem;
+        letter-spacing: 0;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        opacity: 0.64;
+        margin-bottom: 24px;
+      }
+
+      .metric-value {
+        font-weight: 400;
+        font-style: Bold;
+        font-size: 4.8rem;
+        line-height: 100%;
+        letter-spacing: 0;
+        text-align: center;
+        color: #fff;
+        margin-bottom: 24px;
+      }
+
+      .metric-caption {
+        font-weight: 400;
+        font-style: Medium;
+        font-size: 1rem;
+        line-height: 100%;
+        letter-spacing: 0;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        opacity: 0.64;
+      }
+    }
+  }
+}
+
+.awards-section {
+  .section-header {
+    text-align: center;
+    margin-bottom: 32px;
+
+    h2 {
+      color: #ffbc00;
+      font-weight: 400;
+      font-style: Medium;
+      font-size: 2.4rem;
+      line-height: 100%;
+      letter-spacing: 0.08em;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-weight: 325;
+      font-style: Book;
+      font-size: 1.2rem;
+      line-height: 100%;
+      letter-spacing: 0;
+      text-align: center;
+      color: #fff;
+      opacity: 0.64;
+    }
+  }
+
+  // Parallax yapı
+  .awards-parallax {
+    overflow: hidden;
+    display: grid;
+    gap: 16px;
+    padding: 0 16px;
+
+    .awards-row {
+      position: relative;
+      width: 100%;
+      display: flex;
+      overflow: hidden;
+      will-change: transform;
+
+      .awards-track {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: stretch;
+        gap: 16px;
+        width: max-content;
+      }
+    }
+
+    .award-card {
+      background-color: rgba(0, 0, 0, 0.16);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 90px;
+      min-width: 260px;
+      height: 140px;
+
+      img {
+        width: 110px;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+.company-stats {
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .brand-block {
+    h3 {
+      color: #ffbc00;
+      font-weight: 400;
+      font-style: Medium;
+      font-size: 2.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    p {
+      color: #fff;
+      opacity: 0.64;
+      font-weight: 325;
+      font-style: Book;
+      font-size: 1.2rem;
+      letter-spacing: 0%;
+      max-width: 200px;
+    }
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 0 89px;
+
+    .counter {
+      display: grid;
+      grid-template-rows: auto auto auto;
+      justify-items: center;
+      background: rgba(0, 0, 0, 0.16);
+      padding: 24px;
+      border-radius: 8px;
+      color: #fff;
+      gap: 24px;
+
+      .icon img {
+        width: 24px;
+        height: 24px;
+      }
+      .value {
+        font-weight: 700;
+        font-size: 4.8rem;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        color: #fff;
+      }
+      .name {
+        font-weight: 300;
+        font-style: Medium;
+        font-size: 1rem;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        text-transform: uppercase;
+
+        color: rgba(255, 255, 255, 0.64);
+      }
+    }
+  }
+}
+
+.features-section {
+  padding: 40px 0 0;
+  .feature-row {
+    padding: 0 108px 40px 108px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+
+    &.reverse {
+      grid-auto-flow: dense;
+      padding-top: 40px;
+      .feature-text {
+        order: 1;
+      }
+      .feature-media {
+        order: 2;
+      }
+    }
+
+    .feature-media {
+      box-shadow: 0px 8px 24px 0px #0000003d;
+
+      img {
+        width: 100%;
+        max-height: 335px;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+      }
+    }
+
+    .feature-text {
+      h3 {
+        color: #ffbc00;
+        font-weight: 400;
+        font-style: Medium;
+        font-size: 2.4rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+      p {
+        color: #fff;
+        opacity: 0.64;
+        font-weight: 300;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        letter-spacing: 0.08em;
+      }
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 1200px) {
+  .awards-section .awards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 992px) {
+  .about-intro .about-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .company-stats .stats-row {
+    grid-template-columns: 1fr;
+  }
+  .features-section .feature-row {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .awards-section .awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

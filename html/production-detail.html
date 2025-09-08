@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/styles/global.css">
+    <link rel="stylesheet" href="assets/styles/index.css">
+    <link rel="stylesheet" href="assets/styles/production-detail.css">
+
+    <title>Production Detail - TOD Studios</title>
+    <meta name="description" content="Production detail page">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-menu header-item">
+            <button id="menu-button">
+                <img src="assets/images/menu-icon.svg" alt="menu">
+                MENU
+            </button>
+        </div>
+        <div class="header-logo header-item">
+            <img src="assets/logo/logo.svg" alt="logo">
+        </div>
+        <div class="header-search header-item">
+            <button id="search-button">
+                <img src="assets/images/search.svg" alt="search">
+                SEARCH
+            </button>
+        </div>
+    </header>
+
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas-overlay" id="offcanvas-overlay">
+        <div class="offcanvas-menu">
+            <nav class="offcanvas-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <button class="close-btn" id="close-btn">
+                            <img src="assets/images/close-button.svg" alt="close">
+                            CLOSE
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">PRODUCTIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">CONTACT</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="offcanvas-social">
+                <a href="#" class="social-link">
+                    <img src="assets/images/social-medias/facebook.svg" alt="facebook">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="assets/images/social-medias/instagram.svg" alt="instagram">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="assets/images/social-medias/twitter.svg" alt="twitter">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="assets/images/social-medias/linkedin.svg" alt="linkedin">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="assets/images/social-medias/youtube.svg" alt="youtube">
+                </a>
+            </div>
+        </div>
+        <div class="offcanvas-backdrop"></div>
+    </div>
+
+    <!-- Search Offcanvas -->
+    <div class="search-offcanvas-overlay" id="search-offcanvas-overlay">
+        <div class="search-offcanvas">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <img src="assets/images/search.svg" alt="search" class="search-icon">
+                    <input type="text" placeholder="SEARCH" class="search-input" id="search-input">
+                    <button class="search-close-btn" id="search-close-btn">
+                        <span>
+                            <img src="assets/images/close-button.svg" alt="close">
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="search-buttons">
+                <button class="search-category-btn">
+                    <img src="assets/images/sorgu.svg" alt="search">
+                    SORGU
+                </button>
+                <button class="search-category-btn">
+                    <img src="assets/images/sorgu.svg" alt="search">
+                    ZAMANIN KAPILARI
+                </button>
+                <button class="search-category-btn">
+                    <img src="assets/images/sorgu.svg" alt="search">
+                    SERAP
+                </button>
+            </div>
+        </div>
+        <div class="search-offcanvas-backdrop"></div>
+    </div>
+
+    <main class="pd-main">
+        <!-- Hero (same structure as index.html, image replaced with video) -->
+        <section class="hero">
+            <div class="hero-container">
+                <video src="https://dt-vod-mp4.akamaized.net/tod-studios/250327-07.mp4" muted autoplay loop playsinline preload="metadata"></video>
+            </div>
+            <div class="hero-content">
+                <h1>NASIL FENOMEN OLDUM</h1>
+                <p>Babasının işlerinin bozulması yüzünden sahip olduğu her şeyi kaybeden sosyetik güzel Ala, şansını sosyal medyada deneyip fenomen olmaya karar verir.</p>
+            </div>
+        </section>
+
+        <!-- Info grid -->
+        <section class="pd-info">
+            <div class="pd-info-card">
+                <div class="pd-info-icon"><img src="assets/images/director.svg" alt="directors"></div>
+                <div class="pd-info-text">
+                    <div class="pd-info-title">Directors</div>
+                    <div class="pd-info-value">Mustafa Kotan</div>
+                </div>
+            </div>
+            <div class="pd-info-card">
+                <div class="pd-info-icon"><img src="assets/images/writer.svg" alt="scriptwriter"></div>
+                <div class="pd-info-text">
+                    <div class="pd-info-title">Scriptwriter</div>
+                    <div class="pd-info-value">Giray Altınok, Kerem Özdoğan</div>
+                </div>
+            </div>
+            <div class="pd-info-card">
+                <div class="pd-info-icon"><img src="assets/images/cast.svg" alt="cast"></div>
+                <div class="pd-info-text">
+                    <div class="pd-info-title">Cast</div>
+                    <div class="pd-info-value">Nilperi Şahinkaya, Hülya Duyar, Ahmet Kayakesen</div>
+                </div>
+            </div>
+            <div class="pd-info-card pd-info-stats">
+                <ul>
+                    <li>
+                        <img src="assets/images/genre.svg" alt="genre">
+                        <div class="pd-info-kv">
+                            <div class="pd-info-kv-label">GENRE</div>
+                            <div class="pd-info-kv-value">Comedy</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="assets/images/episodes.svg" alt="total episodes">
+                        <div class="pd-info-kv">
+                            <div class="pd-info-kv-label">TOTAL EPISODES</div>
+                            <div class="pd-info-kv-value">1 Season, 12x30 mins</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="assets/images/year-of-production.svg" alt="year of production">
+                        <div class="pd-info-kv">
+                            <div class="pd-info-kv-label">YEAR OF PRODUCTION</div>
+                            <div class="pd-info-kv-value">2022 - 2023 - 2025</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="assets/images/company.svg" alt="production company">
+                        <div class="pd-info-kv">
+                            <div class="pd-info-kv-label">PRODUCTION COMPANY</div>
+                            <div class="pd-info-kv-value">Hann</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="assets/images/awards.svg" alt="awards">
+                        <div class="pd-info-kv">
+                            <div class="pd-info-kv-label">AWARDS</div>
+                            <div class="pd-info-kv-value">Golden Globe</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Subtitles / audio languages -->
+        <section class="pd-badges">
+            <div class="pd-badge">
+                <img src="assets/images/subtitles.svg" alt="subtitles">
+                <div class="pd-badge-body">
+                    <div class="pd-badge-label">SUBTITLES</div>
+                    <div class="pd-badge-text">English (CC), Türkçe, Dansk, Deutsch, Español (España), Español (Latinoamérica), Français, Indonesia, Italiano, Magyar, Nederlands, Norsk Bokmål, Polski, Português (Brasil), Português (Portugal), Română, Suomi, Svenska, Čeština, Ελληνικά, Русский, עברית, हिन्दी, ไทย, 한국어, 日本語</div>
+                </div>
+            </div>
+            <div class="pd-badge">
+                <img src="assets/images/languages.svg" alt="audio languages">
+                <div class="pd-badge-body">
+                    <div class="pd-badge-label">AUDIO LANGUAGES</div>
+                    <div class="pd-badge-text">English, English [Audio Description], English Dialogue Boost: Medium, English Dialogue Boost: High, Türkçe, Dansk, Deutsch, Español (España), Español (Latinoamérica), Français, Italiano, Magyar, Nederlands, Norsk Bokmål, Polski, Português (Brasil), Português (Portugal), Română, Suomi, Svenska, Čeština, Ελληνικά, Русский, Українська, עברית, हिन्दी, ไทย, 한국어</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thumbnails / video gallery -->
+        <section class="pd-gallery">
+            <div class="pd-gallery-row">
+                <div class="pd-thumb"><img src="assets/images/thumbs/07c93a65909c1e6ee5d36b65240600534a2c622a.jpg" alt="thumb 1"></div>
+                <div class="pd-thumb"><img src="assets/images/thumbs/913c086623de2819792b081fb0100fc95b348f2a.jpg" alt="thumb 2"></div>
+                <div class="pd-thumb"><img src="assets/images/thumbs/b576fffebc802b461800cfb30fbb260de90c36de.jpg" alt="thumb 3"></div>
+                <div class="pd-thumb"><img src="assets/images/thumbs/63021997dca35d3a6210e3c021d74b30429eecd8%20(1).jpg" alt="thumb 4"></div>
+            </div>
+            <div class="pd-gallery-row">
+                <div class="pd-thumb"><img src="assets/images/thumbs/63021997dca35d3a6210e3c021d74b30429eecd8.jpg" alt="thumb 5"></div>
+                <div class="pd-thumb"><img src="assets/images/thumbs/cd102407b0449f81f6468abe99ec133c8fa2b8e2.jpg" alt="thumb 6"></div>
+                <div class="pd-thumb"><img src="assets/images/thumbs/06785d709bbdfa48f6ca820f57fc1b69a0e99115.jpg" alt="thumb 7"></div>
+                <div class="pd-thumb"><img src="assets/images/thumbs/da7b49d504832c10917ad17f7750c2ecdc8377de.jpg" alt="thumb 8"></div>
+            </div>
+            <div class="pd-gallery-row is-collapsible" id="pd-more-row">
+                <div class="pd-thumb"><img src="assets/images/thumbs/07c93a65909c1e6ee5d36b65240600534a2c622a.jpg" alt="thumb 9"></div>
+                <div class="pd-thumb"><img src="assets/images/thumbs/913c086623de2819792b081fb0100fc95b348f2a.jpg" alt="thumb 10"></div>
+                <div class="pd-thumb"><img src="assets/images/thumbs/b576fffebc802b461800cfb30fbb260de90c36de.jpg" alt="thumb 11"></div>
+                <div class="pd-thumb"><img src="assets/images/thumbs/cd102407b0449f81f6468abe99ec133c8fa2b8e2.jpg" alt="thumb 12"></div>
+            </div>
+            <div class="pd-gallery-fade" id="pd-gallery-fade"></div>
+            <div class="pd-show-more">
+                <button id="pd-show-more-btn">
+                    <img src="assets/images/show-more.svg" alt="arrow"><span class="label">SHOW MORE</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Related -->
+        <section class="pd-related">
+            <h2>Related</h2>
+            <div class="swiper pd-related-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="assets/images/productions/zamanin-kapilari.png" alt="Zamanın Kapıları">
+                            <span class="pd-related-caption">ZAMANIN KAPILARI</span>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="assets/images/productions/39b3b20407d9d119f7d8e914b3049e3f501bac4a.jpg" alt="Erkek Severse">
+                            <span class="pd-related-caption">THE LUMINA CHRONICLES</span>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="assets/images/productions/77cbc70ffef6ab3084120705e8ea91829c594a5c.png" alt="Dönüm Noktası">
+                            <span class="pd-related-caption">SERAP</span>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="assets/images/productions/26da47b7b731d60d5b8802bd9463da1289d5ad46.png" alt="Serap">
+                            <span class="pd-related-caption">DÖNÜM NOKTASI</span>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="assets/images/productions/42b443d04eeb3954572dd36b78b0683d1c3f57df.png" alt="The Lumina Chronicles">
+                            <span class="pd-related-caption">ERKEK SEVERSE</span>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="assets/images/productions/zamanin-kapilari.png" alt="Zamanın Kapıları">
+                            <span class="pd-related-caption">ZAMANIN KAPILARI</span>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="assets/images/productions/39b3b20407d9d119f7d8e914b3049e3f501bac4a.jpg" alt="Erkek Severse">
+                            <span class="pd-related-caption">THE LUMINA CHRONICLES</span>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="assets/images/productions/77cbc70ffef6ab3084120705e8ea91829c594a5c.png" alt="Dönüm Noktası">
+                            <span class="pd-related-caption">SERAP</span>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="assets/images/productions/26da47b7b731d60d5b8802bd9463da1289d5ad46.png" alt="Serap">
+                            <span class="pd-related-caption">DÖNÜM NOKTASI</span>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="assets/images/productions/42b443d04eeb3954572dd36b78b0683d1c3f57df.png" alt="The Lumina Chronicles">
+                            <span class="pd-related-caption">ERKEK SEVERSE</span>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="assets/images/productions/zamanin-kapilari.png" alt="Zamanın Kapıları">
+                            <span class="pd-related-caption">ZAMANIN KAPILARI</span>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="assets/images/productions/39b3b20407d9d119f7d8e914b3049e3f501bac4a.jpg" alt="Erkek Severse">
+                            <span class="pd-related-caption">THE LUMINA CHRONICLES</span>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="assets/images/productions/77cbc70ffef6ab3084120705e8ea91829c594a5c.png" alt="Dönüm Noktası">
+                            <span class="pd-related-caption">SERAP</span>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="assets/images/productions/26da47b7b731d60d5b8802bd9463da1289d5ad46.png" alt="Serap">
+                            <span class="pd-related-caption">DÖNÜM NOKTASI</span>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="assets/images/productions/42b443d04eeb3954572dd36b78b0683d1c3f57df.png" alt="The Lumina Chronicles">
+                            <span class="pd-related-caption">ERKEK SEVERSE</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="pd-related-pagination"></div>
+            </div>
+        </section>
+
+        <!-- Video modal -->
+        <div class="pd-video-modal" id="pd-video-modal" aria-hidden="true">
+            <div class="pd-video-backdrop" id="pd-video-backdrop"></div>
+            <div class="pd-video-dialog" role="dialog" aria-modal="true">
+                <button class="pd-video-close" id="pd-video-close" aria-label="Close">
+                    <img src="assets/images/close-button.svg" alt="close">
+                </button>
+                <video id="pd-video" controls playsinline preload="metadata"></video>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <div class="footer-brand">
+                    <img src="assets/logo/logo.svg" alt="TOD Studios" class="footer-logo">
+                </div>
+                <ul class="footer-social">
+                    <li><a href="#" aria-label="Facebook"><img src="assets/images/social-medias/facebook.svg" alt="facebook"></a></li>
+                    <li><a href="#" aria-label="Instagram"><img src="assets/images/social-medias/instagram.svg" alt="instagram"></a></li>
+                    <li><a href="#" aria-label="X"><img src="assets/images/social-medias/twitter.svg" alt="x"></a></li>
+                    <li><a href="#" aria-label="LinkedIn"><img src="assets/images/social-medias/linkedin.svg" alt="linkedin"></a></li>
+                    <li><a href="#" aria-label="YouTube"><img src="assets/images/social-medias/youtube.svg" alt="youtube"></a></li>
+                </ul>
+                <div class="footer-copy">© 2025</div>
+            </div>
+            <div class="footer-right">
+                <nav class="footer-nav">
+                    <a href="#">PRODUCTIONS</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">CULTURE</a>
+                    <a href="#">CONTACT</a>
+                </nav>
+                <div class="footer-legal">
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Personal Data Protection</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="assets/scripts/global.js"></script>
+    <script src="assets/scripts/production-detail.js"></script>
+</body>
+
+</html>
+
