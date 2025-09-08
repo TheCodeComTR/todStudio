@@ -18,7 +18,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="<?= asset('styles/index.css') ?>">
     <?
-
+global $post;
+$template_slug = get_page_template_slug($post->ID);
+//echo 'Template slug: ' . $template_slug;
 
     if (is_page_template('page-about.php')) 
     {
@@ -27,6 +29,11 @@
     else if (is_page_template('page.contact.php') || is_page_template('page-contact.php'))
     {
         echo '<link rel="stylesheet" href="' . asset('styles/contact.css') . '">';
+    } 
+    else if (is_page_template('page-production.php')) 
+    {
+        
+        echo '<link rel="stylesheet" href="' . asset('styles/production.css') . '">';
     } 
 
 

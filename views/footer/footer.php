@@ -27,16 +27,16 @@ wp_footer();
                 <li><a href="#" aria-label="LinkedIn"><img src="<?= asset('images/social-medias/linkedin.svg') ?>" alt="linkedin"></a></li>
                 <li><a href="#" aria-label="YouTube"><img src="<?= asset('images/social-medias/youtube.svg') ?>" alt="youtube"></a></li>
             </ul>
-            <div class="footer-copy">© 2025</div>
+            <div class="footer-copy">© <?=date("Y")?></div>
         </div>
         <div class="footer-right">
             <nav class="footer-nav">
-                <a href="index.html">PRODUCTIONS</a>
-                <a href="about.html">ABOUT</a>
-                <a href="#">CULTURE</a>
-                <a href="contact.html">CONTACT</a>
+                <a href="/">HOME</a>
+                <a href="/productions/">PRODUCTIONS</a>
+                <a href="/about/">ABOUT</a>
+                <a href="/contact/">CONTACT</a>
             </nav>
-            <div class="footer-legal">
+            <div class="footer-legal" style="display: none;">
                 <a href="#">Cookie Policy</a>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Personal Data Protection</a>
