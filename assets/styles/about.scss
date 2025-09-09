@@ -13,7 +13,7 @@
     p {
       font-weight: 300;
       font-size: 1.6rem;
-      
+
       color: #fff;
     }
   }
@@ -27,7 +27,7 @@
       font-weight: 400;
       font-style: Medium;
       font-size: 2.4rem;
-      
+
       letter-spacing: 0.08em;
       text-align: center;
       text-transform: uppercase;
@@ -40,7 +40,7 @@
       font-weight: 325;
       font-style: Book;
       font-size: 1.4rem;
-      
+
       letter-spacing: 0;
       text-align: center;
     }
@@ -76,7 +76,7 @@
         font-weight: 400;
         font-style: Bold;
         font-size: 4.8rem;
-        
+
         letter-spacing: 0;
         text-align: center;
         color: #fff;
@@ -87,7 +87,7 @@
         font-weight: 400;
         font-style: Medium;
         font-size: 1rem;
-        
+
         letter-spacing: 0;
         text-align: center;
         text-transform: uppercase;
@@ -108,7 +108,7 @@
       font-weight: 400;
       font-style: Medium;
       font-size: 2.4rem;
-      
+
       letter-spacing: 0.08em;
       text-align: center;
       text-transform: uppercase;
@@ -119,7 +119,7 @@
       font-weight: 325;
       font-style: Book;
       font-size: 1.2rem;
-      
+
       letter-spacing: 0;
       text-align: center;
       color: #fff;
@@ -220,7 +220,7 @@
       .value {
         font-weight: 700;
         font-size: 4.8rem;
-        
+
         letter-spacing: 0%;
         text-align: center;
         color: #fff;
@@ -229,7 +229,7 @@
         font-weight: 300;
         font-style: Medium;
         font-size: 1rem;
-        
+
         letter-spacing: 0%;
         text-align: center;
         text-transform: uppercase;
@@ -315,5 +315,130 @@
 @media (max-width: 600px) {
   .awards-section .awards-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile (<=768px) – About page */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 24px 16px;
+  }
+
+  .hero {
+    .hero-container {
+      max-height: 420px;
+      height: 420px;
+    }
+    .hero-content {
+      padding: 24px 16px;
+    }
+    .hero-content h1 {
+      font-size: 2.4rem;
+    }
+    .hero-content p {
+      font-size: 1.4rem;
+    }
+  }
+
+  .about-intro {
+    .intro-text p {
+      font-size: 1.4rem;
+    }
+    .intro-highlight {
+      margin-top: 16px;
+      h3 {
+        font-size: 1.8rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+    }
+    .about-metrics {
+      grid-template-columns: 1fr;
+      padding: 0;
+      gap: 32px;
+      .metric {
+        background: transparent;
+        padding: 0;
+        text-align: center;
+      }
+      .metric .metric-label {
+        opacity: 1;
+        letter-spacing: 0.08em;
+        margin-bottom: 12px;
+      }
+      .metric .metric-value {
+        font-size: 4rem;
+        margin-bottom: 12px;
+      }
+      .metric .metric-caption {
+        opacity: 1;
+        letter-spacing: 0.08em;
+      }
+    }
+  }
+
+  .awards-section {
+    .section-header {
+      margin-bottom: 16px;
+    }
+    .section-header h2 {
+      font-size: 1.8rem;
+    }
+    .section-header p {
+      font-size: 1.2rem;
+    }
+    .awards-parallax {
+      padding: 0 8px;
+      gap: 12px;
+    }
+    .awards-parallax .award-card {
+      min-width: 112px;
+      height: 64px;
+      padding: 11px 35px;
+      img {
+        width: 43px;
+      }
+    }
+  }
+
+  .company-stats {
+    text-align: center;
+    .stats {
+      padding: 0;
+      gap: 12px;
+    }
+    .stats .counter {
+      padding: 12px;
+      gap: 12px;
+      background: none;
+    }
+    .stats .counter .value {
+      font-size: 2.4rem;
+    }
+
+    .brand-block {
+      p {
+        max-width: none;
+      }
+    }
+  }
+
+  .features-section {
+    padding-top: 24px;
+    .feature-row {
+      padding: 0 16px 24px 16px;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      .feature-media img {
+        max-height: none;
+      }
+      .feature-text h3 {
+        font-size: 1.8rem;
+      }
+      .feature-text p {
+        font-size: 1.2rem;
+      }
+    }
   }
 }

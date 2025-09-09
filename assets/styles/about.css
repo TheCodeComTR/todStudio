@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;300;500;600;700;800&display=swap");
 .about-section {
   padding: 40px 108px;
@@ -272,5 +273,115 @@
 @media (max-width: 600px) {
   .awards-section .awards-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* Mobile (<=768px) – About page */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 24px 16px;
+  }
+  .hero .hero-container {
+    max-height: 420px;
+    height: 420px;
+  }
+  .hero .hero-content {
+    padding: 24px 16px;
+  }
+  .hero .hero-content h1 {
+    font-size: 2.4rem;
+  }
+  .hero .hero-content p {
+    font-size: 1.4rem;
+  }
+  .about-intro .intro-text p {
+    font-size: 1.4rem;
+  }
+  .about-intro .intro-highlight {
+    margin-top: 16px;
+  }
+  .about-intro .intro-highlight h3 {
+    font-size: 1.8rem;
+  }
+  .about-intro .intro-highlight p {
+    font-size: 1.2rem;
+  }
+  .about-intro .about-metrics {
+    grid-template-columns: 1fr;
+    padding: 0;
+    gap: 32px;
+  }
+  .about-intro .about-metrics .metric {
+    background: transparent;
+    padding: 0;
+    text-align: center;
+  }
+  .about-intro .about-metrics .metric .metric-label {
+    opacity: 1;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+  .about-intro .about-metrics .metric .metric-value {
+    font-size: 4rem;
+    margin-bottom: 12px;
+  }
+  .about-intro .about-metrics .metric .metric-caption {
+    opacity: 1;
+    letter-spacing: 0.08em;
+  }
+  .awards-section .section-header {
+    margin-bottom: 16px;
+  }
+  .awards-section .section-header h2 {
+    font-size: 1.8rem;
+  }
+  .awards-section .section-header p {
+    font-size: 1.2rem;
+  }
+  .awards-section .awards-parallax {
+    padding: 0 8px;
+    gap: 12px;
+  }
+  .awards-section .awards-parallax .award-card {
+    min-width: 112px;
+    height: 64px;
+    padding: 11px 35px;
+  }
+  .awards-section .awards-parallax .award-card img {
+    width: 43px;
+  }
+  .company-stats {
+    text-align: center;
+  }
+  .company-stats .stats {
+    padding: 0;
+    gap: 12px;
+  }
+  .company-stats .stats .counter {
+    padding: 12px;
+    gap: 12px;
+    background: none;
+  }
+  .company-stats .stats .counter .value {
+    font-size: 2.4rem;
+  }
+  .company-stats .brand-block p {
+    max-width: none;
+  }
+  .features-section {
+    padding-top: 24px;
+  }
+  .features-section .feature-row {
+    padding: 0 16px 24px 16px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .features-section .feature-row .feature-media img {
+    max-height: none;
+  }
+  .features-section .feature-row .feature-text h3 {
+    font-size: 1.8rem;
+  }
+  .features-section .feature-row .feature-text p {
+    font-size: 1.2rem;
   }
 }/*# sourceMappingURL=about.css.map */

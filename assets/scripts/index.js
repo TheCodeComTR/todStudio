@@ -205,38 +205,8 @@ $(function () {
             width: $(el).outerWidth(true),
           });
         });
-        console.group("Slider Debug - " + reason);
-        console.log(
-          "activeIndex:",
-          activeIndex,
-          "slidesCount:",
-          $slides.length
-        );
-        console.log("viewportRect:", {
-          x: viewportRect.x,
-          width: viewportRect.width,
-        });
-        console.log("trackRect:", {
-          x: trackRect.x,
-          width: trackRect.width,
-          scrollWidth: $track[0].scrollWidth,
-        });
-        console.log("gap:", gap, "computedStyle.gap:", gapStr);
-        console.log("activeRect:", {
-          x: activeRect.x,
-          width: activeRect.width,
-        });
-        console.log(
-          "active.position().left:",
-          posLeft,
-          "active.offsetLeft:",
-          offLeft
-        );
-        console.log("current translateX:", currentTX);
-        console.table(slidesMeta);
-        console.groupEnd();
       } catch (e) {
-        console.warn("Slider Debug error:", e);
+        // console.warn("Slider Debug error:", e);
       }
     }
 
@@ -259,14 +229,14 @@ $(function () {
       var delta = viewportLeft - targetLeft;
       var alignOffset = activeIndex === 0 ? 0 : BASE_ALIGN_OFFSET;
       var translateX = currentTX + delta + alignOffset;
-      console.log("Align using rects:", {
-        viewportLeft: viewportLeft,
-        targetLeft: targetLeft,
-        currentTX: currentTX,
-        delta: delta,
-        alignOffset: alignOffset,
-        nextTX: translateX,
-      });
+      // console.log("Align using rects:", {
+      //   viewportLeft: viewportLeft,
+      //   targetLeft: targetLeft,
+      //   currentTX: currentTX,
+      //   delta: delta,
+      //   alignOffset: alignOffset,
+      //   nextTX: translateX,
+      // });
       logMeasurements("before-apply");
       el.style.transform = "translate3d(" + translateX + "px,0,0)";
       el.style.webkitTransform = "translate3d(" + translateX + "px,0,0)";

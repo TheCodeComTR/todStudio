@@ -92,9 +92,11 @@
 .contact-form-section .contact-form-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-areas: "form copy";
   gap: 32px;
 }
 .contact-form-section .contact-form {
+  grid-area: form;
   background: rgba(0, 0, 0, 0.16);
   border-radius: 12px;
   padding: 24px;
@@ -149,6 +151,7 @@
   height: 16px;
 }
 .contact-form-section .contact-copy {
+  grid-area: copy;
   border-radius: 12px;
   padding: 40px 0;
   color: #fff;
@@ -187,5 +190,64 @@
   }
   .contact-form-section .contact-form-container {
     grid-template-columns: 1fr;
+  }
+}
+/* Mobile (<=768px) */
+@media (max-width: 768px) {
+  .hero--contact .hero-container {
+    max-height: 420px;
+    height: 420px;
+  }
+  .hero--contact .hero-content {
+    padding: 24px 16px;
+  }
+  .hero--contact .hero-content h1 {
+    font-size: 2.4rem;
+    margin: 0 0 16px 0;
+    max-width: 100%;
+    text-align: left;
+  }
+  .hero--contact .hero-content p {
+    font-size: 1.4rem;
+  }
+  .contact-grid {
+    padding: 24px 16px;
+  }
+  .contact-grid .contact-grid-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .contact-grid .contact-lead-card {
+    align-items: center;
+    text-align: center;
+  }
+  .contact-grid .contact-lead-card .lead-text {
+    max-width: none;
+    text-align: center;
+  }
+  .contact-grid .contact-card {
+    gap: 16px;
+    padding: 24px 16px;
+  }
+  .contact-form-section {
+    padding: 24px 16px 56px;
+  }
+  .contact-form-section .contact-form-container {
+    grid-template-columns: 1fr;
+    grid-template-areas: "copy" "form";
+    gap: 24px;
+  }
+  .contact-form-section .contact-form {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .contact-form-section .contact-form div {
+    width: 100%;
+  }
+  .contact-form-section .contact-form .btn-send {
+    margin: 32px auto 0;
   }
 }/*# sourceMappingURL=contact.css.map */

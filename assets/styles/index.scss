@@ -429,13 +429,13 @@
 /* Who We Are */
 .features-section {
   padding: 40px 0 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.16);
   .feature-row {
     padding: 0 108px 40px 108px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
     align-items: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.16);
 
     &.reverse {
       grid-auto-flow: dense;
@@ -592,6 +592,121 @@
     font-weight: 400;
     font-size: 1.2rem;
     text-transform: uppercase;
-  
+  }
+}
+
+/* Mobile specific rules */
+@media (max-width: 768px) {
+  .hero {
+    .hero-swiper {
+      height: 520px;
+    }
+    .hero-content {
+      padding: 24px 16px 56px 16px;
+      h1 {
+        max-width: none;
+        font-weight: 600;
+        font-size: 3.2rem;
+        text-align: center;
+        max-width: 80%;
+        margin: 0 auto;
+      }
+    }
+    .hero-prev,
+    .hero-next {
+      display: none;
+    }
+    .hero-pagination {
+      bottom: 16px;
+    }
+  }
+
+  .about-section {
+    padding: 24px 16px;
+  }
+  .company-stats {
+    .stats-row {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .brand-block {
+      text-align: center;
+
+      h3 {
+        font-size: 2.4rem;
+      }
+    }
+    .brand-block p {
+      max-width: none;
+      text-align: center;
+    }
+    .stats {
+      padding: 0;
+      gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+    }
+    .counter {
+      background: none;
+      padding: 12px;
+      gap: 12px;
+      .value {
+        font-size: 2.4rem;
+      }
+      .name {
+        text-align: center;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .productions {
+    padding: 24px 16px;
+  }
+  .productions-header {
+    margin-bottom: 16px;
+    .productions-header-left {
+      h2 {
+        font-size: 1.8rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+  .see-all {
+    font-size: 1.2rem;
+  }
+
+  .swiper-card {
+    .swiper-caption {
+      margin-top: 16px;
+      font-size: 1.6rem;
+    }
+  }
+
+  .features-section {
+    padding-top: 24px;
+    .feature-row {
+      padding: 0 16px 24px 16px;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      .feature-text {
+        h3 {
+          font-size: 2.4rem;
+        }
+        p {
+          font-size: 1.4rem;
+        }
+      }
+      .feature-media img {
+        max-height: none;
+      }
+
+      .see-details a{
+        font-size: 1.2rem;
+        gap: 12px;
+      }
+    }
   }
 }

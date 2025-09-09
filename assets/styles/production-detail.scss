@@ -141,7 +141,7 @@
     .pd-info-kv-value {
       font-weight: 400;
       font-size: 1.2rem;
-      
+
       letter-spacing: 0.08em;
       color: #fff;
     }
@@ -254,7 +254,7 @@
       border: none;
       font-weight: 400;
       font-size: 1.2rem;
-      
+
       letter-spacing: 0.08em;
       text-transform: uppercase;
 
@@ -281,7 +281,7 @@
     right: 0;
     height: 128px;
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, #1D1D1D 50%);
+    background: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, #1d1d1d 50%);
   }
 
   // Show more açıkken butonun negatif margin'i sıfırlansın
@@ -324,7 +324,7 @@
       font-weight: 400;
       font-size: 1.6rem;
       text-transform: uppercase;
-      color: #FFFFFF;
+      color: #ffffff;
     }
   }
 
@@ -415,21 +415,94 @@
 @media (max-width: 992px) {
   .pd-hero {
     grid-template-columns: 1fr;
+    padding: 24px 16px 8px;
+
+    .pd-hero-media {
+      border-radius: 12px;
+      img,
+      video {
+        height: 420px;
+      }
+    }
+
+    .pd-hero-meta {
+      align-self: start;
+      padding: 16px 0 0;
+      h1 {
+        font-size: 2.4rem;
+        color: #ffbc00;
+        margin-bottom: 12px;
+      }
+      p {
+        font-size: 1.4rem;
+        line-height: 1.5;
+      }
+    }
   }
 
   .pd-info {
+    padding: 0 16px 8px;
     grid-template-columns: 1fr 1fr;
+    gap: 12px;
+
+    .pd-info-card {
+      height: auto;
+      padding: 12px;
+      gap: 12px;
+      &:not(:last-child) {
+        gap: 12px;
+      }
+      .pd-info-icon img {
+        width: 40px;
+        height: 40px;
+      }
+      .pd-info-title {
+        font-size: 1.1rem;
+      }
+      .pd-info-value {
+        font-size: 1.3rem;
+      }
+    }
+
+    .pd-info-stats {
+      grid-column: 1 / -1;
+      padding: 12px;
+      ul {
+        gap: 12px;
+      }
+      li {
+        gap: 12px;
+      }
+      li img {
+        width: 16px;
+        height: 16px;
+      }
+      .pd-info-kv-label {
+        font-size: 0.95rem;
+      }
+      .pd-info-kv-value {
+        font-size: 1.2rem;
+      }
+    }
   }
 
   .pd-gallery {
+    padding: 24px 16px 56px;
     .pd-gallery-row {
       grid-template-columns: 1fr 1fr;
+    }
+    .pd-thumb img {
+      height: 132px;
+    }
+    .pd-show-more {
+      margin-top: -40px;
     }
   }
 
   .pd-related {
-    .pd-related-list {
-      grid-template-columns: 1fr 1fr;
+    padding: 24px 16px 56px;
+    h2 {
+      font-size: 2rem;
     }
   }
 }
@@ -437,11 +510,31 @@
 @media (max-width: 600px) {
   .pd-info {
     grid-template-columns: 1fr;
+    gap: 12px;
+    .pd-info-card {
+      text-align: left;
+    }
   }
 
   .pd-related {
-    .pd-related-list {
-      grid-template-columns: 1fr;
+    padding: 24px 16px 56px;
+  }
+}
+
+/* Mobile hero heading size for detail page */
+@media (max-width: 768px) {
+  .pd-main .hero .hero-content {
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
     }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  .pd-badges {
+    padding: 8px 16px 24px;
   }
 }
