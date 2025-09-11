@@ -367,7 +367,8 @@
 }
 
 .swiper-card img {
-  width: 100%;
+  width: 284px;
+  height: 426px;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.24);
@@ -493,9 +494,8 @@
     background: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, #1d1d1d 100%);
 
     h1 {
-      max-width: 725px;
       font-weight: 600;
-      font-size: 9.6rem;
+      font-size: 6.6rem;
       text-transform: uppercase;
     }
   }

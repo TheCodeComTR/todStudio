@@ -13,6 +13,12 @@
 
 view('header/header');
 ?>
+<style>
+	.swiper-slide {
+		width: 284px;
+	}
+</style>
+
 <main>
 	<!-- Hero Slider -->
 	<section class="hero">
@@ -23,23 +29,23 @@ view('header/header');
 						<img src="<?= asset('images/sliders/slider-1.png') ?>" alt="Zamanin Kapilari">
 					</div>
 					<div class="hero-content">
-						<h1>LOREM IPSUM DOLOR SIT</h1>
+						<h1>Sorgu 1. Sezon</h1>
 					</div>
 				</div>
 				<div class="swiper-slide">
 					<div class="hero-container">
-						<img src="<?= asset('images/sliders/slider-1.png') ?>" alt="The Lumina Chronicles">
+						<img src="<?= ('/wp-content/uploads/2025/09/zamanin-kapilari-scaled.jpg') ?>" alt="The Lumina Chronicles">
 					</div>
 					<div class="hero-content">
-						<h1>LOREM IPSUM DOLOR SIT</h1>
+						<h1>Zamanın Kapıları</h1>
 					</div>
 				</div>
 				<div class="swiper-slide">
 					<div class="hero-container">
-						<img src="<?= asset('images/sliders/slider-1.png') ?>" alt="Serap">
+						<img src="<?= ('/wp-content/uploads/2025/09/TOD-poster-template-YATAY4-scaled.jpg') ?>" alt="Serap">
 					</div>
 					<div class="hero-content">
-						<h1>LOREM IPSUM DOLOR SIT</h1>
+						<h1>Var Bunlar</h1>
 					</div>
 				</div>
 			</div>
@@ -91,7 +97,7 @@ view('header/header');
 
 		$args = [
 			'post_type'      => 'filim',
-			'posts_per_page' => 10,
+			'posts_per_page' => 20,
 			'post_status'    => 'publish',
 			'tax_query'      => [
 				[
@@ -112,7 +118,8 @@ view('header/header');
 						<p><?= esc_html($category->description) ?></p>
 					</div>
 					<div class="productions-header-right">
-						<a href="<?="productions/" //esc_url(get_category_link($category->term_id)) ?>" class="see-all">
+						<a href="<?= "productions/" //esc_url(get_category_link($category->term_id)) 
+									?>" class="see-all">
 							<img src="<?= asset('images/film_rulo.svg') ?>" alt="arrow"> See All
 						</a>
 					</div>
@@ -305,7 +312,7 @@ view('header/header');
 			<div class="kids-pagination swiper-pagination"></div>
 		</div>
 	</section>
- 	*/?>
+ 	*/ ?>
 	<!-- Who We Are -->
 	<section class="about-section features-section bg-dark">
 		<div class="about-container">
@@ -314,7 +321,7 @@ view('header/header');
 					<img src="<?= asset('images/Tod_Studios.png') ?>" alt="brand">
 				</div>
 				<div class="feature-text">
-					<h3>Who We Are</h3>
+					<h3>Who Are We</h3>
 					<p>
 						TOD Studios is the original content label of the digital entertainment platform TOD and beIN Media Group. Established with a bold vision to create high-quality, locally rooted and globally relevant productions, TOD Studios develops original series, lifestyle, documentaries and sports content tailored to today’s diverse audiences. With a strong focus on storytelling, creative talent, and production excellence, TOD Studios aims to become a leading force in MENA and Turkiye’s content ecosystem, offering compelling stories that resonate across borders.
 

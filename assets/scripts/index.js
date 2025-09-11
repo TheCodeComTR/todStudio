@@ -32,10 +32,15 @@ $(function () {
         },
       },
     });
-
+    function getSlidesPerView() {
+      const slideWidth = 284; // px - görsel genişliğin
+      const containerWidth =
+        document.querySelector(".series-swiper").offsetWidth;
+      return Math.floor(containerWidth / slideWidth);
+    }
     // SERIES SWIPER (PD related ile aynı pagination animasyonu)
     var seriesSwiper = new Swiper(".series-swiper", {
-      slidesPerView: 4.5,
+      slidesPerView: "auto",
       spaceBetween: 16,
       loop: false,
       pagination: {
@@ -48,7 +53,7 @@ $(function () {
         },
       },
       autoplay: { delay: 4000, disableOnInteraction: false },
-      breakpoints: {
+      /*breakpoints: {
         0: { slidesPerView: 1.2, spaceBetween: 12 },
         576: { slidesPerView: 2, spaceBetween: 12 },
         992: { slidesPerView: 3, spaceBetween: 16 },
@@ -57,10 +62,11 @@ $(function () {
         1920: { slidesPerView: 4.5, spaceBetween: 16 },
         2048: { slidesPerView: 6, spaceBetween: 24 },
         2560: { slidesPerView: 6, spaceBetween: 24 },
-      },
+      },*/
       on: {
         init: function () {
           $(".series-pagination .fill").css("width", "0%");
+          //alert("init223");
         },
         slideChangeTransitionStart: function () {
           $(".series-pagination .fill").css("width", "0%");
@@ -76,7 +82,7 @@ $(function () {
     });
 
     var seriesSwiper = new Swiper(".life-style-swiper", {
-      slidesPerView: 4.5,
+      slidesPerView: "auto",
       spaceBetween: 16,
       loop: false,
       pagination: {
@@ -88,8 +94,8 @@ $(function () {
           );
         },
       },
-      autoplay: { delay: 4000, disableOnInteraction: false },
-      breakpoints: {
+      //autoplay: { delay: 4000, disableOnInteraction: false },
+      /*breakpoints: {
         0: { slidesPerView: 1.2, spaceBetween: 12 },
         576: { slidesPerView: 2, spaceBetween: 12 },
         992: { slidesPerView: 3, spaceBetween: 16 },
@@ -98,7 +104,7 @@ $(function () {
         1920: { slidesPerView: 4.5, spaceBetween: 16 },
         2048: { slidesPerView: 6, spaceBetween: 24 },
         2560: { slidesPerView: 6, spaceBetween: 24 },
-      },
+      },*/
       on: {
         init: function () {
           $(".life-style-pagination .fill").css("width", "0%");
@@ -117,7 +123,7 @@ $(function () {
     });
 
     var seriesSwiper = new Swiper(".kids-swiper", {
-      slidesPerView: 4.5,
+      slidesPerView: "auto",
       spaceBetween: 16,
       loop: false,
       pagination: {
@@ -130,7 +136,7 @@ $(function () {
         },
       },
       autoplay: { delay: 4000, disableOnInteraction: false },
-      breakpoints: {
+      /*breakpoints: {
         0: { slidesPerView: 1.2, spaceBetween: 12 },
         576: { slidesPerView: 2, spaceBetween: 12 },
         992: { slidesPerView: 3, spaceBetween: 16 },
@@ -139,7 +145,7 @@ $(function () {
         1920: { slidesPerView: 4.5, spaceBetween: 16 },
         2048: { slidesPerView: 6, spaceBetween: 24 },
         2560: { slidesPerView: 6, spaceBetween: 24 },
-      },
+      },*/
       on: {
         init: function () {
           $(".kids-pagination .fill").css("width", "0%");

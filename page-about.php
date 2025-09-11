@@ -8,7 +8,7 @@ view('header/header');
     <!-- Hero -->
     <section class="hero">
         <div class="hero-container">
-            <img src="<?= asset('images/hero_section.jpg')?>" alt="hero">
+            <img src="<?= asset('images/about-bg.png')?>" alt="hero">
         </div>
         <div class="hero-content">
             <h1>About</h1>
@@ -118,7 +118,7 @@ view('header/header');
         <div class="about-container">
             <div class="feature-row">
                 <div class="feature-media">
-                    <img src="<?= asset('images/Tod_Studios.png')?>" tod studios">
+                    <img src="<?= asset('images/Tod_Studios.png')?>" alt="tod studios">
                 </div>
                 <div class="feature-text">
                     <h3>EGET TELLUS SCELERISQUE SIT SIT SENECTU NULLA SIT</h3>
@@ -131,7 +131,7 @@ view('header/header');
                     <p>Sed mauris sagittis at eget lacus a. Nunc imperdiet cursus scelerisque sed duis orci leo fringilla. Morbi sodales ornare nibh vitae pellentesque convallis nam ac. Eleifend vitae integer a. Nulla quam sagittis quam dui erat tempus elementum donec velit ut. Nibh ut lectus cras donec sed et. Blandit mauris a auctor et odio ultricies.</p>
                 </div>
                 <div class="feature-media">
-                    <img src="<?= asset('images/Tod_Studios.png')?>" tod studios">
+                    <img src="<?= asset('images/Tod_Studios.png')?>" alt="tod studios">
                 </div>
             </div>
         </div>

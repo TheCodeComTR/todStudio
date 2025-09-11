@@ -102,7 +102,7 @@ if (is_array($video)) {
     </section>
 
     <!-- Subtitles / audio languages -->
-    <section class="pd-badges">
+    <section class="pd-badges" style="display: none;">
         <div class="pd-badge">
             <img src="<?= asset('images/subtitles.svg') ?>" alt="subtitles">
             <div class="pd-badge-body">
@@ -152,7 +152,7 @@ if (is_array($video)) {
     print_r($categories);
     $args = [
         'post_type'      => 'filim', // veya 'filim' gibi özel post type
-        'posts_per_page' => 10,
+        'posts_per_page' => 20,
         'post__not_in'   => [$current_id],
         'category__in'   => $categories
     ];
@@ -165,12 +165,7 @@ if (is_array($video)) {
             <h2>Related</h2>
             <div class="swiper pd-related-swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <a href="#" class="pd-related-card">
-                            <img src="<?= asset('images/productions/zamanin-kapilari.png') ?>" alt="Zamanın Kapıları">
-                            <span class="pd-related-caption">ZAMANIN KAPILARI</span>
-                        </a>
-                    </div>
+                    
                     <?php while ($related_query->have_posts()): $related_query->the_post(); ?>
                         <div class="swiper-slide">
                             <a href="<?php the_permalink(); ?>" class="pd-related-card">
