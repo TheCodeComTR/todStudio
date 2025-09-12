@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arama Sonuçları | TOD Studios</title>
+    <link rel="stylesheet" href="../assets/styles/global.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../assets/styles/search-result.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-menu header-item">
+            <button id="menu-button">
+                <img src="../assets/images/menu-icon.svg" alt="menu">
+                MENU
+            </button>
+        </div>
+        <div class="header-logo header-item">
+            <a href="index.html"><img src="../assets/logo/logo.svg" alt="logo"></a>
+        </div>
+        <div class="header-search header-item">
+            <button id="search-button">
+                <img src="../assets/images/search.svg" alt="search">
+                SEARCH
+            </button>
+        </div>
+    </header>
+
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas-overlay" id="offcanvas-overlay">
+        <div class="offcanvas-menu">
+            <nav class="offcanvas-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <button class="close-btn" id="close-btn">
+                            <img src="../assets/images/close-button.svg" alt="close">
+                            CLOSE
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">PRODUCTIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">CONTACT</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="offcanvas-social">
+                <a href="#" class="social-link">
+                    <img src="../assets/images/social-medias/facebook.svg" alt="facebook">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="../assets/images/social-medias/instagram.svg" alt="instagram">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="../assets/images/social-medias/twitter.svg" alt="twitter">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="../assets/images/social-medias/linkedin.svg" alt="linkedin">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="../assets/images/social-medias/youtube.svg" alt="youtube">
+                </a>
+            </div>
+        </div>
+        <div class="offcanvas-backdrop"></div>
+    </div>
+
+    <!-- Search Offcanvas -->
+    <div class="search-offcanvas-overlay" id="search-offcanvas-overlay">
+        <div class="search-offcanvas">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <img src="../assets/images/search.svg" alt="search" class="search-icon">
+                    <input type="text" placeholder="SEARCH" class="search-input" id="search-input">
+                    <button class="search-close-btn" id="search-close-btn">
+                        <span>
+                            <img src="../assets/images/close-button.svg" alt="close">
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="search-buttons">
+                <button class="search-category-btn">
+                    <img src="../assets/images/sorgu.svg" alt="search">
+                    SORGU
+                </button>
+                <button class="search-category-btn">
+                    <img src="../assets/images/sorgu.svg" alt="search">
+                    ZAMANIN KAPILARI
+                </button>
+                <button class="search-category-btn">
+                    <img src="../assets/images/sorgu.svg" alt="search">
+                    SERAP
+                </button>
+            </div>
+        </div>
+        <div class="search-offcanvas-backdrop"></div>
+    </div>
+
+    <main>
+        <!-- Search Input Section -->
+        <section class="search-input-section">
+            <div class="container">
+                <div class="search-bar-container">
+                    <div class="search-input-container">
+                        <img src="../assets/images/search.svg" alt="search" class="search-input-icon">
+                        <input type="text" class="search-input" placeholder="Zamanın Kapıları" value="Zamanın Kapıları">
+                    </div>
+                    <button class="search-btn">
+                        SEARCH
+                        <img src="../assets/images/sorgu.svg" alt="search">
+                    </button>
+                </div>
+                <div class="search-results-info">
+                    <span class="result-count">32</span> results found with "<span class="search-query">Zamanın
+                        Kapıları</span>"
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Results List -->
+        <section class="search-results-list">
+            <div class="container">
+                <div class="results-list">
+                    <!-- Sonuçlar JavaScript ile dinamik olarak yüklenecek -->
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <!-- Sayfalama butonları JavaScript ile dinamik olarak oluşturulacak -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <div class="footer-brand">
+                    <img src="../assets/logo/logo.svg" alt="TOD Studios" class="footer-logo">
+                </div>
+                <ul class="footer-social">
+                    <li><a href="#" aria-label="Facebook"><img src="../assets/images/social-medias/facebook.svg"
+                                alt="facebook"></a></li>
+                    <li><a href="#" aria-label="Instagram"><img src="../assets/images/social-medias/instagram.svg"
+                                alt="instagram"></a></li>
+                    <li><a href="#" aria-label="X"><img src="../assets/images/social-medias/twitter.svg" alt="x"></a>
+                    </li>
+                    <li><a href="#" aria-label="LinkedIn"><img src="../assets/images/social-medias/linkedin.svg"
+                                alt="linkedin"></a></li>
+                    <li><a href="#" aria-label="YouTube"><img src="../assets/images/social-medias/youtube.svg"
+                                alt="youtube"></a></li>
+                </ul>
+                <div class="footer-copy">© 2025</div>
+            </div>
+            <div class="footer-right">
+                <nav class="footer-nav">
+                    <a href="index.html">HOME</a>
+                    <a href="productions.html">PRODUCTIONS</a>
+                    <a href="about.html">ABOUT</a>
+                    <a href="contact.html">CONTACT</a>
+                </nav>
+                <div class="footer-legal">
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Personal Data Protection</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="../assets/scripts/global.js"></script>
+    <script src="../assets/scripts/search-result.js"></script>
+</body>
+
+</html>

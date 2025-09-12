@@ -1,0 +1,181 @@
+body {
+  background-color: #1d1d1d;
+  padding-top: 80px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.search-input-section {
+  padding: 40px 0;
+}
+.search-input-section .search-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 16px;
+}
+.search-input-section .search-bar-container .search-input-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.16);
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+}
+.search-input-section .search-bar-container .search-input-container .search-icon {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+.search-input-section .search-bar-container .search-input {
+  flex: 1;
+  color: #ffffff;
+  border-radius: 8px;
+  border: none;
+  padding: 0;
+  font-weight: 300;
+  font-style: Book;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: none;
+}
+.search-input-section .search-bar-container .search-input::-moz-placeholder {
+  color: #999999;
+}
+.search-input-section .search-bar-container .search-input::placeholder {
+  color: #999999;
+}
+.search-input-section .search-bar-container .search-btn {
+  color: #ffbc00;
+  background: none;
+  border: none;
+  border-top: 1px solid #ffbc00;
+  border-bottom: 1px solid #ffbc00;
+  padding: 8px 0;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+}
+.search-input-section .search-bar-container .search-btn img {
+  width: 16px;
+  height: 16px;
+}
+.search-input-section .search-results-info {
+  color: #ffbc00;
+  font-weight: 300;
+  font-style: Bold;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0.08em;
+}
+.search-input-section .search-results-info .result-count {
+  color: #ffbc00;
+  font-weight: 400;
+  font-style: Book;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+.search-input-section .search-results-info .search-query {
+  color: #ffbc00;
+  font-weight: 600;
+  font-weight: 400;
+  font-style: Bold;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+
+.search-results-list {
+  background-color: #1d1d1d;
+}
+.search-results-list .container {
+  padding: 0 24px 40px;
+}
+.search-results-list .results-list {
+  margin-bottom: 32px;
+}
+.search-results-list .results-list .result-item {
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+}
+.search-results-list .results-list .result-item h3 {
+  font-weight: 400;
+  font-style: Bold;
+  font-size: 18px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.search-results-list .results-list .result-item p {
+  font-weight: 300;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+}
+.search-results-list .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.search-results-list .pagination .page-btn {
+  background-color: #2d2d2d;
+  color: #cccccc;
+  padding: 5px 9px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 400;
+  font-style: Bold;
+  font-size: 12px;
+  text-align: center;
+  border: none;
+}
+.search-results-list .pagination .page-btn.active {
+  background-color: #ffbc00;
+  color: #1d1d1d;
+  border-color: #ffbc00;
+}
+.search-results-list .pagination .page-btn:hover:not(.active) {
+  background-color: #444;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding-top: 59px;
+  }
+  .search-input-section .search-results-info {
+    text-align: center;
+  }
+  .search-input-section {
+    padding: 24px 0;
+  }
+  .search-input-section .search-bar-container {
+    gap: 8px;
+  }
+  .results-list {
+    margin-bottom: 16px;
+  }
+  .results-list .result-item {
+    padding: 16px 24px;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  .search-results-list .container {
+    padding: 0 0 16px 0;
+  }
+}/*# sourceMappingURL=search-result.css.map */
