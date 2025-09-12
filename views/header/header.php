@@ -19,13 +19,13 @@
     
     <?
     global $post;
-    $template_slug = get_page_template_slug($post->ID);
+    //$template_slug = get_page_template_slug($post->ID);
     //echo 'Template slug: ' . $template_slug;
 
     if (is_page_template('page-about.php')) {
         echo '<link rel="stylesheet" href="' . asset('styles/about.css') . '">';
     } else if (is_page_template('page.contact.php') || is_page_template('page-contact.php')) {
-        echo '<link rel="stylesheet" href="' . asset('styles/contact.css') . '">';
+        echo '<link rel="stylesheet" href="' . asset('styles/contact.css?v=12') . '">';
     } else if (is_page_template('page-production.php')) {
 
         echo '<link rel="stylesheet" href="' . asset('styles/production.css') . '">';
@@ -35,6 +35,14 @@
     if (is_singular('filim')) 
     {
         echo '<link rel="stylesheet" href="' . asset('styles/production-detail.css') . '">';
+    }
+    else if (is_search()) 
+    {
+        echo '<link rel="stylesheet" href="' . asset('styles/search-result.css?v=1') . '">';
+    }
+    else if (is_404()) 
+    {
+        echo '<link rel="stylesheet" href="' . asset('styles/404.css?v=1') . '">';
     }
     else
     {

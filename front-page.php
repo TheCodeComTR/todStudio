@@ -26,10 +26,10 @@ view('header/header');
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
 					<div class="hero-container">
-						<img src="<?= asset('images/sliders/slider-1.png') ?>" alt="Zamanin Kapilari">
+						<a href="/production/beneath-the-surface/"><img src="/wp-content/uploads/2025/09/BTS_KV_FNL_YTY.jpg" alt="Zamanin Kapilari"></a>
 					</div>
 					<div class="hero-content">
-						<h1>Sorgu 1. Sezon</h1>
+						<h1>BENEATH THE SURFACE</h1>
 					</div>
 				</div>
 				<div class="swiper-slide">

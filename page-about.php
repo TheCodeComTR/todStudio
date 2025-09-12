@@ -51,6 +51,7 @@ view('header/header');
     </section>
 
     <!-- Awards (Parallax Rows) -->
+     <?/*
     <section class="about-section awards-section">
         <div class="about-container">
             <div class="section-header">
@@ -85,7 +86,7 @@ view('header/header');
             </div>
         </div>
     </section>
-
+    
     <!-- Company stats line -->
     <section class="about-section company-stats bg-dark">
         <div class="about-container stats-row">
@@ -136,6 +137,7 @@ view('header/header');
             </div>
         </div>
     </section>
+    */?>
 </main>
 
 <?php

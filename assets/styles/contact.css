@@ -1,7 +1,13 @@
 .contact-main {
   padding-top: 0;
 }
-
+.wpcf7 form .wpcf7-response-output{
+  
+  border-color: #ffbc00;
+  font-size: 14px;
+  color: white;
+  padding: 10px;  
+}
 .hero--contact .hero-container {
   max-height: 680px;
   height: 680px;

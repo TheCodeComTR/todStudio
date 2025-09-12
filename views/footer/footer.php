@@ -51,6 +51,7 @@ wp_footer();
 <script src="<?= asset('scripts/global.js') ?>"></script>
 <script src="<?= asset('scripts/index.js?v=123') ?>"></script>
 <script src="<?= asset('scripts/production-detail.js')?>?v=<?=time()?>" ></script>
+<script src="<?= asset('scripts/search-result.js')?>"></script>
 
 </body>
 
