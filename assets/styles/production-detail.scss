@@ -1,3 +1,13 @@
+.hero .hero-content {
+  position: relative;
+  background: none;
+  padding: 40px 108px;
+
+  h1 {
+    margin-bottom: 8px;
+  }
+}
+
 .pd-main {
   padding-top: 0;
 }
@@ -412,6 +422,9 @@
 }
 
 @media (max-width: 992px) {
+  .hero .hero-content {
+    padding: 16px;
+  }
   .pd-hero {
     grid-template-columns: 1fr;
     padding: 24px 16px 8px;
@@ -530,7 +543,6 @@
   .pd-main .hero .hero-content {
     h1 {
       font-size: 2.4rem;
-      margin-bottom: 16px;
     }
 
     p {
