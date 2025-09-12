@@ -100,7 +100,7 @@ if (is_array($video)) {
             </ul>
         </div>
     </section>
-
+ <?/*
     <!-- Subtitles / audio languages -->
     <section class="pd-badges" style="display: none;">
         <div class="pd-badge">
@@ -120,7 +120,7 @@ if (is_array($video)) {
     </section>
 
     <!-- Thumbnails / video gallery -->
-    <section class="pd-gallery">
+    <section class="pd-gallery" style="display: none;">
         <div class="pd-gallery-row">
             <div class="pd-thumb"><img src="<?= asset('images/thumbs/07c93a65909c1e6ee5d36b65240600534a2c622a.jpg') ?>" alt="thumb 1"></div>
             <div class="pd-thumb"><img src="<?= asset('images/thumbs/913c086623de2819792b081fb0100fc95b348f2a.jpg') ?>" alt="thumb 2"></div>
@@ -146,12 +146,13 @@ if (is_array($video)) {
             </button>
         </div>
     </section>
+    */?>
     <?php
     $current_id = get_the_ID();
     $categories = wp_get_post_categories($current_id);
-    print_r($categories);
+    //print_r($categories);
     $args = [
-        'post_type'      => 'filim', // veya 'filim' gibi özel post type
+        'post_type'      => 'filim', 
         'posts_per_page' => 20,
         'post__not_in'   => [$current_id],
         'category__in'   => $categories

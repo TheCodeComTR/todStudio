@@ -29,7 +29,7 @@ view('header/header');
 						<a href="/production/beneath-the-surface/"><img src="/wp-content/uploads/2025/09/BTS_KV_FNL_YTY.jpg" alt="Zamanin Kapilari"></a>
 					</div>
 					<div class="hero-content">
-						<h1>BENEATH THE SURFACE</h1>
+						<h1></h1>
 					</div>
 				</div>
 				<div class="swiper-slide">
@@ -37,7 +37,7 @@ view('header/header');
 						<img src="<?= ('/wp-content/uploads/2025/09/zamanin-kapilari-scaled.jpg') ?>" alt="The Lumina Chronicles">
 					</div>
 					<div class="hero-content">
-						<h1>Zamanın Kapıları</h1>
+						<h1></h1>
 					</div>
 				</div>
 				<div class="swiper-slide">
@@ -45,7 +45,7 @@ view('header/header');
 						<img src="<?= ('/wp-content/uploads/2025/09/TOD-poster-template-YATAY4-scaled.jpg') ?>" alt="Serap">
 					</div>
 					<div class="hero-content">
-						<h1>Var Bunlar</h1>
+						<h1></h1>
 					</div>
 				</div>
 			</div>
@@ -60,6 +60,7 @@ view('header/header');
 	</section>
 
 	<!-- Metrics (Company Stats layout) -->
+	 <?/*
 	<section class="about-section company-stats bg-dark">
 		<div class="about-container stats-row">
 			<div class="brand-block">
@@ -85,6 +86,7 @@ view('header/header');
 			</div>
 		</div>
 	</section>
+	*/?>
 	<?php
 	// Gösterilecek kategoriler
 	$categories = ['series', 'life-style', 'kids'];
@@ -323,10 +325,10 @@ view('header/header');
 				<div class="feature-text">
 					<h3>Who Are We</h3>
 					<p>
-						TOD Studios is the original content label of the digital entertainment platform TOD and beIN Media Group. Established with a bold vision to create high-quality, locally rooted and globally relevant productions, TOD Studios develops original series, lifestyle, documentaries and sports content tailored to today’s diverse audiences. With a strong focus on storytelling, creative talent, and production excellence, TOD Studios aims to become a leading force in MENA and Turkiye’s content ecosystem, offering compelling stories that resonate across borders.
+						TOD Studios is the original content label of the digital entertainment platform TOD and beIN Media Group. 
 
 					</p>
-					<div class="see-details"><a href="/about/">DETAILS <img src="<?= asset('images/arrow_white.svg') ?>" alt=""></a></div>
+					<div class="see-details"><a href="/about/">For More <img src="<?= asset('images/arrow_white.svg') ?>" alt=""></a></div>
 				</div>
 			</div>
 		</div>

@@ -5,7 +5,7 @@ $(function () {
       loop: true,
       speed: 700,
       effect: "slide",
-      autoplay: { delay: 5000, disableOnInteraction: false },
+      //autoplay: { delay: 5000, disableOnInteraction: false },
       pagination: {
         el: ".hero-pagination",
         clickable: true,

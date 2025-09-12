@@ -11,20 +11,21 @@ view('header/header');
             <img src="<?= asset('images/about-bg.png')?>" alt="hero">
         </div>
         <div class="hero-content">
-            <h1>About</h1>
+            <h1>Inside TOD Studios</h1>
             <p>TOD Studios is the original content label of the digital entertainment platform TOD and beIN Media Group. </p>
+            <p style="max-width: 1235px;">Established with a bold vision to create high-quality, locally rooted and globally relevant productions, TOD Studios develops original series, lifestyle, documentaries and sports content tailored to today’s diverse audiences. With a strong focus on storytelling, creative talent, and production excellence, TOD Studios aims to become a leading force in MENA and Turkiye’s content ecosystem, offering compelling stories that resonate across borders.</p>
         </div>
     </section>
 
     <!-- Intro / Text Blocks -->
-    <section class="about-section about-intro bg-dark">
+    <?/*<section class="about-section about-intro bg-dark">
         <div class="about-container">
             <div class="intro-text">
                 
                 <p>Established with a bold vision to create high-quality, locally rooted and globally relevant productions, TOD Studios develops original series, lifestyle, documentaries and sports content tailored to today’s diverse audiences. With a strong focus on storytelling, creative talent, and production excellence, TOD Studios aims to become a leading force in MENA and Turkiye’s content ecosystem, offering compelling stories that resonate across borders.</p>
 
             </div>
-
+        
             <div class="intro-highlight">
                 <h3>LOREM PELLENTESQUE ARCU UT NIBH DOLOR CONVALLIS</h3>
                 <p>Enim nisl ac porttitor ipsum ullamcorper. Elementum ipsum nulla consectetur orci imperdiet elit tincidunt. Eu vel eget venenatis urna accumsan mauris vestibulum duis. Sed vitae pretium diam gravida. Porttitor id ut condimentum in sit. Facilisis feugiat posuere egestas in.</p>
@@ -47,8 +48,9 @@ view('header/header');
                     <div class="metric-caption">Penatibus volutpat lorem malesuada</div>
                 </div>
             </div>
+           
         </div>
-    </section>
+    </section> */?>
 
     <!-- Awards (Parallax Rows) -->
      <?/*

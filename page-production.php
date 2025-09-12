@@ -9,10 +9,8 @@ view('header/header');
             <img src="<?= asset('images/hero_section.jpg') ?>" alt="hero">
         </div>
         <div class="hero-content">
-            <h1>Productions</h1>
-            <p>Tellus quisque commodo facilisi nam in. Dui sed consequat massa semper euismod nam proin egestas sed.
-                Nibh ullamcorper quis ultrices diam morbi nisl lectus lacus. Proin purus nisi porta arcu eget
-                pretium.</p>
+            <h1><?=get_the_title();?></h1>
+            <?=get_the_content();?>
         </div>
     </section>
     <?php

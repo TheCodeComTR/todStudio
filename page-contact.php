@@ -74,8 +74,8 @@ view('header/header');
                 <div class="contact-copy-icon">
                     <img src="<?= asset('images/mail-send.svg')?>" alt="icon">
                 </div>
-                <h3>LOREM IPSUM DOLOR.</h3>
-                <p> Faucibus eu elementum egestas commodo faucibus eget vitae. Neque tristique justo vel volutpat pretium in odio sed suspendisse. Eget volutpat luctus quam sodales dictum sem.</p>
+                <h3>Have questions?</h3>
+                <p>We believe communication is more than an exchange. It’s the foundation of lasting connections. Every message opens the door to something meaningful.</p>
             </div>
         </div>
     </section>
