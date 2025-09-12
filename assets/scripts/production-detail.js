@@ -96,6 +96,125 @@ $(function () {
       closeVideo();
     }
   });
+
+  // Image Gallery Modal Functions
+  let currentImageIndex = 0;
+  let imageGallery = [];
+
+  function initImageGallery() {
+    // Collect all gallery images
+    imageGallery = [];
+    $('.pd-thumb img').each(function() {
+      const src = $(this).attr('src');
+      const alt = $(this).attr('alt');
+      if (src && !imageGallery.find(img => img.src === src)) {
+        imageGallery.push({ src, alt });
+      }
+    });
+  }
+
+  function openImageModal(index) {
+    if (imageGallery.length === 0) return;
+    
+    currentImageIndex = index || 0;
+    const image = imageGallery[currentImageIndex];
+    
+    $('#image-modal-main').attr('src', image.src).attr('alt', image.alt);
+    $('#image-modal').addClass('is-open');
+    
+    // Update navigation buttons
+    updateNavigationButtons();
+    
+    // Prevent body scroll
+    $('body').addClass('modal-open');
+  }
+
+  function closeImageModal() {
+    $('#image-modal').removeClass('is-open');
+    $('body').removeClass('modal-open');
+  }
+
+  function nextImage() {
+    if (imageGallery.length === 0) return;
+    currentImageIndex = (currentImageIndex + 1) % imageGallery.length;
+    const image = imageGallery[currentImageIndex];
+    $('#image-modal-main').attr('src', image.src).attr('alt', image.alt);
+    updateActiveThumbnail();
+  }
+
+  function prevImage() {
+    if (imageGallery.length === 0) return;
+    currentImageIndex = currentImageIndex === 0 ? imageGallery.length - 1 : currentImageIndex - 1;
+    const image = imageGallery[currentImageIndex];
+    $('#image-modal-main').attr('src', image.src).attr('alt', image.alt);
+    updateActiveThumbnail();
+  }
+  
+  function updateNavigationButtons() {
+    const $prev = $('#image-modal-prev');
+    const $next = $('#image-modal-next');
+    
+    if (imageGallery.length <= 1) {
+      $prev.hide();
+      $next.hide();
+    } else {
+      $prev.show();
+      $next.show();
+    }
+  }
+
+  function updateActiveThumbnail() {
+    $('.image-modal-thumb').removeClass('active');
+    $(`.image-modal-thumb[data-index="${currentImageIndex}"]`).addClass('active');
+  }
+
+  // Event listeners for image modal
+  $('.pd-thumb img').on('click', function() {
+    const src = $(this).attr('src');
+    const index = imageGallery.findIndex(img => img.src === src);
+    if (index !== -1) {
+      openImageModal(index);
+    }
+  });
+
+  $('#image-modal-backdrop, #image-modal-close').on('click', function() {
+    closeImageModal();
+  });
+
+  $('#image-modal-next').on('click', function(e) {
+    e.stopPropagation();
+    nextImage();
+  });
+
+  $('#image-modal-prev').on('click', function(e) {
+    e.stopPropagation();
+    prevImage();
+  });
+
+  $(document).on('click', '.image-modal-thumb', function(e) {
+    e.stopPropagation();
+    const index = parseInt($(this).data('index'));
+    currentImageIndex = index;
+    const image = imageGallery[currentImageIndex];
+    $('#image-modal-main').attr('src', image.src).attr('alt', image.alt);
+    updateActiveThumbnail();
+  });
+
+  // Keyboard navigation for image modal
+  $(document).on('keyup', function (e) {
+    if ($('#image-modal').hasClass('is-open')) {
+      if (e.key === 'Escape') {
+        closeImageModal();
+      } else if (e.key === 'ArrowLeft') {
+        prevImage();
+      } else if (e.key === 'ArrowRight') {
+        nextImage();
+      }
+    }
+  });
+
+  // Initialize image gallery on page load
+  initImageGallery();
 });
 
 
