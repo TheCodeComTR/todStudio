@@ -19,17 +19,40 @@ $subtitles = get_field("subtitles");
 $audio_languages = get_field("audio_languages");
 $thumbnails = get_field("thumbnails");
 $related = get_field("related");
-//echo "xxxx";
-//print_r($video);
+
+$season = get_field("season");
+
+
 if (is_array($video)) {
     $trailer = $video[0]['url'];
 }
 ?>
+<style>
+    .pd-related-swiper .swiper-slide {
+        width: 289px;
+        height: auto;
+
+    }
+
+    .pd-related .pd-related-card img {
+        width: auto;
+        height: 413px;
+    }
+
+    .pd-main .hero .hero-container img,
+    .hero .hero-container video {
+        object-fit: contain;
+    }
+
+    .hero .hero-container {
+        background-color: black;
+    }
+</style>
 <main class="pd-main">
     <!-- Hero (same structure as index.html, image replaced with video) -->
     <section class="hero">
         <div class="hero-container">
-            <video src="<?= $trailer ?>" muted autoplay loop playsinline preload="metadata" poster="<?= $mimg ?>"></video>
+            <video src="<?= $trailer ?>" muted  loop playsinline preload="metadata" poster="<?= $mimg ?>"></video>
         </div>
         <div class="hero-content">
             <h1><?= get_the_title(); ?></h1>
@@ -62,45 +85,97 @@ if (is_array($video)) {
         </div>
         <div class="pd-info-card pd-info-stats">
             <ul>
-                <li>
-                    <img src="<?= asset('images/genre.svg') ?>" alt="genre">
-                    <div class="pd-info-kv">
-                        <div class="pd-info-kv-label">GENRE</div>
-                        <div class="pd-info-kv-value"><?= $genre ?></div>
-                    </div>
-                </li>
-                <li>
-                    <img src="<?= asset('images/episodes.svg') ?>" alt="total episodes">
-                    <div class="pd-info-kv">
-                        <div class="pd-info-kv-label">TOTAL EPISODES</div>
-                        <div class="pd-info-kv-value"><?= $episode ?></div>
-                    </div>
-                </li>
-                <li>
-                    <img src="<?= asset('images/year-of-production.svg') ?>" alt="year of production">
-                    <div class="pd-info-kv">
-                        <div class="pd-info-kv-label">YEAR OF PRODUCTION</div>
-                        <div class="pd-info-kv-value"><?= $year ?></div>
-                    </div>
-                </li>
-                <li>
-                    <img src="<?= asset('images/company.svg') ?>" alt="production company">
-                    <div class="pd-info-kv">
-                        <div class="pd-info-kv-label">PRODUCTION COMPANY</div>
-                        <div class="pd-info-kv-value"><?= $presented ?></div>
-                    </div>
-                </li>
-                <li>
-                    <img src="<?= asset('images/awards.svg') ?>" alt="awards">
-                    <div class="pd-info-kv">
-                        <div class="pd-info-kv-label">AWARDS</div>
-                        <div class="pd-info-kv-value">Golden Globe</div>
-                    </div>
-                </li>
+                <? if ($episode): ?>
+                    <li>
+                        <img src="<?= asset('images/genre.svg') ?>" alt="genre">
+                        <div class="pd-info-kv">
+                            <div class="pd-info-kv-label">GENRE</div>
+                            <div class="pd-info-kv-value"><?= $genre ?></div>
+                        </div>
+                    </li>
+                <?
+                endif;
+                if ($episode): ?>
+                    <li>
+                        <img src="<?= asset('images/episodes.svg') ?>" alt="total episodes">
+                        <div class="pd-info-kv">
+                            <div class="pd-info-kv-label">TOTAL EPISODES</div>
+                            <div class="pd-info-kv-value"><?= $episode ?></div>
+                        </div>
+                    </li>
+                <?
+                endif;
+                if ($year): ?>
+                    <li>
+                        <img src="<?= asset('images/year-of-production.svg') ?>" alt="year of production">
+                        <div class="pd-info-kv">
+                            <div class="pd-info-kv-label">YEAR OF PRODUCTION</div>
+                            <div class="pd-info-kv-value"><?= $year ?></div>
+                        </div>
+                    </li>
+                <?
+                endif;
+                ?>
+                <?
+                if ($company): ?>
+                    <li>
+                        <img src="<?= asset('images/company.svg') ?>" alt="production company">
+                        <div class="pd-info-kv">
+                            <div class="pd-info-kv-label">PRODUCTION COMPANY</div>
+                            <div class="pd-info-kv-value"><?= $company ?></div>
+                        </div>
+                    </li>
+                <? endif;
+                ?>
+                <?
+                if ($presented): ?>
+                    <li>
+                        <img src="<?= asset('images/company.svg') ?>" alt="production company">
+                        <div class="pd-info-kv">
+                            <div class="pd-info-kv-label">Presented by</div>
+                            <div class="pd-info-kv-value"><?= $presented ?></div>
+                        </div>
+                    </li>
+                <? endif;
+                if ($language == ""):
+                ?>
+                    <li>
+                        <img src="<?= asset('images/languages.svg') ?>" alt="awards">
+                        <div class="pd-info-kv">
+                            <div class="pd-info-kv-label">Orginal language</div>
+                            <div class="pd-info-kv-value"><?= $language ?></div>
+                        </div>
+                    </li>
+                <?
+                endif;
+                ?>
             </ul>
         </div>
     </section>
- <?/*
+
+    
+<?
+if ($season):
+?>
+    <section class="pd-related">
+        <h2>Season</h2>
+        <div class="swiper pd-related-swiper">
+            <div class="swiper-wrapper">
+
+                <? foreach ($season as $key => $seasonx) { ?>
+                    <div class="swiper-slide">
+                        <a href="#" class="pd-related-card">
+                            <img src="<?= $seasonx['image'] ?>" alt="thumb <?= $key + 1 ?>">
+                            <span class="pd-related-caption"><?= $seasonx['name'] ?> SEASON</span>
+                        </a>
+                    </div>
+                <?php } ?>
+            </div>
+            <div class="pd-related-pagination"></div>
+        </div>
+    </section>
+<?endif;?>
+    <?/*
     <!-- Subtitles / audio languages -->
     <section class="pd-badges" style="display: none;">
         <div class="pd-badge">
@@ -146,13 +221,13 @@ if (is_array($video)) {
             </button>
         </div>
     </section>
-    */?>
+    */ ?>
     <?php
     $current_id = get_the_ID();
     $categories = wp_get_post_categories($current_id);
     //print_r($categories);
     $args = [
-        'post_type'      => 'filim', 
+        'post_type'      => 'filim',
         'posts_per_page' => 20,
         'post__not_in'   => [$current_id],
         'category__in'   => $categories
@@ -166,7 +241,7 @@ if (is_array($video)) {
             <h2>Related</h2>
             <div class="swiper pd-related-swiper">
                 <div class="swiper-wrapper">
-                    
+
                     <?php while ($related_query->have_posts()): $related_query->the_post(); ?>
                         <div class="swiper-slide">
                             <a href="<?php the_permalink(); ?>" class="pd-related-card">

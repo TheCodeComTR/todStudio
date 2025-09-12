@@ -65,3 +65,7 @@ $('.search-category-btn').click(function() {
     $('#search-input').val(categoryText);
     $('#search-input').focus();
 });
+$(".hero-container video").click(function() {
+    //alert("clicked");
+   this.paused ? this.play() : this.pause();
+});

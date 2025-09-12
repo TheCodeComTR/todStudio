@@ -23,7 +23,7 @@ $(function () {
     if (window.Swiper) {
       var autoplayMs = 4000;
       var swiper = new Swiper('.pd-related-swiper', {
-        slidesPerView: 4,
+        slidesPerView: "auto",
         spaceBetween: 16,
         loop: false,
         pagination: {
@@ -33,14 +33,14 @@ $(function () {
             return '<span class="' + className + '"><span class="fill"></span></span>';
           },
         },
-        autoplay: { delay: autoplayMs, disableOnInteraction: false },
-        breakpoints: {
+        //autoplay: { delay: autoplayMs, disableOnInteraction: false },
+        /*breakpoints: {
           0: { slidesPerView: 1.2, spaceBetween: 12 },
           576: { slidesPerView: 2, spaceBetween: 12 },
           768: { slidesPerView: 3, spaceBetween: 16 },
           1200: { slidesPerView: 4, spaceBetween: 16 },
           1400: { slidesPerView: 4.5, spaceBetween: 16 },
-        },
+        },*/
         on: {
           init: function () {
             // reset then start first bar

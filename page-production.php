@@ -3,6 +3,7 @@
 
 view('header/header');
 ?>
+
 <main>
     <section class="hero">
         <div class="hero-container">
