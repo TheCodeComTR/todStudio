@@ -537,3 +537,13 @@
   font-size: 1.2rem;
   text-transform: uppercase;
 }/*# sourceMappingURL=index.css.map */
+
+
+
+.hero-cta{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}

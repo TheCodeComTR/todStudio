@@ -12,36 +12,40 @@
 
 
 view('header/header');
+$slider = get_field('slider');
+
+//print_r($slider);
 ?>
 <main>
 	<!-- Hero Slider -->
 	<section class="hero">
 		<div class="swiper hero-swiper">
 			<div class="swiper-wrapper">
+				<?php
+					foreach( $slider as $item ) {
+						$imageD = $item['slider-d-bg'];
+						$imageM = $item['slider-m-bg'];
+						$title = $item['title'];
+						$cta = $item['cta'];
+						
+						if (wp_is_mobile()) {
+							$show_image = $imageM;
+						} else {
+							$show_image = $imageD;
+						}
+				?>
 				<div class="swiper-slide">
+					<a href="<?= $cta ?>" class="hero-cta"></a>
 					<div class="hero-container">
-						<img src="<?= asset('images/sliders/slider-1.png') ?>" alt="Zamanin Kapilari">
+						<img src="<?= $show_image ?>" alt="">
 					</div>
 					<div class="hero-content">
-						<h1>LOREM IPSUM DOLOR SIT</h1>
+						<h1><?= $title ?></h1>
 					</div>
 				</div>
-				<div class="swiper-slide">
-					<div class="hero-container">
-						<img src="<?= asset('images/sliders/slider-1.png') ?>" alt="The Lumina Chronicles">
-					</div>
-					<div class="hero-content">
-						<h1>LOREM IPSUM DOLOR SIT</h1>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="hero-container">
-						<img src="<?= asset('images/sliders/slider-1.png') ?>" alt="Serap">
-					</div>
-					<div class="hero-content">
-						<h1>LOREM IPSUM DOLOR SIT</h1>
-					</div>
-				</div>
+				<?php
+					}
+				?>
 			</div>
 			<div class="hero-pagination swiper-pagination"></div>
 			<button class="hero-prev" aria-label="Previous">
