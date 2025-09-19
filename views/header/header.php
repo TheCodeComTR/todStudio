@@ -34,7 +34,7 @@
 
     if (is_singular('filim')) 
     {
-        echo '<link rel="stylesheet" href="' . asset('styles/production-detail.css') . '">';
+        echo '<link rel="stylesheet" href="' . asset('styles/production-detail.css?v=') .time() . '">';
     }
     else if (is_search()) 
     {

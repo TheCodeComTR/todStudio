@@ -1,3 +1,4 @@
+var heroSlider = null;
 $(function () {
   // Show more toggle
   $('#pd-show-more-btn').on('click', function () {
@@ -19,9 +20,8 @@ $(function () {
   });
 
   // Related Swiper init
-  try {
-    if (window.Swiper) {
-         var heroSlider = new Swiper('.swiperHero', {
+
+          heroSlider = new Swiper('.swiperHero', {
           spaceBetween: 0,
           centeredSlides: false,
           loop:true,
@@ -32,6 +32,21 @@ $(function () {
             prevEl: ".swiper-button-prev",
           },
           resizeObserver:true,
+          on: { 
+              slideChange: function() {
+                let slideCurrentIndex = this.realIndex; // get current slide's index
+                console.log(this.realIndex); // write it to console
+                var realIndex = this.realIndex;
+                $("#detail-title").html(seasonData[realIndex].name);
+                $("#detail-about").html(seasonData[realIndex].about);
+                $("#detail-scriptwriter").html(seasonData[realIndex].scriptwriter);
+                $("#detail-directors").html(seasonData[realIndex].directors);
+                $("#detail-genre").html(seasonData[realIndex].genre);
+                $("#detail-total").html(seasonData[realIndex].total_episodes);
+                $("#detail-year").html(seasonData[realIndex].year_of_production);
+                $("#detail-company").html(seasonData[realIndex].production_company);
+                $("#detail-cast").html(seasonData[realIndex].cast);
+          }}
         });
       var autoplayMs = 4000;
       var relatedSlider = new Swiper('.pd-related-swiper', {
@@ -68,12 +83,9 @@ $(function () {
           },
         },
       });
-      	heroSlider.controller.control = relatedSlider;
-		relatedSlider.controller.control = heroSlider;
-    }
-  } catch (e) {
-    // ignore
-  }
+      	//heroSlider.controller.control = relatedSlider;
+		    //relatedSlider.controller.control = heroSlider;
+ 
 
   // Open video modal from hero and video thumb
   function openVideo(src) {
@@ -231,7 +243,9 @@ $(function () {
   initImageGallery();
 
      $('.pd-related-card').on('click', function () {
-
+      
+      heroSlider.slideTo($(this).data('key'));
+/*
       var $el = jQuery(this);
       var d = $el.data();
 
@@ -245,6 +259,7 @@ $(function () {
         jQuery('#detail-year').text(d.year_of_production);
         jQuery('#detail-company').text(d.production_company);
         jQuery('#detail-cast').text(d.cast);
+        */
 
    });
 

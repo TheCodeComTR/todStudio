@@ -3,8 +3,8 @@
 
 view('header/header');
 $seasons = get_field('film_block');
-//print_r($seasons);
-/*
+$seasonData = json_encode($seasons);
+
 $video = get_field("trailer");
 $mimg  = get_field("main-img");
 $director = get_field("director");
@@ -29,7 +29,7 @@ $season = get_field("season");
 if (is_array($video)) {
     $trailer = $video[0]['url'];
 }
-    */
+    
 ?>
 <style>
     .pd-related-swiper .swiper-slide {
@@ -52,6 +52,10 @@ if (is_array($video)) {
         background-color: black;
     }
 </style>
+<script type="text/javascript">
+    const seasonData = <?= $seasonData ?>;
+    //console.log(seasonData);
+</script>
 <main class="pd-main">
     <!-- Hero (same structure as index.html, image replaced with video) -->
     <section class="hero">
@@ -184,18 +188,8 @@ if($seasons){
                         <a 
                             href="#" 
                             class="pd-related-card",
-                            data-image="<?= $seasonx['hero'] ?>"
-                            data-title="<?= $seasonx['name'] ?>"
-                            data-about="<?= $seasonx['about_film'] ?>"
-                            data-directors="<?= $seasonx['directors'] ?>"
-                            data-scriptwriter="<?= $seasonx['scriptwriter'] ?>"
-                            data-cast="<?= $seasonx['cast'] ?>"
-                            data-genre="<?= $seasonx['genre'] ?>"
-                            data-total_episodes="<?= $seasonx['total_episodes'] ?>"
-                            data-year_of_production="<?= $seasonx['year_of_production'] ?>"
-                            data-production_company="<?= $seasonx['production_company'] ?>"
+                            data-key="<?=$key?>"
                         >
-                        
                             <img src="<?= $seasonx['hero_mobile'] ?>" alt="thumb <?= $key + 1 ?>">
                             <span class="pd-related-caption"><?= $seasonx['name'] ?> SEASON</span>
                         </a>
