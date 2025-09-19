@@ -21,8 +21,20 @@ $(function () {
   // Related Swiper init
   try {
     if (window.Swiper) {
+         var heroSlider = new Swiper('.swiperHero', {
+          spaceBetween: 0,
+          centeredSlides: false,
+          loop:true,
+          direction: 'horizontal',
+          loopedSlides: 5,
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          resizeObserver:true,
+        });
       var autoplayMs = 4000;
-      var swiper = new Swiper('.pd-related-swiper', {
+      var relatedSlider = new Swiper('.pd-related-swiper', {
         slidesPerView: "auto",
         spaceBetween: 16,
         loop: false,
@@ -56,6 +68,8 @@ $(function () {
           },
         },
       });
+      	heroSlider.controller.control = relatedSlider;
+		relatedSlider.controller.control = heroSlider;
     }
   } catch (e) {
     // ignore
@@ -215,6 +229,37 @@ $(function () {
 
   // Initialize image gallery on page load
   initImageGallery();
+
+     $('.pd-related-card').on('click', function () {
+
+      var $el = jQuery(this);
+      var d = $el.data();
+
+        //jQuery('#detail-image').attr('src', d.image);
+        jQuery('#detail-about').text(d.about);
+        jQuery('#detail-title').text(d.title);
+        jQuery('#detail-scriptwriter').text(d.scriptwriter);
+        jQuery('#detail-directors').text(d.directors);
+        jQuery('#detail-genre').text(d.genre);
+        jQuery('#detail-total').text(d.total_episodes);
+        jQuery('#detail-year').text(d.year_of_production);
+        jQuery('#detail-company').text(d.production_company);
+        jQuery('#detail-cast').text(d.cast);
+
+   });
+
+
+
+		var productThumbs = new Swiper('.product-thumbs', {
+			spaceBetween: 0,
+			centeredSlides: true,
+			loop: true,
+			slideToClickedSlide: true,
+			direction: 'horizontal',
+			slidesPerView: 5,
+			loopedSlides: 5,
+		});
+
 });
 
 

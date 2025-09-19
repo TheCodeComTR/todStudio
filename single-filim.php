@@ -2,6 +2,9 @@
 /* Template Name: Production Detail */
 
 view('header/header');
+$seasons = get_field('film_block');
+//print_r($seasons);
+/*
 $video = get_field("trailer");
 $mimg  = get_field("main-img");
 $director = get_field("director");
@@ -26,6 +29,7 @@ $season = get_field("season");
 if (is_array($video)) {
     $trailer = $video[0]['url'];
 }
+    */
 ?>
 <style>
     .pd-related-swiper .swiper-slide {
@@ -52,10 +56,25 @@ if (is_array($video)) {
     <!-- Hero (same structure as index.html, image replaced with video) -->
     <section class="hero">
         <div class="hero-container">
-            <video src="<?= $trailer ?>" muted  loop playsinline preload="metadata" poster="<?= $mimg ?>"></video>
+            <div class="swiper swiperHero">
+                <div class="swiper-wrapper">
+                    <?
+                    foreach( $seasons as $season) {
+                        $imageMobile = $season['hero_mobile'];
+                        $imageDesktop = $season['hero'];
+                        $trailer = $season['video'];
+                    ?>
+                    <div class="swiper-slide">
+                        <video src="<?= $trailer ?>" muted  loop playsinline preload="metadata" poster="<?= $imageDesktop ?>"></video>
+                    </div>
+                    <?
+                    }
+                    ?>
+                </div>
+            </div>
         </div>
         <div class="hero-content">
-            <h1><?= get_the_title(); ?></h1>
+            <h1 id="detail-title"><?= get_the_title(); ?></h1>
             <?= get_the_content(); ?>
         </div>
     </section>
@@ -66,21 +85,21 @@ if (is_array($video)) {
             <div class="pd-info-icon"><img src="<?= asset('images/director.svg') ?>" alt="directors"></div>
             <div class="pd-info-text">
                 <div class="pd-info-title">Directors</div>
-                <div class="pd-info-value"><?= $director ?></div>
+                <div class="pd-info-value" id="detail-directors"><?= $director ?></div>
             </div>
         </div>
         <div class="pd-info-card">
             <div class="pd-info-icon"><img src="<?= asset('images/writer.svg') ?>" alt="scriptwriter"></div>
             <div class="pd-info-text">
                 <div class="pd-info-title">Scriptwriter</div>
-                <div class="pd-info-value"><?= $scriprwriter ?></div>
+                <div class="pd-info-value" id="detail-scriptwriter"><?= $scriprwriter ?></div>
             </div>
         </div>
         <div class="pd-info-card">
             <div class="pd-info-icon"><img src="<?= asset('images/cast.svg') ?>" alt="cast"></div>
             <div class="pd-info-text">
                 <div class="pd-info-title">Cast</div>
-                <div class="pd-info-value"><?= $cast ?></div>
+                <div class="pd-info-value" id="detail-cast"><?= $cast ?></div>
             </div>
         </div>
         <div class="pd-info-card pd-info-stats">
@@ -90,7 +109,7 @@ if (is_array($video)) {
                         <img src="<?= asset('images/genre.svg') ?>" alt="genre">
                         <div class="pd-info-kv">
                             <div class="pd-info-kv-label">GENRE</div>
-                            <div class="pd-info-kv-value"><?= $genre ?></div>
+                            <div class="pd-info-kv-value" id="detail-genre"><?= $genre ?></div>
                         </div>
                     </li>
                 <?
@@ -100,7 +119,7 @@ if (is_array($video)) {
                         <img src="<?= asset('images/episodes.svg') ?>" alt="total episodes">
                         <div class="pd-info-kv">
                             <div class="pd-info-kv-label">TOTAL EPISODES</div>
-                            <div class="pd-info-kv-value"><?= $episode ?></div>
+                            <div class="pd-info-kv-value" id="detail-total"><?= $episode ?></div>
                         </div>
                     </li>
                 <?
@@ -110,7 +129,7 @@ if (is_array($video)) {
                         <img src="<?= asset('images/year-of-production.svg') ?>" alt="year of production">
                         <div class="pd-info-kv">
                             <div class="pd-info-kv-label">YEAR OF PRODUCTION</div>
-                            <div class="pd-info-kv-value"><?= $year ?></div>
+                            <div class="pd-info-kv-value" id="detail-year"><?= $year ?></div>
                         </div>
                     </li>
                 <?
@@ -122,7 +141,7 @@ if (is_array($video)) {
                         <img src="<?= asset('images/company.svg') ?>" alt="production company">
                         <div class="pd-info-kv">
                             <div class="pd-info-kv-label">PRODUCTION COMPANY</div>
-                            <div class="pd-info-kv-value"><?= $company ?></div>
+                            <div class="pd-info-kv-value" id="detail-company"><?= $company ?></div>
                         </div>
                     </li>
                 <? endif;
@@ -152,9 +171,45 @@ if (is_array($video)) {
             </ul>
         </div>
     </section>
-
-    
 <?
+if($seasons){
+?>
+    <section class="pd-related">
+        <h2>Season</h2>
+        <div class="swiper pd-related-swiper">
+            <div class="swiper-wrapper">
+
+                <? foreach ($seasons as $key => $seasonx) { ?>
+                    <div class="swiper-slide">
+                        <a 
+                            href="#" 
+                            class="pd-related-card",
+                            data-image="<?= $seasonx['hero'] ?>"
+                            data-title="<?= $seasonx['name'] ?>"
+                            data-about="<?= $seasonx['about_film'] ?>"
+                            data-directors="<?= $seasonx['directors'] ?>"
+                            data-scriptwriter="<?= $seasonx['scriptwriter'] ?>"
+                            data-cast="<?= $seasonx['cast'] ?>"
+                            data-genre="<?= $seasonx['genre'] ?>"
+                            data-total_episodes="<?= $seasonx['total_episodes'] ?>"
+                            data-year_of_production="<?= $seasonx['year_of_production'] ?>"
+                            data-production_company="<?= $seasonx['production_company'] ?>"
+                        >
+                        
+                            <img src="<?= $seasonx['hero_mobile'] ?>" alt="thumb <?= $key + 1 ?>">
+                            <span class="pd-related-caption"><?= $seasonx['name'] ?> SEASON</span>
+                        </a>
+                    </div>
+                <?php } ?>
+            </div>
+            <div class="pd-related-pagination"></div>
+        </div>
+    </section>
+<?
+}
+?>
+<?
+/*
 if ($season):
 ?>
     <section class="pd-related">
@@ -174,7 +229,8 @@ if ($season):
             <div class="pd-related-pagination"></div>
         </div>
     </section>
-<?endif;?>
+<?endif;
+*/?>
     <?/*
     <!-- Subtitles / audio languages -->
     <section class="pd-badges" style="display: none;">
