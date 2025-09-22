@@ -192,7 +192,7 @@ if($seasons){
                             data-key="<?=$key?>"
                         >
                             <img src="<?= $seasonx['hero_mobile'] ?>" alt="thumb <?= $key + 1 ?>">
-                            <span class="pd-related-caption"><?= $seasonx['name'] ?> SEASON</span>
+                            <span class="pd-related-caption"><?= $seasonx['name'] ?></span>
                         </a>
                     </div>
                 <?php } ?>
