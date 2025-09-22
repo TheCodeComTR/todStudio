@@ -67,9 +67,10 @@ if (is_array($video)) {
                         $imageMobile = $season['hero_mobile'];
                         $imageDesktop = $season['hero'];
                         $trailer = $season['video'];
+                        $poster = wp_is_mobile() ? $imageMobile : $imageDesktop;
                     ?>
                     <div class="swiper-slide">
-                        <video src="<?= $trailer ?>" muted  loop playsinline preload="metadata" poster="<?= $imageDesktop ?>"></video>
+                        <video src="<?= $trailer ?>" muted  loop playsinline preload="metadata" poster="<?= esc_url($poster) ?>"></video>
                     </div>
                     <?
                     }
@@ -79,7 +80,7 @@ if (is_array($video)) {
         </div>
         <div class="hero-content">
             <h1 id="detail-title"><?= get_the_title(); ?></h1>
-            <?= get_the_content(); ?>
+            <div id="detail-about"><?= get_the_content(); ?></div>
         </div>
     </section>
 

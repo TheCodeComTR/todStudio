@@ -38,7 +38,7 @@ $(function () {
                 console.log(this.realIndex); // write it to console
                 var realIndex = this.realIndex;
                 $("#detail-title").html(seasonData[realIndex].name);
-                $("#detail-about").html(seasonData[realIndex].about);
+                $("#detail-about").html(seasonData[realIndex].about_film);
                 $("#detail-scriptwriter").html(seasonData[realIndex].scriptwriter);
                 $("#detail-directors").html(seasonData[realIndex].directors);
                 $("#detail-genre").html(seasonData[realIndex].genre);
@@ -245,6 +245,7 @@ $(function () {
      $('.pd-related-card').on('click', function () {
       
       heroSlider.slideTo($(this).data('key'));
+      jQuery('html, body').animate({ scrollTop: 0 }, 600);
 /*
       var $el = jQuery(this);
       var d = $el.data();
