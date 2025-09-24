@@ -354,6 +354,10 @@ body {
   display: flex;
   align-items: center;
   margin: 0 auto;
+  form{
+    width: 100%;
+    position: relative;
+  }
 }
 
 .search-icon {
@@ -363,6 +367,8 @@ body {
   width: 1.6rem;
   z-index: 1;
   filter: brightness(0) invert(1);
+  top: 50%;
+  transform: translate(0,-50%);
 }
 .search-form {
   width: 100%;
@@ -380,7 +386,7 @@ body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   outline: none;
-
+  height: 49px;
   &::placeholder {
     color: #888;
     font-size: 1.8rem;
@@ -397,7 +403,6 @@ body {
 .search-close-btn {
   position: absolute;
   right: 0;
-  top: 0;
   background: none;
   border: none;
   color: #fff;
@@ -409,7 +414,8 @@ body {
   justify-content: center;
   border-radius: 50%;
   transition: background-color 0.2s ease;
-
+    top: 50%;
+    transform: translate(0, -50%);
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }

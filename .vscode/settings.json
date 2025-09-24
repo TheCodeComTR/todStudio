@@ -1,0 +1,32 @@
+{
+    "workbench.colorTheme": "Project IDX",
+    "git.autofetch": true,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "php-cs-fixer.allowRisky": true,
+    "editor.stickyScroll.enabled": false,
+    "git.enableSmartCommit": true,
+    "liveSassCompile.settings.autoprefix": [
+        "> 1%",
+        "last 5 versions"
+    ],
+    "liveSassCompile.settings.formats": [
+
+        
+        {
+            "format": "compressed",
+            "extensionName": ".min.css",
+            "savePath": "/assets/styles/"
+        },
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/assets/styles/"
+        }
+    ],
+    "liveSassCompile.settings.generateMap": false,
+    "liveSassCompile.settings.includeItems": [
+        "/assets/styles/search-result.scss"
+    ],
+}

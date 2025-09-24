@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="<?= asset('styles/global.css') ?>">
+    <link rel="stylesheet" href="<?= asset('styles/global.css') . '?v=' . time() ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     
     <?
@@ -125,7 +125,7 @@
                     <form action="<?php echo home_url('/'); ?>" method="get" class="search-form">
                     
                     <img src="<?= asset('images/search.svg') ?>" alt="search" class="search-icon">
-                    <input type="text" placeholder="SEARCH" class="search-input" id="search-input">
+                    <input type="text" placeholder="SEARCH" class="search-input" id="search-input" name="s">
                     <button type="submit" class="search-close-btn" id="search-close-btn">
                         <span>
                             <img src="<?= asset('images/close-button.svg') ?>" alt="close">

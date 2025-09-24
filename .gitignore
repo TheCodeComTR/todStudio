@@ -13,7 +13,6 @@ wp-content/plugins/hello.php
 *.sql
 *.sqlite
 *.env
-.vscode/*
 _eski/*
 
 
@@ -44,7 +43,6 @@ Temporary Items
 *.sublime-workspace
 *.sublime-project
 *.idea/
-*.vscode/
 *.swp
 *.bak
 *.tmp
