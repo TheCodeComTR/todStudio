@@ -12,6 +12,7 @@
 
 
 view('header/header');
+$slider = get_field('slider');
 ?>
 <style>
 	.swiper-slide {
@@ -24,30 +25,31 @@ view('header/header');
 	<section class="hero">
 		<div class="swiper hero-swiper">
 			<div class="swiper-wrapper">
+				<?php
+					foreach( $slider as $item ) {
+						$imageD = $item['slider-d-bg'];
+						$imageM = $item['slider-m-bg'];
+						$title = $item['title'];
+						$cta = $item['cta'];
+						
+						if (wp_is_mobile()) {
+							$show_image = $imageM;
+						} else {
+							$show_image = $imageD;
+						}
+				?>
 				<div class="swiper-slide">
+					<a href="<?= $cta ?>" class="hero-cta"></a>
 					<div class="hero-container">
-						<a href="/production/beneath-the-surface/"><img src="/wp-content/uploads/2025/09/BTS_KV_FNL_YTY.jpg" alt="Zamanin Kapilari"></a>
+						<img src="<?= $show_image ?>" alt="">
 					</div>
 					<div class="hero-content">
-						<h1></h1>
+						<h1><?= $title ?></h1>
 					</div>
 				</div>
-				<div class="swiper-slide">
-					<div class="hero-container">
-						<img src="<?= ('/wp-content/uploads/2025/09/zamanin-kapilari-scaled.jpg') ?>" alt="The Lumina Chronicles">
-					</div>
-					<div class="hero-content">
-						<h1></h1>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="hero-container">
-						<img src="<?= ('/wp-content/uploads/2025/09/TOD-poster-template-YATAY4-scaled.jpg') ?>" alt="Serap">
-					</div>
-					<div class="hero-content">
-						<h1></h1>
-					</div>
-				</div>
+				<?php
+					}
+				?>
 			</div>
 			<div class="hero-pagination swiper-pagination"></div>
 			<button class="hero-prev" aria-label="Previous">
@@ -58,7 +60,6 @@ view('header/header');
 			</button>
 		</div>
 	</section>
-
 	<!-- Metrics (Company Stats layout) -->
 	 <?/*
 	<section class="about-section company-stats bg-dark">

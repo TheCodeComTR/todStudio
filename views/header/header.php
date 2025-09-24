@@ -122,27 +122,30 @@
         <div class="search-offcanvas">
             <div class="search-header">
                 <div class="search-input-container">
+                    <form action="<?php echo home_url('/'); ?>" method="get" class="search-form">
+                    
                     <img src="<?= asset('images/search.svg') ?>" alt="search" class="search-icon">
                     <input type="text" placeholder="SEARCH" class="search-input" id="search-input">
-                    <button class="search-close-btn" id="search-close-btn">
+                    <button type="submit" class="search-close-btn" id="search-close-btn">
                         <span>
                             <img src="<?= asset('images/close-button.svg') ?>" alt="close">
                         </span>
                     </button>
+                    </form>
                 </div>
             </div>
             <div class="search-buttons">
                 <button class="search-category-btn">
                     <img src="<?= asset('images/sorgu.svg') ?>" alt="search">
-                    SORGU
+                    BENEATH THE SURFACE
                 </button>
                 <button class="search-category-btn">
                     <img src="<?= asset('images/sorgu.svg') ?>" alt="search">
-                    ZAMANIN KAPILARI
+                    DOORS OF DESTINY
                 </button>
                 <button class="search-category-btn">
                     <img src="<?= asset('images/sorgu.svg') ?>" alt="search">
-                    SERAP
+                    IT HAPPENS
                 </button>
             </div>
         </div>

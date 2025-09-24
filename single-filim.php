@@ -29,7 +29,7 @@ $season = get_field("season");
 if (is_array($video)) {
     $trailer = $video[0]['url'];
 }
-    
+
 ?>
 <style>
     .pd-related-swiper .swiper-slide {
@@ -63,19 +63,28 @@ if (is_array($video)) {
             <div class="swiper swiperHero">
                 <div class="swiper-wrapper">
                     <?
-                    foreach( $seasons as $season) {
-                        $imageMobile = $season['hero_mobile'];
-                        $imageDesktop = $season['hero'];
-                        $trailer = $season['video'];
-                        $poster = wp_is_mobile() ? $imageMobile : $imageDesktop;
+                    if (is_array($seasons)) {
+
+                        foreach ($seasons as $season) {
+                            $imageMobile = $season['hero_mobile'];
+                            $imageDesktop = $season['hero'];
+                            $trailer = $season['video'];
+                            $poster = wp_is_mobile() ? $imageMobile : $imageDesktop;
                     ?>
-                    <div class="swiper-slide">
-                        <video src="<?= $trailer ?>" muted  loop playsinline preload="metadata" poster="<?= esc_url($poster) ?>"></video>
-                    </div>
+                            <div class="swiper-slide">
+                                <video src="<?= $trailer ?>" muted loop playsinline preload="metadata" poster="<?= esc_url($poster) ?>"></video>
+                            </div>
+                        <?
+                        }
+                    } else { ?>
+                        <div class="swiper-slide">
+                            <video src="<?= $trailer ?>" autoplay muted loop playsinline preload="metadata" poster="<?= esc_url($mimg) ?>"></video>
+                        </div>
                     <?
                     }
                     ?>
                 </div>
+                <div class="pd-related-pagination"></div>
             </div>
         </div>
         <div class="hero-content">
@@ -176,35 +185,34 @@ if (is_array($video)) {
             </ul>
         </div>
     </section>
-<?
-if($seasons){
-?>
-    <section class="pd-related">
-        <h2>Season</h2>
-        <div class="swiper pd-related-swiper">
-            <div class="swiper-wrapper">
+    <?
+    if ($seasons) {
+    ?>
+        <section class="pd-related">
+            <h2>Season</h2>
+            <div class="swiper pd-related-swiper">
+                <div class="swiper-wrapper">
 
-                <? foreach ($seasons as $key => $seasonx) { ?>
-                    <div class="swiper-slide">
-                        <a 
-                            href="#" 
-                            class="pd-related-card",
-                            data-key="<?=$key?>"
-                        >
-                            <img src="<?= $seasonx['hero_mobile'] ?>" alt="thumb <?= $key + 1 ?>">
-                            <span class="pd-related-caption"><?= $seasonx['name'] ?></span>
-                        </a>
-                    </div>
-                <?php } ?>
+                    <? foreach ($seasons as $key => $seasonx) { ?>
+                        <div class="swiper-slide">
+                            <a
+                                href="#"
+                                class="pd-related-card" ,
+                                data-key="<?= $key ?>">
+                                <img src="<?= $seasonx['hero_mobile'] ?>" alt="thumb <?= $key + 1 ?>">
+                                <span class="pd-related-caption"><?= $seasonx['name'] ?></span>
+                            </a>
+                        </div>
+                    <?php } ?>
+                </div>
+                <div class="pd-related-pagination"></div>
             </div>
-            <div class="pd-related-pagination"></div>
-        </div>
-    </section>
-<?
-}
-?>
-<?
-/*
+        </section>
+    <?
+    }
+    ?>
+    <?
+    /*
 if ($season):
 ?>
     <section class="pd-related">
@@ -225,7 +233,7 @@ if ($season):
         </div>
     </section>
 <?endif;
-*/?>
+*/ ?>
     <?/*
     <!-- Subtitles / audio languages -->
     <section class="pd-badges" style="display: none;">

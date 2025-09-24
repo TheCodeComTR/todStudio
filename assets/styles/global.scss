@@ -364,13 +364,15 @@ body {
   z-index: 1;
   filter: brightness(0) invert(1);
 }
-
+.search-form {
+  width: 100%;
+}
 .search-input {
   width: 100%;
   background: transparent;
   border: none;
   border-bottom: 1px solid #ffd700;
-  padding: 16px 28px;
+  padding: 0px 28px;
   color: #fff;
   font-family: "Lexend Deca", sans-serif;
   font-size: 1.8rem;
@@ -395,6 +397,7 @@ body {
 .search-close-btn {
   position: absolute;
   right: 0;
+  top: 0;
   background: none;
   border: none;
   color: #fff;

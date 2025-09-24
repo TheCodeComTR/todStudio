@@ -27,6 +27,13 @@ $(function () {
           loop:true,
           direction: 'horizontal',
           loopedSlides: 5,
+          pagination: {
+            el: '.pd-related-pagination',
+            clickable: true,
+            renderBullet: function (index, className) {
+              return '<span class="' + className + '"><span class="fill"></span></span>';
+            },
+          },
           navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
