@@ -27,6 +27,6 @@
     ],
     "liveSassCompile.settings.generateMap": false,
     "liveSassCompile.settings.includeItems": [
-        "/assets/styles/search-result.scss"
+        "/assets/styles/**/*.scss"
     ],
 }
