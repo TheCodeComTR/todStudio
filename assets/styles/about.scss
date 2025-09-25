@@ -328,9 +328,48 @@
     .hero-container {
       max-height: 420px;
       height: 420px;
+      position: relative;
+      &::after{
+        content: '';
+        background: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, #1D1D1D 100%);
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 125px;
+        position: absolute;
+      }
     }
     .hero-content {
       padding: 24px 16px;
+      margin-top: -125px;
+      position: relative !important;
+      z-index: 1;
+      &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -90px;
+        background:rgba(255, 188, 0, 1);
+        width: 100px;
+        height: 100px;
+        backdrop-filter: blur(56px);
+        border-radius: 50%;
+        -webkit-backdrop-filter: blur(56px);
+        filter: blur(56px);
+      }
+      &::before{
+        content: '';
+        position: absolute;
+        top: 75px;
+        left: -40px;
+        background:rgba(255, 188, 0, 1)
+        width: 100px;
+        height: 100px;
+        backdrop-filter: blur(168);
+        border-radius: 50%;
+        -webkit-backdrop-filter: blur(168);
+        filter: blur(168px);
+      }
     }
     .hero-content h1 {
       font-size: 2.4rem;
