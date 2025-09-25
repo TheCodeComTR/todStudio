@@ -23,7 +23,7 @@
     //echo 'Template slug: ' . $template_slug;
 
     if (is_page_template('page-about.php')) {
-        echo '<link rel="stylesheet" href="' . asset('styles/about.css') . '">';
+        echo '<link rel="stylesheet" href="' . asset('styles/about.css?v=') .time() . '">';
     } else if (is_page_template('page.contact.php') || is_page_template('page-contact.php')) {
         echo '<link rel="stylesheet" href="' . asset('styles/contact.css?v=12') . '">';
     } else if (is_page_template('page-production.php')) {
@@ -44,7 +44,7 @@
     {
         echo '<link rel="stylesheet" href="' . asset('styles/404.css?v=1') . '">';
     }
-    else
+    else if (is_front_page())
     {
      echo '<link rel="stylesheet" href="' . asset('styles/index.css?v=') .time() . '">';
     }
