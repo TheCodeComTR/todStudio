@@ -1,13 +1,13 @@
 .contact-main {
   padding-top: 0;
 }
-.wpcf7 form .wpcf7-response-output{
-  
+
+.wpcf7 form.sent .wpcf7-response-output {
   border-color: #ffbc00;
   font-size: 14px;
   color: white;
-  padding: 10px;  
 }
+
 .hero--contact .hero-container {
   max-height: 680px;
   height: 680px;
@@ -37,14 +37,23 @@
   display: grid;
   grid-template-columns: 1.25fr 1fr 1fr 1fr;
   gap: 16px;
-  align-items: stretch;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 .contact-grid .contact-lead-card {
   border-radius: 12px;
   padding: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .contact-grid .contact-lead-card .lead-title {
   color: #ffbc00;
@@ -62,10 +71,19 @@
   max-width: 200px;
 }
 .contact-grid .contact-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: 24px;
   padding: 20px 16px;
   border-radius: 12px;
@@ -130,7 +148,16 @@
   padding: 16px 0;
   font-size: 1.4rem;
 }
+.contact-form-section .contact-form .form-group input::-webkit-input-placeholder, .contact-form-section .contact-form .form-group textarea::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.48);
+}
 .contact-form-section .contact-form .form-group input::-moz-placeholder, .contact-form-section .contact-form .form-group textarea::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.48);
+}
+.contact-form-section .contact-form .form-group input:-ms-input-placeholder, .contact-form-section .contact-form .form-group textarea:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.48);
+}
+.contact-form-section .contact-form .form-group input::-ms-input-placeholder, .contact-form-section .contact-form .form-group textarea::-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.48);
 }
 .contact-form-section .contact-form .form-group input::placeholder,
@@ -138,9 +165,13 @@
   color: rgba(255, 255, 255, 0.48);
 }
 .contact-form-section .contact-form .btn-send {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   gap: 12px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: none;
   background: transparent;
   color: #ffbc00;
@@ -161,10 +192,19 @@
   border-radius: 12px;
   padding: 40px 0;
   color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .contact-form-section .contact-copy .contact-copy-icon img {
   width: 24px;
@@ -224,7 +264,9 @@
     gap: 24px;
   }
   .contact-grid .contact-lead-card {
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     text-align: center;
   }
   .contact-grid .contact-lead-card .lead-text {
@@ -245,10 +287,19 @@
   }
   .contact-form-section .contact-form {
     padding: 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .contact-form-section .contact-form div {
     width: 100%;
@@ -256,4 +307,4 @@
   .contact-form-section .contact-form .btn-send {
     margin: 32px auto 0;
   }
-}/*# sourceMappingURL=contact.css.map */
+}

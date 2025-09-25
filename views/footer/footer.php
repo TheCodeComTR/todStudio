@@ -53,6 +53,9 @@ $ver =  time();
 <script src="<?= asset('scripts/global.js?v=127') ?>"></script>
 <script src="<?= asset('scripts/index.js?v=125')?>"></script>
 <script src="<?= asset('scripts/production-detail.js?v=125')?> "></script>
+<script src="<?= asset('scripts/playerOne.js')?> "></script>
+<script src="<?= asset('scripts/playerTwo.js')?> "></script>
+<script src="<?= asset('scripts/playerTree.js')?> "></script>
 <script src="<?= asset('scripts/search-result.js?v=125')?>"></script>
 
 </body>
