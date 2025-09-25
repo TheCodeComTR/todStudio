@@ -82,6 +82,8 @@ if (is_array($video)) {
                                   slot="media"
                                   src="<?= $trailer ?>"
                                   playsinline
+                                  autoplay
+                                  muted
                                   crossorigin="anonymous"
                                   poster="<?= esc_url($poster) ?>"
                                 ></video>
@@ -91,9 +93,9 @@ if (is_array($video)) {
                         }
                     } else { ?>
                         <div class="swiper-slide">
-                            <? /*
+                            
                             <video src="<?= $trailer ?>" autoplay muted loop playsinline preload="metadata" poster="<?= esc_url($mimg) ?>"></video>
-                            */?>
+                            
                             
                         </div>
                     <?

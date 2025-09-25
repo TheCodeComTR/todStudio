@@ -28,7 +28,7 @@
         echo '<link rel="stylesheet" href="' . asset('styles/contact.css?v=12') . '">';
     } else if (is_page_template('page-production.php')) {
 
-        echo '<link rel="stylesheet" href="' . asset('styles/production.css') . '">';
+        echo '<link rel="stylesheet" href="' . asset('styles/production.css?v=') .time() . '">';
     }
 
 

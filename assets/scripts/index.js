@@ -5,7 +5,7 @@ $(function () {
       loop: true,
       speed: 700,
       effect: "slide",
-      //autoplay: { delay: 5000, disableOnInteraction: false },
+      autoplay: { delay: 5000, disableOnInteraction: false },
       pagination: {
         el: ".hero-pagination",
         clickable: true,
@@ -94,7 +94,7 @@ $(function () {
           );
         },
       },
-      //autoplay: { delay: 4000, disableOnInteraction: false },
+      autoplay: { delay: 4000, disableOnInteraction: false },
       /*breakpoints: {
         0: { slidesPerView: 1.2, spaceBetween: 12 },
         576: { slidesPerView: 2, spaceBetween: 12 },

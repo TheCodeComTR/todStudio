@@ -60,9 +60,9 @@ view('header/header');
                         
                         <?php while ($filim_query->have_posts()): $filim_query->the_post(); ?>
                             <div class="slider-slide">
-                                <div class="slider-slide-content" style="--bg-image: url('<?= has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'medium') : asset('images/placeholder.png') ?>');">
+                                <div class="slider-slide-content" style="--bg-image: url('<?= has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'medium_large') : asset('images/placeholder.png') ?>');">
                                     <div class="slider-slide-left">
-                                        <img src="<?= has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'medium') : asset('images/placeholder.png') ?>" alt="production">
+                                        <img src="<?= has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'medium_large') : asset('images/placeholder.png') ?>" alt="production">
                                     </div>
                                     <div class="slider-slide-right">
                                         <div class="slider-slide-right-header">
