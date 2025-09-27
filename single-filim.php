@@ -31,7 +31,7 @@ $filmArray['scriptwriter'] = $scriprwriter;
 $filmArray['cast'] = $cast;
 $filmArray['genre'] = $genre;
 $filmArray['year'] = $year;
-$filmArray['episode'] =  preg_replace('/(Season\s*\d+)/', '<br>$1', $episode);//$episode;
+$filmArray['episode'] =  preg_replace('/(?<!^)(Season\s*\d+)/', '<br>$1', $episode);
 $filmArray['company'] = $company;
 $filmArray['presented'] = $presented;
 $filmArray['language'] = $language;
@@ -128,7 +128,10 @@ if (is_array($video)) {
                 <media-theme
                   template="media-theme-sutro"
                   style=" height: 810px; width: 100%;--media-primary-color: #ffffff; --media-secondary-color: #ffffff; --media-accent-color: #ffffff;">
-                  <video src="<?= $trailer ?>" autoplay muted loop playsinline preload="metadata" poster="<?= esc_url($mimg) ?>"></video>
+                  <video
+                  crossorigin="anonymous"
+                  slot="media"
+                   src="<?= $trailer ?>" autoplay muted loop playsinline preload="metadata" poster="<?= esc_url($mimg) ?>"></video>
                 </media-theme>
               <? } else { ?>
                 <img src="<?= esc_url($mimg) ?>" alt="hero image">
