@@ -93,9 +93,15 @@ if (is_array($video)) {
                         }
                     } else { ?>
                         <div class="swiper-slide">
-                            
+                            <div class="swiper-slide">
+                              <media-theme
+                                template="media-theme-sutro"
+                                style=" height: 810px;
+  width: 100%;--media-primary-color: #ffffff; --media-secondary-color: #ffffff; --media-accent-color: #ffffff;"
+                              style="width:100%">
                             <video src="<?= $trailer ?>" autoplay muted loop playsinline preload="metadata" poster="<?= esc_url($mimg) ?>"></video>
-                            
+                            </media-theme>
+                            </div>
                             
                         </div>
                     <?

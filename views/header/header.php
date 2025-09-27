@@ -86,7 +86,7 @@
                         </button>
                     </li>
                     <li class="nav-item">
-                        <a href="/production/" class="nav-link">PRODUCTIONS</a>
+                        <a href="/" class="nav-link">HOME</a>
                     </li>
                     <li class="nav-item">
                         <a href="/about/" class="nav-link">ABOUT</a>

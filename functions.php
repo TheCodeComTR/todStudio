@@ -247,6 +247,7 @@ apply_filters('wpcf7_remote_ip_addr', function ($content) {
 
 
 
+
 function getAllMenu($type)
 {
     $menuLocations = get_nav_menu_locations();
