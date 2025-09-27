@@ -306,12 +306,43 @@
     margin-top: 0;
   }
 }
+ @media (max-width: 768px) {
+  .pd-related {
+   .swiperHasArrow-box{
+    display: none !important;
+   }
+  }
 
+  }
 .pd-related {
   padding: 32px 108px 56px;
   background-color: rgba(#000, 0.16);
   border-bottom: 1px solid rgba(#000, 0.16);
+  position: relative;
 
+  .swiperHasArrow{
+  position: relative;
+ 
+  &-box{
+    .swiper-button-next{
+      margin-right: 32px;
+      img{
+      }
+      &::after{
+        display: none;
+      }
+    }
+    .swiper-button-prev{
+      margin-left: 32px;
+      img{
+        transform: translateY(-50%) rotate(180deg);
+      }
+      &::after{
+        display: none;
+      }
+    }
+  }
+}
   h2 {
     color: #ffbc00;
     text-transform: uppercase;
@@ -761,5 +792,47 @@ body.modal-open {
 
   .pd-badges {
     padding: 8px 16px 24px;
+  }
+}
+
+
+.hero{
+  .singleFilmArrow{
+    width: 100%;
+    top: 50%;
+    z-index: 9;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    position: absolute;
+    padding: 0 24px;
+    &-next{
+      cursor: pointer;
+      img{
+        width: 32px;
+      }
+    }
+    &-prev{
+      cursor: pointer;
+      img{
+        width: 32px;
+         transform: rotate(180deg);
+      }
+    }
+  }
+  .swiperHero{
+    width: 100%;
+  }
+  .pd-related-pagination{
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin: 0 auto;
+    background: #1d1d1d;
+    border-radius: 50px;
+    padding: 14px 16px;
+    .swiper-pagination-bullet-active{
+      background-color: #ffbc00 !important;
+    }
   }
 }

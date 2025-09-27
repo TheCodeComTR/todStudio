@@ -117,6 +117,14 @@ if (is_array($video)) {
           ?>
         </div>
         <div class="pd-related-pagination"></div>
+        <div class="singleFilmArrow">
+            <div class="singleFilmArrow-next ">
+              <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
+            </div>
+             <div class="singleFilmArrow-prev">
+              <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
+            </div>
+          </div>
       </div>
     </div>
     <div class="hero-content">
@@ -345,7 +353,16 @@ if ($season):
           <?php endwhile; ?>
         </div>
         <div class="pd-related-pagination"></div>
+        
       </div>
+      <div class="swiperHasArrow-box">
+            <div class="swiper-button-next">
+               <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
+            </div>
+              <div class="swiper-button-prev">
+               <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
+            </div>
+          </div>
     </section>
   <?php endif; ?>
   <!-- Video modal -->

@@ -299,10 +299,36 @@
   margin-top: 0;
 }
 
+@media (max-width: 768px) {
+  .pd-related .swiperHasArrow-box {
+    display: none !important;
+  }
+}
 .pd-related {
   padding: 32px 108px 56px;
   background-color: rgba(0, 0, 0, 0.16);
   border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+  position: relative;
+}
+.pd-related .swiperHasArrow {
+  position: relative;
+}
+.pd-related .swiperHasArrow-box .swiper-button-next {
+  margin-right: 32px;
+}
+.pd-related .swiperHasArrow-box .swiper-button-next::after {
+  display: none;
+}
+.pd-related .swiperHasArrow-box .swiper-button-prev {
+  margin-left: 32px;
+}
+.pd-related .swiperHasArrow-box .swiper-button-prev img {
+  -webkit-transform: translateY(-50%) rotate(180deg);
+      -ms-transform: translateY(-50%) rotate(180deg);
+          transform: translateY(-50%) rotate(180deg);
+}
+.pd-related .swiperHasArrow-box .swiper-button-prev::after {
+  display: none;
 }
 .pd-related h2 {
   color: #ffbc00;
@@ -789,4 +815,57 @@ body.modal-open {
   .pd-badges {
     padding: 8px 16px 24px;
   }
+}
+.hero .singleFilmArrow {
+  width: 100%;
+  top: 50%;
+  z-index: 9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  position: absolute;
+  padding: 0 24px;
+}
+.hero .singleFilmArrow-next {
+  cursor: pointer;
+}
+.hero .singleFilmArrow-next img {
+  width: 32px;
+}
+.hero .singleFilmArrow-prev {
+  cursor: pointer;
+}
+.hero .singleFilmArrow-prev img {
+  width: 32px;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.hero .swiperHero {
+  width: 100%;
+}
+.hero .pd-related-pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  background: #1d1d1d;
+  border-radius: 50px;
+  padding: 14px 16px;
+}
+.hero .pd-related-pagination .swiper-pagination-bullet-active {
+  background-color: #ffbc00 !important;
 }

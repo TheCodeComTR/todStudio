@@ -35,8 +35,8 @@ $(function () {
             },
           },
           navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: ".singleFilmArrow-next",
+            prevEl: ".singleFilmArrow-prev",
           },
           resizeObserver:true,
           on: { 
@@ -66,6 +66,10 @@ $(function () {
           renderBullet: function (index, className) {
             return '<span class="' + className + '"><span class="fill"></span></span>';
           },
+        },
+        navigation: {
+          nextEl: ".swiperHasArrow-box .swiper-button-next",
+          prevEl: ".swiperHasArrow-box .swiper-button-prev",
         },
         //autoplay: { delay: autoplayMs, disableOnInteraction: false },
         /*breakpoints: {
@@ -284,5 +288,6 @@ $(function () {
 		});
 
 });
+
 
 
