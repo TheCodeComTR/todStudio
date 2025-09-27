@@ -850,6 +850,7 @@ body.modal-open {
 }
 .hero .swiperHero {
   width: 100%;
+  height: 100%;
 }
 .hero .pd-related-pagination {
   display: -webkit-box;

@@ -29,8 +29,14 @@ view('header/header');
                     <? while (have_posts()) {
                         the_post(); ?>
                         <div class="result-item">
-                            <a href="<? the_permalink(); ?>"><? the_title(); ?></a>
-                            <p><?= get_the_excerpt(); ?></p>
+                            <a href="<? the_permalink(); ?>"></a>
+                            <div class="result-item-thumbnail">
+                                <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title_attribute(); ?>">
+                            </div>
+                            <div class="result-item-content">
+                                <h3><? the_title(); ?></h3>
+                                <p><?= wp_trim_words( get_the_content(), 350, '' ); ?></p>
+                            </div>
                         </div>
                     <? } ?>
                 <?php else : ?>
