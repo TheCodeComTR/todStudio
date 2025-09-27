@@ -26,6 +26,28 @@ $related = get_field("related");
 $season = get_field("season");
 
 
+$filmArray['director'] = $director;
+$filmArray['scriptwriter'] = $scriprwriter;
+$filmArray['cast'] = $cast;
+$filmArray['genre'] = $genre;
+$filmArray['year'] = $year;
+$filmArray['episode'] =  preg_replace('/(Season\s*\d+)/', '<br>$1', $episode);//$episode;
+$filmArray['company'] = $company;
+$filmArray['presented'] = $presented;
+$filmArray['language'] = $language;
+$filmArray = array_filter($filmArray);
+
+
+$titleArray['director'] = "Directors";
+$titleArray['scriptwriter'] = "Scriptwriter";
+$titleArray['cast'] = "Cast";
+$titleArray['genre'] = "Genre";
+$titleArray['episode'] = "Total Episodes";
+$titleArray['year'] = "Year of Production";
+$titleArray['company'] = "Production Company";
+$titleArray['presented'] = "Presented by";
+$titleArray['language'] = "Orginal language";
+
 if (is_array($video)) {
   $trailer = $video[0]['url'];
 }
@@ -100,7 +122,7 @@ if (is_array($video)) {
           } else { ?>
             <div class="swiper-slide">
               <?
-              if (isset($video[0]['url'] ) && $video[0]['url'] != "") {
+              if (isset($video[0]['url']) && $video[0]['url'] != "") {
 
               ?>
                 <media-theme
@@ -116,15 +138,20 @@ if (is_array($video)) {
           }
           ?>
         </div>
+        <?
+        if (is_array($seasons) && count($seasons) > 1)
+        {
+        ?>
         <div class="pd-related-pagination"></div>
+        <?}?>
         <div class="singleFilmArrow">
-            <div class="singleFilmArrow-next ">
-              <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
-            </div>
-             <div class="singleFilmArrow-prev">
-              <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
-            </div>
+          <div class="singleFilmArrow-next ">
+            <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
           </div>
+          <div class="singleFilmArrow-prev">
+            <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
+          </div>
+        </div>
       </div>
     </div>
     <div class="hero-content">
@@ -134,96 +161,57 @@ if (is_array($video)) {
   </section>
 
   <!-- Info grid -->
+
   <section class="pd-info">
-    <div class="pd-info-card">
-      <div class="pd-info-icon"><img src="<?= asset('images/director.svg') ?>" alt="directors"></div>
-      <div class="pd-info-text">
-        <div class="pd-info-title">Directors</div>
-        <div class="pd-info-value" id="detail-directors"><?= $director ?></div>
+
+    <?
+    $art = 0;
+    $totalArray = count($filmArray);
+    foreach ($filmArray as $key => $value) {
+
+      ++$art;
+    ?>
+      <div class="pd-info-card" data-id="<?= $totalArray ?>">
+        <div class="pd-info-icon"><img src="<?= asset('images/' . $key . '.svg') ?>" alt="<?= $key ?>"></div>
+        <div class="pd-info-text">
+          <div class="pd-info-title"><?= $titleArray[$key] ?></div>
+          <div class="pd-info-value" id="detail-<?= $key ?>"><?= $value ?></div>
+        </div>
       </div>
-    </div>
-    <div class="pd-info-card">
-      <div class="pd-info-icon"><img src="<?= asset('images/writer.svg') ?>" alt="scriptwriter"></div>
-      <div class="pd-info-text">
-        <div class="pd-info-title">Scriptwriter</div>
-        <div class="pd-info-value" id="detail-scriptwriter"><?= $scriprwriter ?></div>
-      </div>
-    </div>
-    <div class="pd-info-card">
-      <div class="pd-info-icon"><img src="<?= asset('images/cast.svg') ?>" alt="cast"></div>
-      <div class="pd-info-text">
-        <div class="pd-info-title">Cast</div>
-        <div class="pd-info-value" id="detail-cast"><?= $cast ?></div>
-      </div>
-    </div>
+    <?
+      unset($filmArray[$key]);
+      if ($totalArray > 4 && $art  == 3) 
+      {
+       break;
+      }
+      
+    }
+    ?>
+
+    <?
+    if($totalArray > 4){ 
+    ?>
+
     <div class="pd-info-card pd-info-stats">
       <ul>
-        <? if ($genre): ?>
-          <li>
-            <img src="<?= asset('images/genre.svg') ?>" alt="genre">
-            <div class="pd-info-kv">
-              <div class="pd-info-kv-label">GENRE</div>
-              <div class="pd-info-kv-value" id="detail-genre"><?= $genre ?></div>
-            </div>
-          </li>
         <?
-        endif;
-        if ($episode): ?>
-          <li>
-            <img src="<?= asset('images/episodes.svg') ?>" alt="total episodes">
-            <div class="pd-info-kv">
-              <div class="pd-info-kv-label">TOTAL EPISODES</div>
-              <div class="pd-info-kv-value" id="detail-total"><?= preg_replace('/(Season\s*\d+)/', '<br>$1', $episode); ?></div>
-            </div>
-          </li>
-        <?
-        endif;
-        if ($year): ?>
-          <li>
-            <img src="<?= asset('images/year-of-production.svg') ?>" alt="year of production">
-            <div class="pd-info-kv">
-              <div class="pd-info-kv-label">YEAR OF PRODUCTION</div>
-              <div class="pd-info-kv-value" id="detail-year"><?= $year ?></div>
-            </div>
-          </li>
-        <?
-        endif;
+        foreach ($filmArray as $key => $value) {
+          if ($value == "")  continue;
         ?>
-        <?
-        if ($company): ?>
+
           <li>
-            <img src="<?= asset('images/company.svg') ?>" alt="production company">
+            <img src="<?= asset('images/' . $key . '.svg') ?>" alt="<?= $key ?>">
             <div class="pd-info-kv">
-              <div class="pd-info-kv-label">PRODUCTION COMPANY</div>
-              <div class="pd-info-kv-value" id="detail-company"><?= $company ?></div>
+              <div class="pd-info-kv-label"><?= $titleArray[$key] ?></div>
+              <div class="pd-info-kv-value" id="detail-<?= $key ?>"><?= $value ?></div>
             </div>
           </li>
-        <? endif;
-        ?>
-        <?
-        if ($presented): ?>
-          <li>
-            <img src="<?= asset('images/company.svg') ?>" alt="production company">
-            <div class="pd-info-kv">
-              <div class="pd-info-kv-label">Presented by</div>
-              <div class="pd-info-kv-value"><?= $presented ?></div>
-            </div>
-          </li>
-        <? endif;
-        if ($language == ""):
-        ?>
-          <li>
-            <img src="<?= asset('images/languages.svg') ?>" alt="awards">
-            <div class="pd-info-kv">
-              <div class="pd-info-kv-label">Orginal language</div>
-              <div class="pd-info-kv-value"><?= $language ?></div>
-            </div>
-          </li>
-        <?
-        endif;
-        ?>
+        <? } ?>
       </ul>
     </div>
+    <?
+    }
+    ?>
   </section>
   <?
   if ($seasons) {
@@ -353,16 +341,16 @@ if ($season):
           <?php endwhile; ?>
         </div>
         <div class="pd-related-pagination"></div>
-        
+
       </div>
       <div class="swiperHasArrow-box">
-            <div class="swiper-button-next">
-               <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
-            </div>
-              <div class="swiper-button-prev">
-               <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
-            </div>
-          </div>
+        <div class="swiper-button-next">
+          <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
+        </div>
+        <div class="swiper-button-prev">
+          <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
+        </div>
+      </div>
     </section>
   <?php endif; ?>
   <!-- Video modal -->

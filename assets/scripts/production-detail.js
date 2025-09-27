@@ -53,6 +53,9 @@ $(function () {
                 $("#detail-year").html(seasonData[realIndex].year_of_production);
                 $("#detail-company").html(seasonData[realIndex].production_company);
                 $("#detail-cast").html(seasonData[realIndex].cast);
+                $('video').each(function() { 
+                  this.pause(); // this.currentTime = 0; 
+                });
           }}
         });
       var autoplayMs = 4000;
