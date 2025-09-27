@@ -139,7 +139,7 @@
 .pd-info .pd-info-stats ul {
   list-style: none;
   display: grid;
-  gap: 16px;
+  gap: 12px;
 }
 .pd-info .pd-info-stats li {
   display: -webkit-box;
