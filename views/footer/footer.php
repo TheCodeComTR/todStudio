@@ -32,7 +32,7 @@ wp_footer();
         <div class="footer-right">
             <nav class="footer-nav">
                 <a href="/">HOME</a>
-                <a href="/productions/">PRODUCTIONS</a>
+
                 <a href="/about/">ABOUT</a>
                 <a href="/contact/">CONTACT</a>
             </nav>
@@ -52,7 +52,7 @@ $ver =  time();
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script src="<?= asset('scripts/global.js?v=').time() ?>"></script>
 <script src="<?= asset('scripts/index.js?v=').time()?>"></script>
-<script src="<?= asset('scripts/production-detail.js?v=125')?> "></script>
+<script src="<?= asset('scripts/production-detail.js?v=').time()?> "></script>
 <script src="<?= asset('scripts/search-result.js?v=125')?>"></script>
 
 </body>

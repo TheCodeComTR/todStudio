@@ -10,8 +10,8 @@ view('header/header');
             <img src="<?= asset('images/hero_section.jpg') ?>" alt="hero">
         </div>
         <div class="hero-content">
-            <h1><?=get_the_title();?></h1>
-            <?=get_the_content();?>
+            <h1><?= get_the_title(); ?></h1>
+            <?= get_the_content(); ?>
         </div>
     </section>
     <?php
@@ -32,10 +32,15 @@ view('header/header');
                     'terms'    => $cat_slug,
                 ]
             ],
+            'meta_key'       => 'year',           // ACF alanı
+            'orderby'        => 'meta_value_num', // sayısal sıralama tetikleyici
+            'order'          => 'DESC',
         ];
 
         $filim_query = new WP_Query($args);
         if (!$filim_query->have_posts()) continue;
+
+
     ?>
 
 
@@ -57,8 +62,30 @@ view('header/header');
             <div class="custom-slider <?= esc_attr($cat_slug) ?>-slider">
                 <div class="slider-viewport">
                     <div class="slider-track">
-                        
-                        <?php while ($filim_query->have_posts()): $filim_query->the_post(); ?>
+
+                        <?php while ($filim_query->have_posts()): $filim_query->the_post();
+                            $video = get_field("trailer");
+                            $mimg  = get_field("main-img");
+                            $director = get_field("director");
+                            $scriprwriter = get_field("scriprwriter");
+                            $cast = get_field("cast");
+                            $presented = get_field("presented");
+                            $genre = get_field("genre");
+                            $language = get_field("language");
+                            $episode = get_field("episode");
+                            $year = get_field("year");
+                            $company = get_field("company");
+
+                            $awards = get_field("awards");
+                            $subtitles = get_field("subtitles");
+                            $audio_languages = get_field("audio_languages");
+                            $thumbnails = get_field("thumbnails");
+                            $related = get_field("related");
+
+                            $season = get_field("season");
+                            $seasons = get_field('film_block');
+
+                        ?>
                             <div class="slider-slide">
                                 <div class="slider-slide-content" style="--bg-image: url('<?= has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'medium_large') : asset('images/placeholder.png') ?>');">
                                     <div class="slider-slide-left">
@@ -67,7 +94,7 @@ view('header/header');
                                     <div class="slider-slide-right">
                                         <div class="slider-slide-right-header">
                                             <h3><?php the_title(); ?></h3>
-                                            <?php the_content( ); ?>
+                                            <?php the_content(); ?>
                                         </div>
                                         <div class="slider-slide-right-content">
                                             <div class="slider-slide-right-content-item">
@@ -79,7 +106,7 @@ view('header/header');
                                                         Directors
                                                     </div>
                                                     <div class="slider-slide-right-content-item-content">
-                                                        Mustafa Kotan
+                                                        <?=$director?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -92,22 +119,22 @@ view('header/header');
                                                         Cast
                                                     </div>
                                                     <div class="slider-slide-right-content-item-content">
-                                                        Nilperi Sahinkaya, Hülya Duyar, Ahmet Kayakesen
+                                                        <?=$cast?>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="slider-slide-right-content-item-flex">
                                                 <div class="slider-slide-right-content-item-flex-item">
                                                     <img src="<?= asset('images/thriller.svg') ?>" alt="thriller">
-                                                    Thriller
+                                                    <?=$genre?>
                                                 </div>
                                                 <div class="slider-slide-right-content-item-flex-item">
                                                     <img src="<?= asset('images/date.svg') ?>" alt="thriller">
-                                                    2022
+                                                    <?= $year ?>
                                                 </div>
                                                 <div class="slider-slide-right-content-item-flex-item">
                                                     <img src="<?= asset('images/clock.svg') ?>" alt="thriller">
-                                                    01.48
+                                                   2 Seasons
                                                 </div>
                                             </div>
 

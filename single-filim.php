@@ -74,30 +74,43 @@ if (is_array($video)) {
               $poster = wp_is_mobile() ? $imageMobile : $imageDesktop;
           ?>
               <div class="swiper-slide">
-                <media-theme
-                  template="media-theme-sutro"
-                  style=" height: 810px; width: 100%;--media-primary-color: #ffffff; --media-secondary-color: #ffffff; --media-accent-color: #ffffff;"
-                  >
-                  <video
-                    slot="media"
-                    src="<?= $trailer ?>"
-                    playsinline
-                    autoplay
-                    muted
-                    crossorigin="anonymous"
-                    poster="<?= esc_url($poster) ?>"></video>
-                </media-theme>
+                <?
+                if ($trailer != "") {
+                ?>
+                  <media-theme
+                    template="media-theme-sutro"
+                    style=" height: 810px; width: 100%;--media-primary-color: #ffffff; --media-secondary-color: #ffffff; --media-accent-color: #ffffff;">
+                    <video
+                      slot="media"
+                      src="<?= $trailer ?>"
+                      playsinline
+                      autoplay
+                      muted
+                      crossorigin="anonymous"
+                      poster="<?= esc_url($poster) ?>"></video>
+                  </media-theme>
+                <?
+                } else {
+                ?>
+                  <img src="<?= esc_url($poster) ?>" alt="hero image">
+                <? } ?>
               </div>
             <?
             }
           } else { ?>
             <div class="swiper-slide">
-              <media-theme
-                template="media-theme-sutro"
-                style=" height: 810px; width: 100%;--media-primary-color: #ffffff; --media-secondary-color: #ffffff; --media-accent-color: #ffffff;"
-                >
-                <video src="<?= $trailer ?>" autoplay muted loop playsinline preload="metadata" poster="<?= esc_url($mimg) ?>"></video>
-              </media-theme>
+              <?
+              if (isset($video[0]['url'] ) && $video[0]['url'] != "") {
+
+              ?>
+                <media-theme
+                  template="media-theme-sutro"
+                  style=" height: 810px; width: 100%;--media-primary-color: #ffffff; --media-secondary-color: #ffffff; --media-accent-color: #ffffff;">
+                  <video src="<?= $trailer ?>" autoplay muted loop playsinline preload="metadata" poster="<?= esc_url($mimg) ?>"></video>
+                </media-theme>
+              <? } else { ?>
+                <img src="<?= esc_url($mimg) ?>" alt="hero image">
+              <? } ?>
             </div>
           <?
           }
