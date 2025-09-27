@@ -81,23 +81,31 @@
   grid-template-columns: 1fr 1fr 1fr 1.5fr;
   gap: 16px;
   margin-top: 10px;
-
+  &:not(:has(.pd-info-stats)){
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+  }
   .pd-info-card {
     display: flex;
     gap: 16px;
     align-items: center;
+      flex-direction: column;
+      text-align: center;
+      gap: 24px;
+      justify-content: center;
     padding: 16px;
     border-radius: 12px;
     background: rgba(0, 0, 0, 0.16);
     height: 246px;
 
     &:not(:last-child) {
-      flex-direction: column;
-      text-align: center;
-      gap: 24px;
-      justify-content: center;
-    }
 
+    }
+    &.pd-info-stats{
+      flex-direction: row;
+      gap: 24px;
+      text-align: unset !important;
+      justify-content: unset !important;
+    }
     .pd-info-icon img {
       width: 48px;
       height: 48px;

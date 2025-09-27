@@ -82,6 +82,9 @@
   gap: 16px;
   margin-top: 10px;
 }
+.pd-info:not(:has(.pd-info-stats)) {
+  grid-template-columns: 1fr 1fr 1fr 1fr !important;
+}
 .pd-info .pd-info-card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -90,12 +93,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 16px;
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.16);
-  height: 246px;
-}
-.pd-info .pd-info-card:not(:last-child) {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -105,6 +102,21 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.16);
+  height: 246px;
+}
+.pd-info .pd-info-card.pd-info-stats {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 24px;
+  text-align: unset !important;
+  -webkit-box-pack: unset !important;
+      -ms-flex-pack: unset !important;
+          justify-content: unset !important;
 }
 .pd-info .pd-info-card .pd-info-icon img {
   width: 48px;
