@@ -114,7 +114,7 @@ $slider = get_field('slider');
 		$filim_query = new WP_Query($args);
 		if ($filim_query->have_posts()): ?>
 
-			<section class="productions">
+			<section class="productions swiperHasArrow">
 				<div class="productions-header">
 					<div class="productions-header-left">
 						<h2><?= esc_html($category->name) ?></h2>
@@ -128,7 +128,7 @@ $slider = get_field('slider');
 					</div>
 				</div>
 
-				<div class="swiper <?= esc_attr($cat_slug) ?>-swiper">
+				<div class="swiper <?= esc_attr($cat_slug) ?>-swiper ">
 					<div class="swiper-wrapper">
 						<?php while ($filim_query->have_posts()): $filim_query->the_post(); ?>
 							<div class="swiper-slide">
@@ -145,6 +145,14 @@ $slider = get_field('slider');
 					</div>
 					<div class="<?= esc_attr($cat_slug) ?>-pagination swiper-pagination"></div>
 				</div>
+				<div class="swiperHasArrow-box <?= esc_attr($cat_slug) ?>-swiper-arrow">
+						<div class="swiper-button-next">
+							<img src="https://todstudio.thecode.com.tr/wp-content/themes/todstudio/assets/images/arrow_white.svg" alt="">
+						</div>
+    					<div class="swiper-button-prev">
+							<img src="https://todstudio.thecode.com.tr/wp-content/themes/todstudio/assets/images/arrow_white.svg" alt="">
+						</div>
+					</div>
 			</section>
 
 	<?php

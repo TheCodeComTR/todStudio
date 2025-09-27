@@ -718,3 +718,24 @@
   height: 100%;
   z-index: 9;
 } 
+
+.swiperHasArrow{
+  position: relative;
+  &-box{
+    .swiper-button-next{
+      margin-right: 32px;
+      &::after{
+        display: none;
+      }
+    }
+    .swiper-button-prev{
+      margin-left: 32px;
+      img{
+        transform: translateY(-50%) rotate(180deg);
+      }
+      &::after{
+        display: none;
+      }
+    }
+  }
+}

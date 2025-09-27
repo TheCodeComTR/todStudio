@@ -160,6 +160,9 @@
   letter-spacing: 0.08em;
   color: #fff;
 }
+.pd-info .pd-info-stats #detail-total br:nth-child(1) {
+  display: none;
+}
 
 .pd-badges {
   padding: 8px 108px 24px;

@@ -52,6 +52,10 @@ $(function () {
           );
         },
       },
+      navigation: {
+        nextEl: ".productions .series-swiper-arrow .swiper-button-next",
+        prevEl: ".productions .series-swiper-arrow .swiper-button-prev",
+      },
       autoplay: { delay: 4000, disableOnInteraction: false },
       /*breakpoints: {
         0: { slidesPerView: 1.2, spaceBetween: 12 },
@@ -94,6 +98,10 @@ $(function () {
           );
         },
       },
+      navigation: {
+        nextEl: ".productions .life-style-swiper-arrow .swiper-button-next",
+        prevEl: ".productions .life-style-swiper-arrow .swiper-button-prev",
+      },
       autoplay: { delay: 4000, disableOnInteraction: false },
       /*breakpoints: {
         0: { slidesPerView: 1.2, spaceBetween: 12 },
@@ -134,6 +142,10 @@ $(function () {
             '<span class="' + className + '"><span class="fill"></span></span>'
           );
         },
+      },
+      navigation: {
+        nextEl: ".productions .kids-swiper-arrow .swiper-button-next",
+        prevEl: ".productions .kids-swiper-arrow .swiper-button-prev",
       },
       autoplay: { delay: 4000, disableOnInteraction: false },
       /*breakpoints: {

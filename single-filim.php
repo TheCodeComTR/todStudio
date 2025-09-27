@@ -70,6 +70,7 @@ if (is_array($video)) {
                             $imageMobile = $season['hero_mobile'];
                             $imageDesktop = $season['hero'];
                             $trailer = $season['video'];
+
                             $poster = wp_is_mobile() ? $imageMobile : $imageDesktop;
                     ?>
                             <div class="swiper-slide">
@@ -142,7 +143,7 @@ if (is_array($video)) {
         </div>
         <div class="pd-info-card pd-info-stats">
             <ul>
-                <? if ($episode): ?>
+                <? if ($genre): ?>
                     <li>
                         <img src="<?= asset('images/genre.svg') ?>" alt="genre">
                         <div class="pd-info-kv">
@@ -157,7 +158,7 @@ if (is_array($video)) {
                         <img src="<?= asset('images/episodes.svg') ?>" alt="total episodes">
                         <div class="pd-info-kv">
                             <div class="pd-info-kv-label">TOTAL EPISODES</div>
-                            <div class="pd-info-kv-value" id="detail-total"><?= $episode ?></div>
+                            <div class="pd-info-kv-value" id="detail-total"><?= preg_replace('/(Season\s*\d+)/', '<br>$1', $episode); ?></div>
                         </div>
                     </li>
                 <?
