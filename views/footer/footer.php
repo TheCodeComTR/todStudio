@@ -50,8 +50,8 @@ $ver =  time();
 ?>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<script src="<?= asset('scripts/global.js?v=127') ?>"></script>
-<script src="<?= asset('scripts/index.js?v=125')?>"></script>
+<script src="<?= asset('scripts/global.js?v=').time() ?>"></script>
+<script src="<?= asset('scripts/index.js?v=').time()?>"></script>
 <script src="<?= asset('scripts/production-detail.js?v=125')?> "></script>
 <script src="<?= asset('scripts/search-result.js?v=125')?>"></script>
 

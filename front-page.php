@@ -109,6 +109,9 @@ $slider = get_field('slider');
 					'terms'    => $cat_slug,
 				]
 			],
+			'meta_key'       => 'year',           // ACF alanı
+			'orderby'        => 'meta_value_num', // sayısal sıralama tetikleyici
+			'order'          => 'DESC', 
 		];
 
 		$filim_query = new WP_Query($args);

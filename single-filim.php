@@ -27,217 +27,211 @@ $season = get_field("season");
 
 
 if (is_array($video)) {
-    $trailer = $video[0]['url'];
+  $trailer = $video[0]['url'];
 }
 
 ?>
 <style>
-    .pd-related-swiper .swiper-slide {
-        width: 289px;
-        height: auto;
+  .pd-related-swiper .swiper-slide {
+    width: 289px;
+    height: auto;
 
-    }
+  }
 
-    .pd-related .pd-related-card img {
-        width: auto;
-        height: 413px;
-    }
+  .pd-related .pd-related-card img {
+    width: auto;
+    height: 413px;
+  }
 
-    .pd-main .hero .hero-container img,
-    .hero .hero-container video {
-        object-fit: contain;
-    }
+  .pd-main .hero .hero-container img,
+  .hero .hero-container video {
+    object-fit: contain;
+  }
 
-    .hero .hero-container {
-        background-color: black;
-    }
+  .hero .hero-container {
+    background-color: black;
+  }
 </style>
 <script type="text/javascript">
-    const seasonData = <?= $seasonData ?>;
-    //console.log(seasonData);
+  const seasonData = <?= $seasonData ?>;
+  //console.log(seasonData);
 </script>
 
 <main class="pd-main">
-    <!-- Hero (same structure as index.html, image replaced with video) -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="swiper swiperHero">
-                <div class="swiper-wrapper">
-                    <?
-                    if (is_array($seasons)) {
+  <!-- Hero (same structure as index.html, image replaced with video) -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="swiper swiperHero">
+        <div class="swiper-wrapper">
+          <?
+          if (is_array($seasons)) {
 
-                        foreach ($seasons as $season) {
-                            $imageMobile = $season['hero_mobile'];
-                            $imageDesktop = $season['hero'];
-                            $trailer = $season['video'];
+            foreach ($seasons as $season) {
+              $imageMobile = $season['hero_mobile'];
+              $imageDesktop = $season['hero'];
+              $trailer = $season['video'];
 
-                            $poster = wp_is_mobile() ? $imageMobile : $imageDesktop;
-                    ?>
-                            <div class="swiper-slide">
-                              <media-theme
-                                template="media-theme-sutro"
-                                style=" height: 810px;
-  width: 100%;--media-primary-color: #ffffff; --media-secondary-color: #ffffff; --media-accent-color: #ffffff;"
-                              style="width:100%">
-                                <video
-                                  slot="media"
-                                  src="<?= $trailer ?>"
-                                  playsinline
-                                  autoplay
-                                  muted
-                                  crossorigin="anonymous"
-                                  poster="<?= esc_url($poster) ?>"
-                                ></video>
-                              </media-theme>
-                            </div>
-                        <?
-                        }
-                    } else { ?>
-                        <div class="swiper-slide">
-                            <div class="swiper-slide">
-                              <media-theme
-                                template="media-theme-sutro"
-                                style=" height: 810px;
-  width: 100%;--media-primary-color: #ffffff; --media-secondary-color: #ffffff; --media-accent-color: #ffffff;"
-                              style="width:100%">
-                            <video src="<?= $trailer ?>" autoplay muted loop playsinline preload="metadata" poster="<?= esc_url($mimg) ?>"></video>
-                            </media-theme>
-                            </div>
-                            
-                        </div>
-                    <?
-                    }
-                    ?>
-                </div>
-                <div class="pd-related-pagination"></div>
+              $poster = wp_is_mobile() ? $imageMobile : $imageDesktop;
+          ?>
+              <div class="swiper-slide">
+                <media-theme
+                  template="media-theme-sutro"
+                  style=" height: 810px; width: 100%;--media-primary-color: #ffffff; --media-secondary-color: #ffffff; --media-accent-color: #ffffff;"
+                  >
+                  <video
+                    slot="media"
+                    src="<?= $trailer ?>"
+                    playsinline
+                    autoplay
+                    muted
+                    crossorigin="anonymous"
+                    poster="<?= esc_url($poster) ?>"></video>
+                </media-theme>
+              </div>
+            <?
+            }
+          } else { ?>
+            <div class="swiper-slide">
+              <media-theme
+                template="media-theme-sutro"
+                style=" height: 810px; width: 100%;--media-primary-color: #ffffff; --media-secondary-color: #ffffff; --media-accent-color: #ffffff;"
+                >
+                <video src="<?= $trailer ?>" autoplay muted loop playsinline preload="metadata" poster="<?= esc_url($mimg) ?>"></video>
+              </media-theme>
             </div>
+          <?
+          }
+          ?>
         </div>
-        <div class="hero-content">
-            <h1 id="detail-title"><?= get_the_title(); ?></h1>
-            <div id="detail-about"><?= get_the_content(); ?></div>
+        <div class="pd-related-pagination"></div>
+      </div>
+    </div>
+    <div class="hero-content">
+      <h1 id="detail-title"><?= get_the_title(); ?></h1>
+      <div id="detail-about"><?= get_the_content(); ?></div>
+    </div>
+  </section>
+
+  <!-- Info grid -->
+  <section class="pd-info">
+    <div class="pd-info-card">
+      <div class="pd-info-icon"><img src="<?= asset('images/director.svg') ?>" alt="directors"></div>
+      <div class="pd-info-text">
+        <div class="pd-info-title">Directors</div>
+        <div class="pd-info-value" id="detail-directors"><?= $director ?></div>
+      </div>
+    </div>
+    <div class="pd-info-card">
+      <div class="pd-info-icon"><img src="<?= asset('images/writer.svg') ?>" alt="scriptwriter"></div>
+      <div class="pd-info-text">
+        <div class="pd-info-title">Scriptwriter</div>
+        <div class="pd-info-value" id="detail-scriptwriter"><?= $scriprwriter ?></div>
+      </div>
+    </div>
+    <div class="pd-info-card">
+      <div class="pd-info-icon"><img src="<?= asset('images/cast.svg') ?>" alt="cast"></div>
+      <div class="pd-info-text">
+        <div class="pd-info-title">Cast</div>
+        <div class="pd-info-value" id="detail-cast"><?= $cast ?></div>
+      </div>
+    </div>
+    <div class="pd-info-card pd-info-stats">
+      <ul>
+        <? if ($genre): ?>
+          <li>
+            <img src="<?= asset('images/genre.svg') ?>" alt="genre">
+            <div class="pd-info-kv">
+              <div class="pd-info-kv-label">GENRE</div>
+              <div class="pd-info-kv-value" id="detail-genre"><?= $genre ?></div>
+            </div>
+          </li>
+        <?
+        endif;
+        if ($episode): ?>
+          <li>
+            <img src="<?= asset('images/episodes.svg') ?>" alt="total episodes">
+            <div class="pd-info-kv">
+              <div class="pd-info-kv-label">TOTAL EPISODES</div>
+              <div class="pd-info-kv-value" id="detail-total"><?= preg_replace('/(Season\s*\d+)/', '<br>$1', $episode); ?></div>
+            </div>
+          </li>
+        <?
+        endif;
+        if ($year): ?>
+          <li>
+            <img src="<?= asset('images/year-of-production.svg') ?>" alt="year of production">
+            <div class="pd-info-kv">
+              <div class="pd-info-kv-label">YEAR OF PRODUCTION</div>
+              <div class="pd-info-kv-value" id="detail-year"><?= $year ?></div>
+            </div>
+          </li>
+        <?
+        endif;
+        ?>
+        <?
+        if ($company): ?>
+          <li>
+            <img src="<?= asset('images/company.svg') ?>" alt="production company">
+            <div class="pd-info-kv">
+              <div class="pd-info-kv-label">PRODUCTION COMPANY</div>
+              <div class="pd-info-kv-value" id="detail-company"><?= $company ?></div>
+            </div>
+          </li>
+        <? endif;
+        ?>
+        <?
+        if ($presented): ?>
+          <li>
+            <img src="<?= asset('images/company.svg') ?>" alt="production company">
+            <div class="pd-info-kv">
+              <div class="pd-info-kv-label">Presented by</div>
+              <div class="pd-info-kv-value"><?= $presented ?></div>
+            </div>
+          </li>
+        <? endif;
+        if ($language == ""):
+        ?>
+          <li>
+            <img src="<?= asset('images/languages.svg') ?>" alt="awards">
+            <div class="pd-info-kv">
+              <div class="pd-info-kv-label">Orginal language</div>
+              <div class="pd-info-kv-value"><?= $language ?></div>
+            </div>
+          </li>
+        <?
+        endif;
+        ?>
+      </ul>
+    </div>
+  </section>
+  <?
+  if ($seasons) {
+  ?>
+    <section class="pd-related">
+      <h2>Season</h2>
+      <div class="swiper pd-related-swiper">
+        <div class="swiper-wrapper">
+
+          <? foreach ($seasons as $key => $seasonx) { ?>
+            <div class="swiper-slide">
+              <a
+                href="#"
+                class="pd-related-card" ,
+                data-key="<?= $key ?>">
+                <img src="<?= $seasonx['hero_mobile'] ?>" alt="thumb <?= $key + 1 ?>">
+                <span class="pd-related-caption"><?= $seasonx['name'] ?></span>
+              </a>
+            </div>
+          <?php } ?>
         </div>
+        <div class="pd-related-pagination"></div>
+      </div>
     </section>
-
-    <!-- Info grid -->
-    <section class="pd-info">
-        <div class="pd-info-card">
-            <div class="pd-info-icon"><img src="<?= asset('images/director.svg') ?>" alt="directors"></div>
-            <div class="pd-info-text">
-                <div class="pd-info-title">Directors</div>
-                <div class="pd-info-value" id="detail-directors"><?= $director ?></div>
-            </div>
-        </div>
-        <div class="pd-info-card">
-            <div class="pd-info-icon"><img src="<?= asset('images/writer.svg') ?>" alt="scriptwriter"></div>
-            <div class="pd-info-text">
-                <div class="pd-info-title">Scriptwriter</div>
-                <div class="pd-info-value" id="detail-scriptwriter"><?= $scriprwriter ?></div>
-            </div>
-        </div>
-        <div class="pd-info-card">
-            <div class="pd-info-icon"><img src="<?= asset('images/cast.svg') ?>" alt="cast"></div>
-            <div class="pd-info-text">
-                <div class="pd-info-title">Cast</div>
-                <div class="pd-info-value" id="detail-cast"><?= $cast ?></div>
-            </div>
-        </div>
-        <div class="pd-info-card pd-info-stats">
-            <ul>
-                <? if ($genre): ?>
-                    <li>
-                        <img src="<?= asset('images/genre.svg') ?>" alt="genre">
-                        <div class="pd-info-kv">
-                            <div class="pd-info-kv-label">GENRE</div>
-                            <div class="pd-info-kv-value" id="detail-genre"><?= $genre ?></div>
-                        </div>
-                    </li>
-                <?
-                endif;
-                if ($episode): ?>
-                    <li>
-                        <img src="<?= asset('images/episodes.svg') ?>" alt="total episodes">
-                        <div class="pd-info-kv">
-                            <div class="pd-info-kv-label">TOTAL EPISODES</div>
-                            <div class="pd-info-kv-value" id="detail-total"><?= preg_replace('/(Season\s*\d+)/', '<br>$1', $episode); ?></div>
-                        </div>
-                    </li>
-                <?
-                endif;
-                if ($year): ?>
-                    <li>
-                        <img src="<?= asset('images/year-of-production.svg') ?>" alt="year of production">
-                        <div class="pd-info-kv">
-                            <div class="pd-info-kv-label">YEAR OF PRODUCTION</div>
-                            <div class="pd-info-kv-value" id="detail-year"><?= $year ?></div>
-                        </div>
-                    </li>
-                <?
-                endif;
-                ?>
-                <?
-                if ($company): ?>
-                    <li>
-                        <img src="<?= asset('images/company.svg') ?>" alt="production company">
-                        <div class="pd-info-kv">
-                            <div class="pd-info-kv-label">PRODUCTION COMPANY</div>
-                            <div class="pd-info-kv-value" id="detail-company"><?= $company ?></div>
-                        </div>
-                    </li>
-                <? endif;
-                ?>
-                <?
-                if ($presented): ?>
-                    <li>
-                        <img src="<?= asset('images/company.svg') ?>" alt="production company">
-                        <div class="pd-info-kv">
-                            <div class="pd-info-kv-label">Presented by</div>
-                            <div class="pd-info-kv-value"><?= $presented ?></div>
-                        </div>
-                    </li>
-                <? endif;
-                if ($language == ""):
-                ?>
-                    <li>
-                        <img src="<?= asset('images/languages.svg') ?>" alt="awards">
-                        <div class="pd-info-kv">
-                            <div class="pd-info-kv-label">Orginal language</div>
-                            <div class="pd-info-kv-value"><?= $language ?></div>
-                        </div>
-                    </li>
-                <?
-                endif;
-                ?>
-            </ul>
-        </div>
-    </section>
-    <?
-    if ($seasons) {
-    ?>
-        <section class="pd-related">
-            <h2>Season</h2>
-            <div class="swiper pd-related-swiper">
-                <div class="swiper-wrapper">
-
-                    <? foreach ($seasons as $key => $seasonx) { ?>
-                        <div class="swiper-slide">
-                            <a
-                                href="#"
-                                class="pd-related-card" ,
-                                data-key="<?= $key ?>">
-                                <img src="<?= $seasonx['hero_mobile'] ?>" alt="thumb <?= $key + 1 ?>">
-                                <span class="pd-related-caption"><?= $seasonx['name'] ?></span>
-                            </a>
-                        </div>
-                    <?php } ?>
-                </div>
-                <div class="pd-related-pagination"></div>
-            </div>
-        </section>
-    <?
-    }
-    ?>
-    <?
-    /*
+  <?
+  }
+  ?>
+  <?
+  /*
 if ($season):
 ?>
     <section class="pd-related">
@@ -259,7 +253,7 @@ if ($season):
     </section>
 <?endif;
 */ ?>
-    <?/*
+  <?/*
     <!-- Subtitles / audio languages -->
     <section class="pd-badges" style="display: none;">
         <div class="pd-badge">
@@ -306,51 +300,51 @@ if ($season):
         </div>
     </section>
     */ ?>
-    <?php
-    $current_id = get_the_ID();
-    $categories = wp_get_post_categories($current_id);
-    //print_r($categories);
-    $args = [
-        'post_type'      => 'filim',
-        'posts_per_page' => 20,
-        'post__not_in'   => [$current_id],
-        'category__in'   => $categories
-    ];
+  <?php
+  $current_id = get_the_ID();
+  $categories = wp_get_post_categories($current_id);
+  //print_r($categories);
+  $args = [
+    'post_type'      => 'filim',
+    'posts_per_page' => 20,
+    'post__not_in'   => [$current_id],
+    'category__in'   => $categories
+  ];
 
-    $related_query = new WP_Query($args);
+  $related_query = new WP_Query($args);
 
-    if ($related_query->have_posts()): ?>
-        <!-- Related -->
-        <section class="pd-related">
-            <h2>Related</h2>
-            <div class="swiper pd-related-swiper">
-                <div class="swiper-wrapper">
+  if ($related_query->have_posts()): ?>
+    <!-- Related -->
+    <section class="pd-related">
+      <h2>Related</h2>
+      <div class="swiper pd-related-swiper">
+        <div class="swiper-wrapper">
 
-                    <?php while ($related_query->have_posts()): $related_query->the_post(); ?>
-                        <div class="swiper-slide">
-                            <a href="<?php the_permalink(); ?>" class="pd-related-card">
-                                <?php if (has_post_thumbnail()): ?>
-                                    <?php the_post_thumbnail('medium'); ?>
-                                <?php endif; ?>
-                                <span class="pd-related-caption"><?php the_title(); ?></span>
-                            </a>
-                        </div>
-                    <?php endwhile; ?>
-                </div>
-                <div class="pd-related-pagination"></div>
+          <?php while ($related_query->have_posts()): $related_query->the_post(); ?>
+            <div class="swiper-slide">
+              <a href="<?php the_permalink(); ?>" class="pd-related-card">
+                <?php if (has_post_thumbnail()): ?>
+                  <?php the_post_thumbnail('medium'); ?>
+                <?php endif; ?>
+                <span class="pd-related-caption"><?php the_title(); ?></span>
+              </a>
             </div>
-        </section>
-    <?php endif; ?>
-    <!-- Video modal -->
-    <div class="pd-video-modal" id="pd-video-modal" aria-hidden="true">
-        <div class="pd-video-backdrop" id="pd-video-backdrop"></div>
-        <div class="pd-video-dialog" role="dialog" aria-modal="true">
-            <button class="pd-video-close" id="pd-video-close" aria-label="Close">
-                <img src="<?= asset('images/close-button.svg') ?>" alt="close">
-            </button>
-            <video id="pd-video" controls playsinline preload="metadata"></video>
+          <?php endwhile; ?>
         </div>
+        <div class="pd-related-pagination"></div>
+      </div>
+    </section>
+  <?php endif; ?>
+  <!-- Video modal -->
+  <div class="pd-video-modal" id="pd-video-modal" aria-hidden="true">
+    <div class="pd-video-backdrop" id="pd-video-backdrop"></div>
+    <div class="pd-video-dialog" role="dialog" aria-modal="true">
+      <button class="pd-video-close" id="pd-video-close" aria-label="Close">
+        <img src="<?= asset('images/close-button.svg') ?>" alt="close">
+      </button>
+      <video id="pd-video" controls playsinline preload="metadata"></video>
     </div>
+  </div>
 </main>
 
 <script type="module" src="https://cdn.jsdelivr.net/npm/media-chrome/+esm"></script>
@@ -434,8 +428,7 @@ if ($season):
     gesturesdisabled="{{disabled}}"
     hotkeys="{{hotkeys}}"
     nohotkeys="{{nohotkeys}}"
-    defaultstreamtype="on-demand"
-  >
+    defaultstreamtype="on-demand">
     <slot name="media" slot="media"></slot>
     <slot name="poster" slot="poster"></slot>
     <slot name="centered-chrome" slot="centered-chrome"></slot>
@@ -566,9 +559,11 @@ if ($season):
           0% {
             transform: scale(0.75, 0.75);
           }
+
           50% {
             transform: scale(115%, 115%);
           }
+
           100% {
             transform: scale(1, 1);
           }
@@ -608,9 +603,11 @@ if ($season):
           0% {
             font-size: 10px;
           }
+
           50% {
             font-size: 3px;
           }
+
           100% {
             font-size: 4px;
           }
@@ -621,10 +618,12 @@ if ($season):
             font-size: 10px;
             transform: translateX(-8px);
           }
+
           50% {
             font-size: 3px;
             transform: translateX(1px);
           }
+
           100% {
             font-size: 4px;
             transform: translateX(0);
@@ -665,8 +664,7 @@ if ($season):
           <g>
             <path
               id="icon-play"
-              d="M20.7131 14.6976C21.7208 15.2735 21.7208 16.7265 20.7131 17.3024L12.7442 21.856C11.7442 22.4274 10.5 21.7054 10.5 20.5536L10.5 11.4464C10.5 10.2946 11.7442 9.57257 12.7442 10.144L20.7131 14.6976Z"
-            />
+              d="M20.7131 14.6976C21.7208 15.2735 21.7208 16.7265 20.7131 17.3024L12.7442 21.856C11.7442 22.4274 10.5 21.7054 10.5 20.5536L10.5 11.4464C10.5 10.2946 11.7442 9.57257 12.7442 10.144L20.7131 14.6976Z" />
           </g>
           <!-- <use class="svg-shadow" xlink:href="#icon-pause"></use> -->
           <g id="icon-pause">
@@ -735,11 +733,13 @@ if ($season):
             opacity: 0;
             transform: translateY(50%) rotate(1deg);
           }
+
           50% {
             visibility: visible;
             opacity: 1;
             transform: rotate(-2deg);
           }
+
           100% {
             visibility: visible;
             opacity: 1;
@@ -753,10 +753,12 @@ if ($season):
             opacity: 1;
             transform: translateY(0) rotate(0deg);
           }
+
           50% {
             opacity: 1;
             transform: rotate(0deg);
           }
+
           100% {
             visibility: hidden;
             opacity: 0;
@@ -821,9 +823,9 @@ if ($season):
           outline: 1px solid rgba(27, 127, 204, 0.9);
         }
 
-        media-mute-button:hover + .media-volume-range-wrapper,
-        media-mute-button:focus + .media-volume-range-wrapper,
-        media-mute-button:focus-within + .media-volume-range-wrapper,
+        media-mute-button:hover+.media-volume-range-wrapper,
+        media-mute-button:focus+.media-volume-range-wrapper,
+        media-mute-button:focus-within+.media-volume-range-wrapper,
         .media-volume-range-wrapper:hover,
         .media-volume-range-wrapper:focus,
         .media-volume-range-wrapper:focus-within {
@@ -850,18 +852,15 @@ if ($season):
           <g id="vol-paths">
             <path
               id="speaker-path"
-              d="M16.5 20.486v-8.972c0-1.537-2.037-2.08-2.802-.745l-1.026 1.79a2.5 2.5 0 0 1-.8.85l-1.194.78A1.5 1.5 0 0 0 10 15.446v1.11c0 .506.255.978.678 1.255l1.194.782a2.5 2.5 0 0 1 .8.849l1.026 1.79c.765 1.334 2.802.792 2.802-.745Z"
-            />
+              d="M16.5 20.486v-8.972c0-1.537-2.037-2.08-2.802-.745l-1.026 1.79a2.5 2.5 0 0 1-.8.85l-1.194.78A1.5 1.5 0 0 0 10 15.446v1.11c0 .506.255.978.678 1.255l1.194.782a2.5 2.5 0 0 1 .8.849l1.026 1.79c.765 1.334 2.802.792 2.802-.745Z" />
             <path
               id="vol-low-path"
               class="vol-path"
-              d="M18.5 18C19.6046 18 20.5 17.1046 20.5 16C20.5 14.8954 19.6046 14 18.5 14"
-            />
+              d="M18.5 18C19.6046 18 20.5 17.1046 20.5 16C20.5 14.8954 19.6046 14 18.5 14" />
             <path
               id="vol-high-path"
               class="vol-path"
-              d="M18 21C20.7614 21 23 18.7614 23 16C23 13.2386 20.7614 11 18 11"
-            />
+              d="M18 21C20.7614 21 23 18.7614 23 16C23 13.2386 20.7614 11 18 11" />
             <path id="muted-path-1" class="muted-path" d="M23 18L19 14" />
             <path id="muted-path-2" class="muted-path" d="M23 14L19 18" />
           </g>
@@ -917,6 +916,7 @@ if ($season):
           --media-preview-thumbnail-max-height: calc(7 * var(--base));
           --media-preview-box-margin: 0 0 -10px;
         }
+
         media-time-range:hover {
           --media-range-thumb-opacity: 1;
           --media-range-track-height: calc(0.25 * var(--base));
@@ -988,12 +988,10 @@ if ($season):
           <g id="cc-icon">
             <path
               class="cc-c"
-              d="M15.6634 14.3574H14.5636C14.4985 14.0523 14.3847 13.7842 14.2221 13.5532C14.0624 13.3222 13.8673 13.1283 13.6367 12.9715C13.409 12.8118 13.1562 12.692 12.8783 12.6122C12.6004 12.5323 12.3107 12.4924 12.0091 12.4924C11.4592 12.4924 10.961 12.6264 10.5146 12.8945C10.0711 13.1625 9.71776 13.5575 9.45463 14.0794C9.19445 14.6012 9.06436 15.2414 9.06436 16C9.06436 16.7586 9.19445 17.3988 9.45463 17.9206C9.71776 18.4425 10.0711 18.8375 10.5146 19.1055C10.961 19.3736 11.4592 19.5076 12.0091 19.5076C12.3107 19.5076 12.6004 19.4677 12.8783 19.3878C13.1562 19.308 13.409 19.1896 13.6367 19.0328C13.8673 18.8731 14.0624 18.6778 14.2221 18.4468C14.3847 18.2129 14.4985 17.9449 14.5636 17.6426H15.6634C15.5806 18.0903 15.4298 18.491 15.2111 18.8446C14.9923 19.1982 14.7203 19.499 14.3951 19.7471C14.0698 19.9924 13.7047 20.1792 13.2996 20.3075C12.8976 20.4358 12.4674 20.5 12.0091 20.5C11.2345 20.5 10.5456 20.3175 9.94246 19.9525C9.33932 19.5875 8.8648 19.0684 8.51888 18.3954C8.17296 17.7224 8 16.924 8 16C8 15.076 8.17296 14.2776 8.51888 13.6046C8.8648 12.9316 9.33932 12.4125 9.94246 12.0475C10.5456 11.6825 11.2345 11.5 12.0091 11.5C12.4674 11.5 12.8976 11.5642 13.2996 11.6925C13.7047 11.8208 14.0698 12.009 14.3951 12.2571C14.7203 12.5024 14.9923 12.8018 15.2111 13.1554C15.4298 13.5062 15.5806 13.9068 15.6634 14.3574Z"
-            />
+              d="M15.6634 14.3574H14.5636C14.4985 14.0523 14.3847 13.7842 14.2221 13.5532C14.0624 13.3222 13.8673 13.1283 13.6367 12.9715C13.409 12.8118 13.1562 12.692 12.8783 12.6122C12.6004 12.5323 12.3107 12.4924 12.0091 12.4924C11.4592 12.4924 10.961 12.6264 10.5146 12.8945C10.0711 13.1625 9.71776 13.5575 9.45463 14.0794C9.19445 14.6012 9.06436 15.2414 9.06436 16C9.06436 16.7586 9.19445 17.3988 9.45463 17.9206C9.71776 18.4425 10.0711 18.8375 10.5146 19.1055C10.961 19.3736 11.4592 19.5076 12.0091 19.5076C12.3107 19.5076 12.6004 19.4677 12.8783 19.3878C13.1562 19.308 13.409 19.1896 13.6367 19.0328C13.8673 18.8731 14.0624 18.6778 14.2221 18.4468C14.3847 18.2129 14.4985 17.9449 14.5636 17.6426H15.6634C15.5806 18.0903 15.4298 18.491 15.2111 18.8446C14.9923 19.1982 14.7203 19.499 14.3951 19.7471C14.0698 19.9924 13.7047 20.1792 13.2996 20.3075C12.8976 20.4358 12.4674 20.5 12.0091 20.5C11.2345 20.5 10.5456 20.3175 9.94246 19.9525C9.33932 19.5875 8.8648 19.0684 8.51888 18.3954C8.17296 17.7224 8 16.924 8 16C8 15.076 8.17296 14.2776 8.51888 13.6046C8.8648 12.9316 9.33932 12.4125 9.94246 12.0475C10.5456 11.6825 11.2345 11.5 12.0091 11.5C12.4674 11.5 12.8976 11.5642 13.2996 11.6925C13.7047 11.8208 14.0698 12.009 14.3951 12.2571C14.7203 12.5024 14.9923 12.8018 15.2111 13.1554C15.4298 13.5062 15.5806 13.9068 15.6634 14.3574Z" />
             <path
               class="cc-c"
-              d="M24 14.3574H22.9002C22.8351 14.0523 22.7213 13.7842 22.5587 13.5532C22.399 13.3222 22.2039 13.1283 21.9733 12.9715C21.7456 12.8118 21.4928 12.692 21.2149 12.6122C20.937 12.5323 20.6473 12.4924 20.3457 12.4924C19.7958 12.4924 19.2976 12.6264 18.8511 12.8945C18.4077 13.1625 18.0543 13.5575 17.7912 14.0794C17.531 14.6012 17.4009 15.2414 17.4009 16C17.4009 16.7586 17.531 17.3988 17.7912 17.9206C18.0543 18.4425 18.4077 18.8375 18.8511 19.1055C19.2976 19.3736 19.7958 19.5076 20.3457 19.5076C20.6473 19.5076 20.937 19.4677 21.2149 19.3878C21.4928 19.308 21.7456 19.1896 21.9733 19.0328C22.2039 18.8731 22.399 18.6778 22.5587 18.4468C22.7213 18.2129 22.8351 17.9449 22.9002 17.6426H24C23.9172 18.0903 23.7664 18.491 23.5476 18.8446C23.3289 19.1982 23.0569 19.499 22.7316 19.7471C22.4064 19.9924 22.0413 20.1792 21.6362 20.3075C21.2341 20.4358 20.804 20.5 20.3457 20.5C19.5711 20.5 18.8822 20.3175 18.279 19.9525C17.6759 19.5875 17.2014 19.0684 16.8555 18.3954C16.5095 17.7224 16.3366 16.924 16.3366 16C16.3366 15.076 16.5095 14.2776 16.8555 13.6046C17.2014 12.9316 17.6759 12.4125 18.279 12.0475C18.8822 11.6825 19.5711 11.5 20.3457 11.5C20.804 11.5 21.2341 11.5642 21.6362 11.6925C22.0413 11.8208 22.4064 12.009 22.7316 12.2571C23.0569 12.5024 23.3289 12.8018 23.5476 13.1554C23.7664 13.5062 23.9172 13.9068 24 14.3574Z"
-            />
+              d="M24 14.3574H22.9002C22.8351 14.0523 22.7213 13.7842 22.5587 13.5532C22.399 13.3222 22.2039 13.1283 21.9733 12.9715C21.7456 12.8118 21.4928 12.692 21.2149 12.6122C20.937 12.5323 20.6473 12.4924 20.3457 12.4924C19.7958 12.4924 19.2976 12.6264 18.8511 12.8945C18.4077 13.1625 18.0543 13.5575 17.7912 14.0794C17.531 14.6012 17.4009 15.2414 17.4009 16C17.4009 16.7586 17.531 17.3988 17.7912 17.9206C18.0543 18.4425 18.4077 18.8375 18.8511 19.1055C19.2976 19.3736 19.7958 19.5076 20.3457 19.5076C20.6473 19.5076 20.937 19.4677 21.2149 19.3878C21.4928 19.308 21.7456 19.1896 21.9733 19.0328C22.2039 18.8731 22.399 18.6778 22.5587 18.4468C22.7213 18.2129 22.8351 17.9449 22.9002 17.6426H24C23.9172 18.0903 23.7664 18.491 23.5476 18.8446C23.3289 19.1982 23.0569 19.499 22.7316 19.7471C22.4064 19.9924 22.0413 20.1792 21.6362 20.3075C21.2341 20.4358 20.804 20.5 20.3457 20.5C19.5711 20.5 18.8822 20.3175 18.279 19.9525C17.6759 19.5875 17.2014 19.0684 16.8555 18.3954C16.5095 17.7224 16.3366 16.924 16.3366 16C16.3366 15.076 16.5095 14.2776 16.8555 13.6046C17.2014 12.9316 17.6759 12.4125 18.279 12.0475C18.8822 11.6825 19.5711 11.5 20.3457 11.5C20.804 11.5 21.2341 11.5642 21.6362 11.6925C22.0413 11.8208 22.4064 12.009 22.7316 12.2571C23.0569 12.5024 23.3289 12.8018 23.5476 13.1554C23.7664 13.5062 23.9172 13.9068 24 14.3574Z" />
             <rect id="cc-underline" x="8" y="23" width="16" height="1" rx="0.5" />
           </g>
         </svg>
@@ -1005,6 +1003,7 @@ if ($season):
           transition: transform 0.1s cubic-bezier(0.4, 0, 1, 1);
           transform: rotateZ(0deg);
         }
+
         media-settings-menu-button[aria-expanded='true'] svg {
           transform: rotateZ(30deg);
         }
@@ -1014,11 +1013,9 @@ if ($season):
           <use class="svg-shadow" xlink:href="#settings-icon"></use>
           <g id="settings-icon">
             <path
-              d="M16 18C17.1046 18 18 17.1046 18 16C18 14.8954 17.1046 14 16 14C14.8954 14 14 14.8954 14 16C14 17.1046 14.8954 18 16 18Z"
-            />
+              d="M16 18C17.1046 18 18 17.1046 18 16C18 14.8954 17.1046 14 16 14C14.8954 14 14 14.8954 14 16C14 17.1046 14.8954 18 16 18Z" />
             <path
-              d="M21.0176 13.0362L20.9715 12.9531C20.8445 12.7239 20.7797 12.4629 20.784 12.1982L20.8049 10.8997C20.8092 10.6343 20.675 10.3874 20.4545 10.2549L18.5385 9.10362C18.3186 8.97143 18.0472 8.9738 17.8293 9.10981L16.7658 9.77382C16.5485 9.90953 16.2999 9.98121 16.0465 9.98121H15.9543C15.7004 9.98121 15.4513 9.90922 15.2336 9.77295L14.1652 9.10413C13.9467 8.96728 13.674 8.96518 13.4535 9.09864L11.5436 10.2545C11.3242 10.3873 11.1908 10.6336 11.1951 10.8981L11.216 12.1982C11.2203 12.4629 11.1555 12.7239 11.0285 12.9531L10.9831 13.0351C10.856 13.2645 10.6715 13.4535 10.4493 13.5819L9.36075 14.2109C9.13763 14.3398 8.99942 14.5851 9 14.8511L9.00501 17.152C9.00559 17.4163 9.1432 17.6597 9.36476 17.7883L10.4481 18.4167C10.671 18.546 10.8559 18.7364 10.9826 18.9673L11.0313 19.0559C11.1565 19.284 11.2203 19.5431 11.2161 19.8059L11.1951 21.1003C11.1908 21.3657 11.325 21.6126 11.5456 21.7452L13.4615 22.8964C13.6814 23.0286 13.9528 23.0262 14.1707 22.8902L15.2342 22.2262C15.4515 22.0905 15.7001 22.0188 15.9535 22.0188H16.0457C16.2996 22.0188 16.5487 22.0908 16.7664 22.227L17.8348 22.8959C18.0534 23.0327 18.326 23.0348 18.5465 22.9014L20.4564 21.7455C20.6758 21.6127 20.8092 21.3664 20.8049 21.1019L20.784 19.8018C20.7797 19.5371 20.8445 19.2761 20.9715 19.0469L21.0169 18.9649C21.144 18.7355 21.3285 18.5465 21.5507 18.4181L22.6393 17.7891C22.8624 17.6602 23.0006 17.4149 23 17.1489L22.995 14.848C22.9944 14.5837 22.8568 14.3403 22.6352 14.2117L21.5493 13.5818C21.328 13.4534 21.1442 13.2649 21.0176 13.0362Z"
-            />
+              d="M21.0176 13.0362L20.9715 12.9531C20.8445 12.7239 20.7797 12.4629 20.784 12.1982L20.8049 10.8997C20.8092 10.6343 20.675 10.3874 20.4545 10.2549L18.5385 9.10362C18.3186 8.97143 18.0472 8.9738 17.8293 9.10981L16.7658 9.77382C16.5485 9.90953 16.2999 9.98121 16.0465 9.98121H15.9543C15.7004 9.98121 15.4513 9.90922 15.2336 9.77295L14.1652 9.10413C13.9467 8.96728 13.674 8.96518 13.4535 9.09864L11.5436 10.2545C11.3242 10.3873 11.1908 10.6336 11.1951 10.8981L11.216 12.1982C11.2203 12.4629 11.1555 12.7239 11.0285 12.9531L10.9831 13.0351C10.856 13.2645 10.6715 13.4535 10.4493 13.5819L9.36075 14.2109C9.13763 14.3398 8.99942 14.5851 9 14.8511L9.00501 17.152C9.00559 17.4163 9.1432 17.6597 9.36476 17.7883L10.4481 18.4167C10.671 18.546 10.8559 18.7364 10.9826 18.9673L11.0313 19.0559C11.1565 19.284 11.2203 19.5431 11.2161 19.8059L11.1951 21.1003C11.1908 21.3657 11.325 21.6126 11.5456 21.7452L13.4615 22.8964C13.6814 23.0286 13.9528 23.0262 14.1707 22.8902L15.2342 22.2262C15.4515 22.0905 15.7001 22.0188 15.9535 22.0188H16.0457C16.2996 22.0188 16.5487 22.0908 16.7664 22.227L17.8348 22.8959C18.0534 23.0327 18.326 23.0348 18.5465 22.9014L20.4564 21.7455C20.6758 21.6127 20.8092 21.3664 20.8049 21.1019L20.784 19.8018C20.7797 19.5371 20.8445 19.2761 20.9715 19.0469L21.0169 18.9649C21.144 18.7355 21.3285 18.5465 21.5507 18.4181L22.6393 17.7891C22.8624 17.6602 23.0006 17.4149 23 17.1489L22.995 14.848C22.9944 14.5837 22.8568 14.3403 22.6352 14.2117L21.5493 13.5818C21.328 13.4534 21.1442 13.2649 21.0176 13.0362Z" />
           </g>
         </svg>
       </media-settings-menu-button>
@@ -1034,11 +1031,9 @@ if ($season):
           <use class="svg-shadow" xlink:href="#pip-icon"></use>
           <g id="pip-icon">
             <path
-              d="M12 22H9.77778C9.34822 22 9 21.6162 9 21.1429V10.8571C9 10.3838 9.34822 10 9.77778 10L22.2222 10C22.6518 10 23 10.3838 23 10.8571V12.5714"
-            />
+              d="M12 22H9.77778C9.34822 22 9 21.6162 9 21.1429V10.8571C9 10.3838 9.34822 10 9.77778 10L22.2222 10C22.6518 10 23 10.3838 23 10.8571V12.5714" />
             <path
-              d="M15 21.5714V16.4286C15 16.1919 15.199 16 15.4444 16H22.5556C22.801 16 23 16.1919 23 16.4286V17V21.5714C23 21.8081 22.801 22 22.5556 22H20.3333H17.6667H15.4444C15.199 22 15 21.8081 15 21.5714Z"
-            />
+              d="M15 21.5714V16.4286C15 16.1919 15.199 16 15.4444 16H22.5556C22.801 16 23 16.1919 23 16.4286V17V21.5714C23 21.8081 22.801 22 22.5556 22H20.3333H17.6667H15.4444C15.199 22 15 21.8081 15 21.5714Z" />
           </g>
         </svg>
       </media-pip-button>
@@ -1046,9 +1041,9 @@ if ($season):
       <!-- Airplay Button -->
       <media-airplay-button class="media-button">
         <svg viewBox="0 0 32 32" aria-hidden="true" slot="icon">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M20.5 20h1.722c.43 0 .778-.32.778-.714v-8.572c0-.394-.348-.714-.778-.714H9.778c-.43 0-.778.32-.778.714v1.429"/>
-          <path stroke-linecap="round" stroke-linejoin="round" d="M11.5 20H9.778c-.43 0-.778-.32-.778-.714v-8.572c0-.394.348-.714.778-.714h12.444c.43 0 .778.32.778.714v1.429"/>
-          <path stroke-linejoin="round" d="m16 19 3.464 3.75h-6.928L16 19Z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.5 20h1.722c.43 0 .778-.32.778-.714v-8.572c0-.394-.348-.714-.778-.714H9.778c-.43 0-.778.32-.778.714v1.429" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M11.5 20H9.778c-.43 0-.778-.32-.778-.714v-8.572c0-.394.348-.714.778-.714h12.444c.43 0 .778.32.778.714v1.429" />
+          <path stroke-linejoin="round" d="m16 19 3.464 3.75h-6.928L16 19Z" />
         </svg>
       </media-airplay-button>
 
@@ -1058,8 +1053,7 @@ if ($season):
           <use class="svg-shadow" xlink:href="#cast-icon"></use>
           <g id="cast-icon">
             <path
-              d="M18.5 21.833h4.167c.46 0 .833-.373.833-.833V11a.833.833 0 0 0-.833-.833H9.333A.833.833 0 0 0 8.5 11v1.111m0 8.056c.92 0 1.667.746 1.667 1.666M8.5 17.667a4.167 4.167 0 0 1 4.167 4.166"
-            />
+              d="M18.5 21.833h4.167c.46 0 .833-.373.833-.833V11a.833.833 0 0 0-.833-.833H9.333A.833.833 0 0 0 8.5 11v1.111m0 8.056c.92 0 1.667.746 1.667 1.666M8.5 17.667a4.167 4.167 0 0 1 4.167 4.166" />
             <path d="M8.5 15.167a6.667 6.667 0 0 1 6.667 6.666" />
           </g>
         </svg>
@@ -1073,9 +1067,11 @@ if ($season):
         media-fullscreen-button .fs-arrow {
           translate: 0% 0%;
         }
+
         media-fullscreen-button:hover .fs-arrow {
           animation: 0.35s up-left-bounce cubic-bezier(0.34, 1.56, 0.64, 1);
         }
+
         media-fullscreen-button:hover #fs-enter-top,
         media-fullscreen-button:hover #fs-exit-bottom {
           animation-name: up-right-bounce;
@@ -1090,30 +1086,37 @@ if ($season):
           0% {
             translate: 0 0;
           }
+
           50% {
             translate: -4% -4%;
           }
         }
+
         @keyframes up-right-bounce {
           0% {
             translate: 0 0;
           }
+
           50% {
             translate: 4% -4%;
           }
         }
+
         @keyframes down-left-bounce {
           0% {
             translate: 0 0;
           }
+
           50% {
             translate: -4% 4%;
           }
         }
+
         @keyframes down-right-bounce {
           0% {
             translate: 0 0;
           }
+
           50% {
             translate: 4% 4%;
           }
@@ -1150,7 +1153,7 @@ if ($season):
     </media-control-bar>
   </media-controller>
 </template>
-  
+
 
 <?php
 //view('blocks/newsletter');

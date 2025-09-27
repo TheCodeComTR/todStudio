@@ -274,6 +274,20 @@ function start_session_wp()
 }
 remove_action('wpcf7_swv_create_schema', 'wpcf7_swv_add_select_enum_rules', 20, 2);
 
+// Filmleri year alanındaki ilk yılı baz alarak sıralamak
+add_filter('posts_clauses', 'orderby_year_field_as_last_number', 10, 2);
+function orderby_year_field_as_last_number($clauses, $query) {
+    global $wpdb;
+
+    // Sadece year alanına göre sıralama yapılan sorgularda çalışsın
+    if (!is_admin() && $query->get('meta_key') === 'year' && $query->get('orderby') === 'meta_value_num') {
+        // meta_value'nin '-' işaretinden sonraki son parçayı alıp INT'e çevir
+        $clauses['orderby'] = "CAST(SUBSTRING_INDEX({$wpdb->postmeta}.meta_value, '-', -1) AS UNSIGNED) " . $query->get('order');
+    }
+
+    return $clauses;
+}
+
 /*
 ini_set( 'error_reporting', -1 );
 ini_set( 'display_errors', 'On' );
