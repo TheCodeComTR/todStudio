@@ -44,18 +44,8 @@ $(function () {
                 let slideCurrentIndex = this.realIndex; // get current slide's index
                 console.log(this.realIndex); // write it to console
                 var realIndex = this.realIndex;
-                $("#detail-title").html(seasonData[realIndex].name);
-                $("#detail-about").html(seasonData[realIndex].about_film);
-                $("#detail-scriptwriter").html(seasonData[realIndex].scriptwriter);
-                $("#detail-directors").html(seasonData[realIndex].directors);
-                $("#detail-genre").html(seasonData[realIndex].genre);
-                $("#detail-total").html(seasonData[realIndex].total_episodes);
-                $("#detail-year").html(seasonData[realIndex].year_of_production);
-                $("#detail-company").html(seasonData[realIndex].production_company);
-                $("#detail-cast").html(seasonData[realIndex].cast);
-                $('video').each(function() { 
-                  this.pause(); // this.currentTime = 0; 
-                });
+                //$("#detail-title").html(seasonData[realIndex].name);
+                changeTheSeasonData(realIndex);
           }}
         });
       var autoplayMs = 4000;
@@ -260,6 +250,11 @@ $(function () {
       
       heroSlider.slideTo($(this).data('key'));
       jQuery('html, body').animate({ scrollTop: 0 }, 600);
+      if(heroSlider.activeIndex == $(this).data('key')){
+      
+        changeTheSeasonData($(this).data('key') );
+      }
+
 /*
       var $el = jQuery(this);
       var d = $el.data();
@@ -294,3 +289,17 @@ $(function () {
 
 
 
+
+changeTheSeasonData = function(realIndex){
+  $("#detail-about").html(seasonData[realIndex].about_film);
+  $("#detail-scriptwriter").html(seasonData[realIndex].scriptwriter);
+  $("#detail-director").html(seasonData[realIndex].directors);
+  $("#detail-genre").html(seasonData[realIndex].genre);
+  $("#detail-episode").html(seasonData[realIndex].total_episodes);
+  $("#detail-year").html(seasonData[realIndex].year_of_production);
+  $("#detail-company").html(seasonData[realIndex].production_company);
+  $("#detail-cast").html(seasonData[realIndex].cast);
+  $('video').each(function() { 
+    this.pause(); // this.currentTime = 0; 
+  });
+}

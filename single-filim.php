@@ -16,8 +16,39 @@ $language = get_field("language");
 $episode = get_field("episode");
 $year = get_field("year");
 $company = get_field("company");
-
 $awards = get_field("awards");
+
+if(is_array($seasons)){
+  //$video = get_field("trailer");
+  /*
+            [hero] => https://todstudio.thecode.com.tr/wp-content/uploads/2025/09/BEIN_VARBUNLAR_YATAY_SL.png
+            [hero_mobile] => https://todstudio.thecode.com.tr/wp-content/uploads/2025/09/BEIN_VARBUNLAR_SL.png
+            [video] => https://dt-vod-mp4.akamaized.net/tod-studios/03.mp4
+            [name] => IT HAPPENS
+            [about_film] => <p>The new address for laughter, «Var Bunlar» (It Happens) features the entertaining adventures of two close friends who are dragged into the inextricable monotony of ordinary life. Giray Altınok and Kerem Özdoğan, who share the leading roles of the project welcomes a group of famous guest actors in each episode.</p>
+
+            [directors] => Arif Gökdeniz Uslu
+            [scriptwriter] => Giray Altınok, Kerem Özdoğan
+            [cast] => Giray Altınok, Kerem Özdoğan, Cansu Diktaş
+
+            [genre] => Comedy
+            [total_episodes] => Season 1, 13x30 mins Season 2, 13x30 mins Season 3, 13x30 mins
+            [year_of_production] => 2022 - 2025
+            [production_company] => Z Medya
+  *///$mimg  = get_field("main-img");
+  //print_r($seasons);
+  $director = $seasons[0]['directors'];
+  $scriprwriter = $seasons[0]['scriptwriter'];
+  $cast = $seasons[0]['cast'];
+  $presented = $seasons[0]['presented'];
+  $genre = $seasons[0]['genre'];
+  //$language = $seasons[0]['language'];
+  //$episode = $seasons[0]['total_episodes'];
+  //$year = $seasons[0]['year_of_production'];
+  $company = $seasons[0]['production_company'];
+  //$awards = get_field("awards");
+}
+
 $subtitles = get_field("subtitles");
 $audio_languages = get_field("audio_languages");
 $thumbnails = get_field("thumbnails");
@@ -220,7 +251,7 @@ if (is_array($video)) {
   if ($seasons) {
   ?>
     <section class="pd-related">
-      <h2>Season</h2>
+      <h2>Seasons</h2>
       <div class="swiper pd-related-swiper">
         <div class="swiper-wrapper">
 
@@ -231,7 +262,7 @@ if (is_array($video)) {
                 class="pd-related-card" ,
                 data-key="<?= $key ?>">
                 <img src="<?= $seasonx['hero_mobile'] ?>" alt="thumb <?= $key + 1 ?>">
-                <span class="pd-related-caption"><?= $seasonx['name'] ?></span>
+                <span class="pd-related-caption"><?= ++$key.". Season";//$seasonx['name'] ?></span>
               </a>
             </div>
           <?php } ?>
