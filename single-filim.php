@@ -1175,7 +1175,23 @@ if ($season):
   </media-controller>
 </template>
 
-
+<a class="ctaHome" href="<?php echo home_url(); ?>">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_11_2911)">
+    <path d="M14.2751 14.2746H1.72607V6.96478L8.00059 1.31772L14.2751 6.96478V14.2746Z" stroke="#1C1C1C" stroke-width="1.5"/>
+    <path d="M4.86377 8H11.1382" stroke="#1C1C1C" stroke-width="1.5"/>
+    <path d="M4.86377 10.5098H11.1382" stroke="#1C1C1C" stroke-width="1.5"/>
+    </g>
+    <defs>
+    <clipPath id="clip0_11_2911">
+    <rect width="16" height="16" fill="white"/>
+    </clipPath>
+    </defs>
+  </svg>
+  <p>
+    Back<br>Home
+  </p>
+</a>
 <?php
 //view('blocks/newsletter');
 view('footer/footer');
