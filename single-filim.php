@@ -40,7 +40,7 @@ if(is_array($seasons)){
   $director = $seasons[0]['directors'];
   $scriprwriter = $seasons[0]['scriptwriter'];
   $cast = $seasons[0]['cast'];
-  $presented = $seasons[0]['presented'];
+  ///$presented = $seasons[0]['presented'];
   $genre = $seasons[0]['genre'];
   //$language = $seasons[0]['language'];
   //$episode = $seasons[0]['total_episodes'];

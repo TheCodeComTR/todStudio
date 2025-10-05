@@ -2,6 +2,10 @@
 /* Template Name: Contact Page */
 
 view('header/header');
+
+$phone = get_field('phone_number');
+$mail = get_field('mail_address');
+$map = get_field('map_street');
 ?>
 <main class="contact-main">
     <!-- Hero with map background -->
@@ -22,6 +26,9 @@ view('header/header');
                 <h2 class="lead-title">GET IN TOUCH</h2>
                 <div class="lead-text">Have questions? We’d love to help.</div>
             </div>
+            <?
+            if($phone){
+            ?>
             <div class="contact-card">
                 <div class="contact-card-icon"><img src="<?= asset('images/phone.svg')?>" alt="phone"></div>
                 <div class="contact-card-body">
@@ -29,6 +36,10 @@ view('header/header');
                     <div class="contact-card-label">PHONE NUMBER</div>
                 </div>
             </div>
+            <?
+            }
+            if($mail){
+            ?>
             <div class="contact-card">
                 <div class="contact-card-icon"><img src="<?= asset('images/mail.svg')?>" alt="mail"></div>
                 <div class="contact-card-body">
@@ -36,18 +47,22 @@ view('header/header');
                     <div class="contact-card-label">MAIL ADDRESS</div>
                 </div>
             </div>
-            <div class="contact-card">
-                <div class="contact-card-icon"><img src="<?= asset('images/map-pin.svg')?>" alt="map"></div>
+            <?
+            }
+            ?>
+            <a href="#contactForm" class="contact-card" style="text-decoration: none;">
+                <div class="contact-card-icon"><img src="<?= asset('images/contact-form-second.svg')?>" alt="map"></div>
                 <div class="contact-card-body">
-                    <div class="contact-card-value">Quis pellentesque arcu molestie etiam</div>
-                    <div class="contact-card-label">MAP STREET</div>
+                    <div class="contact-card-value">GET IN TOUCH</div>
+                    <div class="contact-card-label">Contact Form</div>
                 </div>
-            </div>
+            </a>
+
         </div>
     </section>
 
     <!-- Form + text block -->
-    <section class="contact-form-section">
+    <section class="contact-form-section" id="contactForm">
         <div class="contact-form-container">
             <!--<form class="contact-form" id="contact-form">
                 <div class="form-group">
