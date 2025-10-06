@@ -797,7 +797,9 @@ body.modal-open {
       font-size: 1.2rem;
     }
   }
-
+  .swiperHero-video{
+    height: 520px !important;
+  }
   .pd-badges {
     padding: 8px 16px 24px;
   }
@@ -806,22 +808,24 @@ body.modal-open {
 
 .hero{
   .singleFilmArrow{
-    width: 100%;
-    top: 50%;
-    z-index: 9;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row-reverse;
-    position: absolute;
-    padding: 0 24px;
     &-next{
+      position: absolute;
+      top: 50%;
+      right: 24px;
+      transform: translate(0, -50%);
       cursor: pointer;
+      z-index: 9;
       img{
         width: 32px;
       }
     }
     &-prev{
       cursor: pointer;
+      position: absolute;
+      z-index: 9;
+      top: 50%;
+      left: 24px;
+      transform: translate(0, -50%);
       img{
         width: 32px;
          transform: rotate(180deg);
@@ -839,7 +843,7 @@ body.modal-open {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 9;
+      z-index: 10;
       &.active{
         opacity: 0;
         visibility: hidden;

@@ -824,35 +824,35 @@ body.modal-open {
   .pd-main .hero .hero-content p {
     font-size: 1.2rem;
   }
+  .swiperHero-video {
+    height: 520px !important;
+  }
   .pd-badges {
     padding: 8px 16px 24px;
   }
 }
-.hero .singleFilmArrow {
-  width: 100%;
-  top: 50%;
-  z-index: 9;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-  position: absolute;
-  padding: 0 24px;
-}
 .hero .singleFilmArrow-next {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
   cursor: pointer;
+  z-index: 9;
 }
 .hero .singleFilmArrow-next img {
   width: 32px;
 }
 .hero .singleFilmArrow-prev {
   cursor: pointer;
+  position: absolute;
+  z-index: 9;
+  top: 50%;
+  left: 24px;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
 }
 .hero .singleFilmArrow-prev img {
   width: 32px;
@@ -874,7 +874,7 @@ body.modal-open {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  z-index: 9;
+  z-index: 10;
 }
 .hero .swiperHero-play.active {
   opacity: 0;
