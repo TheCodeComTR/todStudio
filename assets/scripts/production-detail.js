@@ -285,6 +285,26 @@ $(function () {
 			loopedSlides: 5,
 		});
 
+
+
+
+    $('.swiperHero-play').on('click', function(e) {
+
+        e.preventDefault();
+
+        $(this).addClass('active');
+        var video = $('.swiperHero-video')[0];
+
+        if (video.paused) {
+            video.play();
+            $(this).addClass('is-playing');
+        } else {
+            video.pause();
+            $(this).removeClass('is-playing');
+        }
+    });
+
+
 });
 
 

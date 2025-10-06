@@ -137,11 +137,10 @@ if (is_array($video)) {
                     template="media-theme-sutro"
                     style=" height: 810px; width: 100%;--media-primary-color: #ffffff; --media-secondary-color: #ffffff; --media-accent-color: #ffffff;">
                     <video
+                      class="swiperHero-video"
                       slot="media"
                       src="<?= $trailer ?>"
                       playsinline
-                      autoplay
-                      muted
                       crossorigin="anonymous"
                       poster="<?= esc_url($poster) ?>"></video>
                   </media-theme>
@@ -155,6 +154,9 @@ if (is_array($video)) {
             }
           } else { ?>
             <div class="swiper-slide">
+              <div class="swiperHero-play">
+                  <img src="<?= asset('images/play-icon.svg') ?>" alt="">
+                </div>
               <?
               if (isset($video[0]['url']) && $video[0]['url'] != "") {
 
@@ -164,8 +166,9 @@ if (is_array($video)) {
                   style=" height: 810px; width: 100%;--media-primary-color: #ffffff; --media-secondary-color: #ffffff; --media-accent-color: #ffffff;">
                   <video
                   crossorigin="anonymous"
+                   class="swiperHero-video"
                   slot="media"
-                   src="<?= $trailer ?>" autoplay muted loop playsinline preload="metadata" poster="<?= esc_url($mimg) ?>"></video>
+                   src="<?= $trailer ?>"  loop playsinline preload="metadata" poster="<?= esc_url($mimg) ?>"></video>
                 </media-theme>
               <? } else { ?>
                 <img src="<?= esc_url($mimg) ?>" alt="hero image">

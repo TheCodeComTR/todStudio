@@ -876,6 +876,12 @@ body.modal-open {
           transform: translate(-50%, -50%);
   z-index: 9;
 }
+.hero .swiperHero-play.active {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
 .hero .pd-related-pagination {
   display: -webkit-box;
   display: -ms-flexbox;
