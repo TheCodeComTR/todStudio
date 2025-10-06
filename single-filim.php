@@ -127,6 +127,9 @@ if (is_array($video)) {
               $poster = wp_is_mobile() ? $imageMobile : $imageDesktop;
           ?>
               <div class="swiper-slide">
+                <div class="swiperHero-play">
+                  <img src="<?= asset('images/play-icon.svg') ?>" alt="">
+                </div>
                 <?
                 if ($trailer != "") {
                 ?>
