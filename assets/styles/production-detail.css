@@ -907,6 +907,7 @@ body.modal-open {
      -moz-column-gap: 12px;
           column-gap: 12px;
   text-decoration: none;
+  z-index: 9;
 }
 .ctaHome p {
   color: #181818;
