@@ -342,3 +342,91 @@ function debug_404_template_dump( $template ) {
 add_filter('http_request_timeout', function ($timeout) {
     return 30; // saniye
 });
+
+
+function normalize_turkish_search_query($query) {
+    if ($query->is_search() && !is_admin()) {
+        $search = $query->get('s');
+
+        // Türkçeye özel I/İ/ı dönüşümü
+        $search = str_replace(
+            ['I', 'İ', 'ı'], // büyük I, büyük İ, küçük ı
+            ['i', 'i', 'i'], // hepsini küçük i yap
+            $search
+        );
+
+        $query->set('s', $search);
+    }
+}
+add_action('pre_get_posts', 'normalize_turkish_search_query');
+
+
+
+/*
+add_action( 'rest_api_init', function() {
+    
+    // WordPress’in varsayılan CORS başlıklarını kaldır
+    remove_filter( 'rest_pre_serve_request', 'rest_send_cors_headers' );
+
+    // İzin verilecek domain(ler) listesi
+    $allowed_origins = [
+        'https://todstudio.com',
+        //'https://todstudios-168c500218-h0c2emdjfdeydrc0.a03.azurefd.net',
+        // Yeni domain eklemek için aşağıya satır ekle
+        // 'https://another-allowed-domain.com',
+    ];
+
+    // Yeni CORS başlıklarını tanımla
+    add_filter( 'rest_pre_serve_request', function( $value ) use ( $allowed_origins ) {
+
+        // Gelen isteğin Origin bilgisini al
+        $origin = isset( $_SERVER['HTTP_ORIGIN'] ) ? $_SERVER['HTTP_ORIGIN'] : '';
+
+        // Gelen domain izin verilenler listesinde mi?
+        if ( in_array( $origin, $allowed_origins, true ) ) {
+            header( "Access-Control-Allow-Origin: {$origin}" );
+            header( 'Access-Control-Allow-Methods: GET, POST, OPTIONS' );
+            header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
+            // Eğer çerez/kimlik doğrulama bilgisi göndereceksen aç:
+            // header( 'Access-Control-Allow-Credentials: true' );
+        } else {
+            // Güvenilir olmayan domainlerden gelen istekler için
+            header( 'Access-Control-Allow-Origin: none' );
+        }
+
+        return $value;
+    });
+}, 15);*/
+
+add_action('init', function() {
+  //header("Access-Control-Allow-Origin: https://www.todstudio.com");
+});
+
+
+// ======= 5) Prevent public author link generation (optional, UX friendly) =======
+add_filter('author_link', function($link) {
+    // Boş döndürerek linklerin oluşmasını engelle
+    return home_url('/');
+}, 10, 1);
+
+// ======= 6) Optional: Hide author archives from feeds and robots (helps crawlers) =======
+add_action('template_redirect', function() {
+    if (is_author()) {
+        // 301 ile ana sayfaya gönder (veya 403)
+        tod_ac_block_or_redirect('Author archive redirect for SEO/privacy', 301);
+    }
+}, 5);
+
+// ======= 7) Extra: Block direct access to author.php template if someone tries to load it directly =======
+add_action('after_setup_theme', function() {
+    // sadece template dosyası yoksa
+    if (basename($_SERVER['PHP_SELF']) === 'author.php') {
+        tod_ac_log("Direct author.php load blocked", $_SERVER['REQUEST_URI'] ?? '');
+        tod_ac_block_or_redirect('Direct template access forbidden', 403);
+    }
+});
+
+
+
+
+// ======= End of access control helpers =======

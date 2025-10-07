@@ -43,7 +43,7 @@ $map = get_field('map_street');
             <div class="contact-card">
                 <div class="contact-card-icon"><img src="<?= asset('images/mail.svg')?>" alt="mail"></div>
                 <div class="contact-card-body">
-                    <div class="contact-card-value">info@todstudios.com</div>
+                    <div class="contact-card-value"><a href="mailto:info@todstudios.com">info@todstudios.com</a></div>
                     <div class="contact-card-label">MAIL ADDRESS</div>
                 </div>
             </div>

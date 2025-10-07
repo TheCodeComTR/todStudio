@@ -20,13 +20,14 @@ $(function () {
   });
 
   // Related Swiper init
-
+var autoplayMs = 4000;
           heroSlider = new Swiper('.swiperHero', {
           spaceBetween: 0,
           centeredSlides: false,
           loop:true,
           direction: 'horizontal',
-          loopedSlides: 5,
+          //loopedSlides: 5,
+          //autoplay: { delay: autoplayMs, disableOnInteraction: false },
           pagination: {
             el: '.pd-related-pagination',
             clickable: true,
@@ -48,7 +49,7 @@ $(function () {
                 changeTheSeasonData(realIndex);
           }}
         });
-      var autoplayMs = 4000;
+      
       var relatedSlider = new Swiper('.pd-related-swiper', {
         slidesPerView: "auto",
         spaceBetween: 16,
@@ -293,16 +294,27 @@ $(function () {
         e.preventDefault();
 
         $(this).addClass('active');
-        var video = $('.swiperHero-video')[0];
+        var video = $(this).parent().find('.swiperHero-video')[0];
 
         if (video.paused) {
             video.play();
-            $(this).addClass('is-playing');
+            //$(this).addClass('is-playing');
         } else {
             video.pause();
-            $(this).removeClass('is-playing');
+            //$(this).removeClass('is-playing');
         }
     });
+
+    $(".swiperHero-video").on('ended', function() {
+        $('.swiperHero-play').removeClass('active');  
+    });
+    $(".swiperHero-video").on('pause', function() {
+        $('.swiperHero-play').removeClass('active');  
+    });
+    $(".swiperHero-video").on('play', function() {
+        $('.swiperHero-play').addClass('active');
+    });
+
 
 
 });

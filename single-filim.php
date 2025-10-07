@@ -18,7 +18,7 @@ $year = get_field("year");
 $company = get_field("company");
 $awards = get_field("awards");
 
-if(is_array($seasons)){
+if (is_array($seasons)) {
   //$video = get_field("trailer");
   /*
             [hero] => https://todstudio.thecode.com.tr/wp-content/uploads/2025/09/BEIN_VARBUNLAR_YATAY_SL.png
@@ -35,12 +35,12 @@ if(is_array($seasons)){
             [total_episodes] => Season 1, 13x30 mins Season 2, 13x30 mins Season 3, 13x30 mins
             [year_of_production] => 2022 - 2025
             [production_company] => Z Medya
-  *///$mimg  = get_field("main-img");
+  */ //$mimg  = get_field("main-img");
   //print_r($seasons);
   $director = $seasons[0]['directors'];
   $scriprwriter = $seasons[0]['scriptwriter'];
   $cast = $seasons[0]['cast'];
-  ///$presented = $seasons[0]['presented'];
+  $presented = $seasons[0]['presented'];
   $genre = $seasons[0]['genre'];
   //$language = $seasons[0]['language'];
   //$episode = $seasons[0]['total_episodes'];
@@ -127,12 +127,13 @@ if (is_array($video)) {
               $poster = wp_is_mobile() ? $imageMobile : $imageDesktop;
           ?>
               <div class="swiper-slide">
-                <div class="swiperHero-play">
-                  <img src="<?= asset('images/play-icon.svg') ?>" alt="">
-                </div>
+
                 <?
                 if ($trailer != "") {
                 ?>
+                  <div class="swiperHero-play">
+                    <img src="<?= asset('images/play-icon.svg') ?>" alt="">
+                  </div>
                   <media-theme
                     template="media-theme-sutro"
                     style=" height: 810px; width: 100%;--media-primary-color: #ffffff; --media-secondary-color: #ffffff; --media-accent-color: #ffffff;">
@@ -154,21 +155,22 @@ if (is_array($video)) {
             }
           } else { ?>
             <div class="swiper-slide">
-              <div class="swiperHero-play">
-                  <img src="<?= asset('images/play-icon.svg') ?>" alt="">
-                </div>
+
               <?
               if (isset($video[0]['url']) && $video[0]['url'] != "") {
 
               ?>
+                <div class="swiperHero-play">
+                  <img src="<?= asset('images/play-icon.svg') ?>" alt="">
+                </div>
                 <media-theme
                   template="media-theme-sutro"
                   style=" height: 810px; width: 100%;--media-primary-color: #ffffff; --media-secondary-color: #ffffff; --media-accent-color: #ffffff;">
                   <video
-                  crossorigin="anonymous"
-                   class="swiperHero-video"
-                  slot="media"
-                   src="<?= $trailer ?>"  loop playsinline preload="metadata" poster="<?= esc_url($mimg) ?>"></video>
+                    crossorigin="anonymous"
+                    class="swiperHero-video"
+                    slot="media"
+                    src="<?= $trailer ?>" loop playsinline preload="metadata" poster="<?= esc_url($mimg) ?>"></video>
                 </media-theme>
               <? } else { ?>
                 <img src="<?= esc_url($mimg) ?>" alt="hero image">
@@ -177,20 +179,18 @@ if (is_array($video)) {
           <?
           }
           ?>
+
         </div>
         <?
-        if (is_array($seasons) && count($seasons) > 1)
-        {
+        if (is_array($seasons) && count($seasons) > 1) {
         ?>
-        <div class="pd-related-pagination"></div>
-        <?}?>
-        <div class="singleFilmArrow">
-          <div class="singleFilmArrow-next ">
-            <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
-          </div>
-          <div class="singleFilmArrow-prev">
-            <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
-          </div>
+          <div class="pd-related-pagination"></div>
+        <? } ?>
+        <div class="singleFilmArrow-next ">
+          <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
+        </div>
+        <div class="singleFilmArrow-prev">
+          <img src="<?= asset('images/arrow_white.svg') ?>" alt="">
         </div>
       </div>
     </div>
@@ -220,35 +220,33 @@ if (is_array($video)) {
       </div>
     <?
       unset($filmArray[$key]);
-      if ($totalArray > 4 && $art  == 3) 
-      {
-       break;
+      if ($totalArray > 4 && $art  == 3) {
+        break;
       }
-      
     }
     ?>
 
     <?
-    if($totalArray > 4){ 
+    if ($totalArray > 4) {
     ?>
 
-    <div class="pd-info-card pd-info-stats">
-      <ul>
-        <?
-        foreach ($filmArray as $key => $value) {
-          if ($value == "")  continue;
-        ?>
+      <div class="pd-info-card pd-info-stats">
+        <ul>
+          <?
+          foreach ($filmArray as $key => $value) {
+            if ($value == "")  continue;
+          ?>
 
-          <li>
-            <img src="<?= asset('images/' . $key . '.svg') ?>" alt="<?= $key ?>">
-            <div class="pd-info-kv">
-              <div class="pd-info-kv-label"><?= $titleArray[$key] ?></div>
-              <div class="pd-info-kv-value" id="detail-<?= $key ?>"><?= $value ?></div>
-            </div>
-          </li>
-        <? } ?>
-      </ul>
-    </div>
+            <li>
+              <img src="<?= asset('images/' . $key . '.svg') ?>" alt="<?= $key ?>">
+              <div class="pd-info-kv">
+                <div class="pd-info-kv-label"><?= $titleArray[$key] ?></div>
+                <div class="pd-info-kv-value" id="detail-<?= $key ?>"><?= $value ?></div>
+              </div>
+            </li>
+          <? } ?>
+        </ul>
+      </div>
     <?
     }
     ?>
@@ -268,7 +266,8 @@ if (is_array($video)) {
                 class="pd-related-card" ,
                 data-key="<?= $key ?>">
                 <img src="<?= $seasonx['hero_mobile'] ?>" alt="thumb <?= $key + 1 ?>">
-                <span class="pd-related-caption"><?= ++$key.". Season";//$seasonx['name'] ?></span>
+                <span class="pd-related-caption"><?= ++$key . ". Season"; //$seasonx['name'] 
+                                                  ?></span>
               </a>
             </div>
           <?php } ?>
@@ -357,7 +356,9 @@ if ($season):
     'post_type'      => 'filim',
     'posts_per_page' => 20,
     'post__not_in'   => [$current_id],
-    'category__in'   => $categories
+    'category__in'   => $categories,
+    'orderby'        => 'menu_order',
+    'order'          => 'asc',
   ];
 
   $related_query = new WP_Query($args);
@@ -1215,14 +1216,14 @@ if ($season):
 <a class="ctaHome" href="<?php echo home_url(); ?>">
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_11_2911)">
-    <path d="M14.2751 14.2746H1.72607V6.96478L8.00059 1.31772L14.2751 6.96478V14.2746Z" stroke="#1C1C1C" stroke-width="1.5"/>
-    <path d="M4.86377 8H11.1382" stroke="#1C1C1C" stroke-width="1.5"/>
-    <path d="M4.86377 10.5098H11.1382" stroke="#1C1C1C" stroke-width="1.5"/>
+      <path d="M14.2751 14.2746H1.72607V6.96478L8.00059 1.31772L14.2751 6.96478V14.2746Z" stroke="#1C1C1C" stroke-width="1.5" />
+      <path d="M4.86377 8H11.1382" stroke="#1C1C1C" stroke-width="1.5" />
+      <path d="M4.86377 10.5098H11.1382" stroke="#1C1C1C" stroke-width="1.5" />
     </g>
     <defs>
-    <clipPath id="clip0_11_2911">
-    <rect width="16" height="16" fill="white"/>
-    </clipPath>
+      <clipPath id="clip0_11_2911">
+        <rect width="16" height="16" fill="white" />
+      </clipPath>
     </defs>
   </svg>
   <p>

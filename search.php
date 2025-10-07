@@ -58,7 +58,7 @@ view('header/header');
                         </div>
                     </section>
                     <div class="noResult">
-                        <p>"<?php echo get_search_query(); ?>" için sonuç bulunamadı.</p>
+                        <p>No results found for "<?php echo get_search_query(); ?>"</p>
                     </div>
                 </div>
 
