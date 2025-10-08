@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  font-family: "Lexend Deca", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 325;
   font-style: Book;
   font-size: 1.4rem;
@@ -128,6 +128,11 @@ body.menu-open {
   position: relative;
   overflow: hidden;
 }
+@media (max-width: 768px) {
+  .hero {
+    padding: 58px 0 0 0;
+  }
+}
 .hero .hero-container {
   max-height: 810px;
   height: 810px;
@@ -142,7 +147,8 @@ body.menu-open {
           justify-content: center;
 }
 .hero .hero-container img,
-.hero .hero-container video {
+.hero .hero-container video,
+.hero .hero-container picture {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -247,7 +253,7 @@ body.menu-open {
   background: none;
   border: none;
   color: #fff;
-  font-family: "Lexend Deca", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -287,7 +293,7 @@ body.menu-open {
   display: block;
   color: #fff;
   text-decoration: none;
-  font-family: "Lexend Deca", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-size: 1.8rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -453,7 +459,7 @@ body.menu-open {
   border-bottom: 1px solid #ffd700;
   padding: 0px 28px;
   color: #fff;
-  font-family: "Lexend Deca", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-size: 1.8rem;
   font-weight: 325;
   letter-spacing: 0.08em;
@@ -559,7 +565,7 @@ body.menu-open {
   border-radius: 8px;
   padding: 8px;
   color: #ffd700;
-  font-family: "Lexend Deca", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -840,4 +846,45 @@ body.menu-open {
         -ms-flex-align: center;
             align-items: center;
   }
+}
+.breadcrumb {
+  width: 100%;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.16);
+}
+.breadcrumb .container {
+  padding: 0 108px 8px;
+}
+@media (max-width: 768px) {
+  .breadcrumb .container {
+    padding: 0 16px;
+  }
+}
+.breadcrumb-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 4px;
+     -moz-column-gap: 4px;
+          column-gap: 4px;
+  color: rgba(255, 255, 255, 0.64);
+  padding: 2rem 0;
+}
+.breadcrumb-wrapper span {
+  font-size: 14px;
+  font-weight: 300;
+  color: #fff;
+}
+.breadcrumb-wrapper a {
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 14px;
+  font-weight: 300;
+  text-decoration: none;
 }

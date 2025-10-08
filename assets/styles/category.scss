@@ -1,11 +1,31 @@
 .categoryPage{
     width: 100%;
     display: block;
+    .hero{
+        .container{
+            max-width: 1224px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        &-content{
+            padding: 56px 0;
+
+            @media (max-width: 768px) {
+                h1{
+                    font-size: 24px;
+                }
+                p{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
     .container{
         //max-width: 1224px;
         margin: 0 auto;
+        max-width: 1224px;
         width: 100%;
-        padding: 56px 108px;
+        padding: 0;
          @media (max-width: 768px) {
             padding: 16px;
          }
@@ -26,11 +46,16 @@
             align-items: center;
             text-decoration: none;
             &-thumbnail{
-                
+                display: block;
+                width: 100%;
                 img{
                     width: 100%;
                     box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.24);
                     border-radius: 8px;
+                    height: 413px;
+                    @media (max-width: 768px) {
+                        height: 240px;
+                    }
                 }
             }
             &-title{
@@ -44,4 +69,46 @@
             }
         }
     }
+    .pagination {
+        padding: 32px 0 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    .page-btn {
+      background-color: #2d2d2d;
+      color: #cccccc;
+      padding: 5px 9px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 400;
+      font-style: Bold;
+      font-size: 12px;
+      text-align: center;
+      border: none;
+      align-items: center;
+      display: flex;
+      column-gap: 4px;
+      text-decoration: none;
+      svg{
+        width: 20px;
+        path{
+            fill: #ffbc00;
+        }
+      }
+      &.active {
+        background-color: #ffbc00;
+        color: #1d1d1d;
+        border-color: #ffbc00;
+      }
+
+      &:hover:not(.active) {
+        background-color: #444;
+        color: #ffffff;
+      }
+    }
+  }
 }

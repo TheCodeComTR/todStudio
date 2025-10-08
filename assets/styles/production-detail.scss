@@ -332,7 +332,30 @@
   background-color: rgba(#000, 0.16);
   border-bottom: 1px solid rgba(#000, 0.16);
   position: relative;
-
+  .productions-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    a{
+      color: #fff;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      gap: 12px;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      text-decoration: none;
+      padding: 8px 0;
+      font-weight: 400;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+    }
+  }
   .swiperHasArrow{
   position: relative;
  
