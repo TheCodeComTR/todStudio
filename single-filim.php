@@ -82,7 +82,9 @@ $titleArray['language'] = "Orginal language";
 if (is_array($video)) {
   $trailer = $video[0]['url'];
 }
-
+$featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
+//print_r($mobilimg);
+//echo "mobilimg: " . $featured_img_url;
 ?>
 <style>
   .pd-related-swiper .swiper-slide {
@@ -153,7 +155,10 @@ if (is_array($video)) {
               </div>
             <?
             }
-          } else { ?>
+          } else {
+
+            $poster = wp_is_mobile() ? $featured_img_url : $mimg;
+            ?>
             <div class="swiper-slide">
 
               <?
@@ -170,10 +175,10 @@ if (is_array($video)) {
                     crossorigin="anonymous"
                     class="swiperHero-video"
                     slot="media"
-                    src="<?= $trailer ?>" loop playsinline preload="metadata" poster="<?= esc_url($mimg) ?>"></video>
+                    src="<?= $trailer ?>" loop playsinline preload="metadata" poster="<?= esc_url($poster) ?>"></video>
                 </media-theme>
               <? } else { ?>
-                <img src="<?= esc_url($mimg) ?>" alt="hero image">
+                <img src="<?= esc_url($poster) ?>" alt="hero image">
               <? } ?>
             </div>
           <?

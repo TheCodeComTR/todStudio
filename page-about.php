@@ -11,7 +11,7 @@ view('header/header');
             <img src="<?= asset('images/about-bg.png')?>" alt="hero">
         </div>
         <div class="hero-content">
-            <h1>Inside TOD Studios ..</h1>
+            <h1>Inside TOD Studios</h1>
             <p>TOD Studios is the original content label of the digital entertainment platform TOD and beIN Media Group. </p>
             <p style="max-width: 1235px;">Established with a bold vision to create high-quality, locally rooted and globally relevant productions, TOD Studios develops original series, lifestyle, documentaries and sports content tailored to today’s diverse audiences. With a strong focus on storytelling, creative talent, and production excellence, TOD Studios aims to become a leading force in MENA and Turkiye’s content ecosystem, offering compelling stories that resonate across borders.</p>
         </div>
