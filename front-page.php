@@ -100,7 +100,7 @@ $slider = get_field('slider');
 
 		$args = [
 			'post_type'      => 'filim',
-			'posts_per_page' => 20,
+			'posts_per_page' => 32, 
 			'post_status'    => 'publish',
 			'tax_query'      => [
 				[
@@ -109,9 +109,9 @@ $slider = get_field('slider');
 					'terms'    => $cat_slug,
 				]
 			],
-			'meta_key'       => 'year',           // ACF alanı
-			'orderby'        => 'meta_value_num', // sayısal sıralama tetikleyici
-			'order'          => 'DESC', 
+			//'meta_key'       => 'year',           // ACF alanı
+			'orderby'        => 'menu_order', // sayısal sıralama tetikleyici
+			'order'          => 'asc', 
 		];
 
 		$filim_query = new WP_Query($args);
@@ -124,10 +124,9 @@ $slider = get_field('slider');
 						<p><?= esc_html($category->description) ?></p>
 					</div>
 					<div class="productions-header-right">
-						<a href="<?= "productions/" //esc_url(get_category_link($category->term_id)) 
-									?>" class="see-all">
+						<?/*<a href="<?= "productions/" //esc_url(get_category_link($category->term_id)) ?>" class="see-all">
 							<img src="<?= asset('images/film_rulo.svg') ?>" alt="arrow"> See All
-						</a>
+						</a> */?>
 					</div>
 				</div>
 
