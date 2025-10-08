@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="<?= asset('styles/global.css') . '?v=' . time() ?>">
+    <link rel="stylesheet" href="<?= asset('styles/font.css')?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     
     <?
@@ -22,13 +23,18 @@
     //$template_slug = get_page_template_slug($post->ID);
     //echo 'Template slug: ' . $template_slug;
 
-    if (is_page_template('page-about.php')) {
+    if (is_page_template('page-about.php')) 
+    {
         echo '<link rel="stylesheet" href="' . asset('styles/about.css?v=') .time() . '">';
     } else if (is_page_template('page.contact.php') || is_page_template('page-contact.php')) {
         echo '<link rel="stylesheet" href="' . asset('styles/contact.css?v=13') . '">';
     } else if (is_page_template('page-production.php')) {
 
         echo '<link rel="stylesheet" href="' . asset('styles/production.css?v=') .time() . '">';
+    }
+    else if (is_page_template('category-filim.php')) {
+
+        echo '<link rel="stylesheet" href="' . asset('styles/category.css?v=') .time() . '">';
     }
 
 

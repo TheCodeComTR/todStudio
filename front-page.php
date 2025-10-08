@@ -26,29 +26,32 @@ $slider = get_field('slider');
 		<div class="swiper hero-swiper">
 			<div class="swiper-wrapper">
 				<?php
-					foreach( $slider as $item ) {
-						$imageD = $item['slider-d-bg'];
-						$imageM = $item['slider-m-bg'];
-						$title = $item['title'];
-						$cta = $item['cta'];
-						
-						if (wp_is_mobile()) {
-							$show_image = $imageM;
-						} else {
-							$show_image = $imageD;
-						}
-				?>
-				<div class="swiper-slide">
-					<a href="<?= $cta ?>" class="hero-cta"></a>
-					<div class="hero-container">
-						<img src="<?= $show_image ?>" alt="">
-					</div>
-					<div class="hero-content">
-						<h1><?= $title ?></h1>
-					</div>
-				</div>
-				<?php
+				foreach ($slider as $item) {
+					$imageD = $item['slider-d-bg'];
+					$imageM = $item['slider-m-bg'];
+					$title = $item['title'];
+					$cta = $item['cta'];
+
+					if (wp_is_mobile()) {
+						$show_image = $imageM;
+					} else {
+						$show_image = $imageD;
 					}
+				?>
+					<div class="swiper-slide">
+						<a href="<?= $cta ?>" class="hero-cta"></a>
+						<div class="hero-container">
+							<picture>
+								<source media="(max-width:768px)" srcset="<?= $imageM ?>">
+								<img src="<?= $imageD ?>" alt="">
+							</picture>
+						</div>
+						<div class="hero-content">
+							<h1><?= $title ?></h1>
+						</div>
+					</div>
+				<?php
+				}
 				?>
 			</div>
 			<div class="hero-pagination swiper-pagination"></div>
@@ -61,7 +64,7 @@ $slider = get_field('slider');
 		</div>
 	</section>
 	<!-- Metrics (Company Stats layout) -->
-	 <?/*
+	<?/*
 	<section class="about-section company-stats bg-dark">
 		<div class="about-container stats-row">
 			<div class="brand-block">
@@ -87,10 +90,10 @@ $slider = get_field('slider');
 			</div>
 		</div>
 	</section>
-	*/?>
+	*/ ?>
 	<?php
 	// Gösterilecek kategoriler
-	$categories = ['series', 'life-style', 'kids'];
+	$categories = ['series', 'factual-lifestyle', 'kids'];
 
 	foreach ($categories as $cat_slug):
 
@@ -100,7 +103,7 @@ $slider = get_field('slider');
 
 		$args = [
 			'post_type'      => 'filim',
-			'posts_per_page' => 32, 
+			'posts_per_page' => 32,
 			'post_status'    => 'publish',
 			'tax_query'      => [
 				[
@@ -111,7 +114,7 @@ $slider = get_field('slider');
 			],
 			//'meta_key'       => 'year',           // ACF alanı
 			'orderby'        => 'menu_order', // sayısal sıralama tetikleyici
-			'order'          => 'asc', 
+			'order'          => 'asc',
 		];
 
 		$filim_query = new WP_Query($args);
@@ -124,9 +127,9 @@ $slider = get_field('slider');
 						<p><?= esc_html($category->description) ?></p>
 					</div>
 					<div class="productions-header-right">
-						<?/*<a href="<?= "productions/" //esc_url(get_category_link($category->term_id)) ?>" class="see-all">
+						<a href="productions/<?= $category->slug ?>" class="see-all">
 							<img src="<?= asset('images/film_rulo.svg') ?>" alt="arrow"> See All
-						</a> */?>
+						</a>
 					</div>
 				</div>
 
@@ -148,13 +151,13 @@ $slider = get_field('slider');
 					<div class="<?= esc_attr($cat_slug) ?>-pagination swiper-pagination"></div>
 				</div>
 				<div class="swiperHasArrow-box <?= esc_attr($cat_slug) ?>-swiper-arrow">
-						<div class="swiper-button-next">
-							<img src="https://todstudio.thecode.com.tr/wp-content/themes/todstudio/assets/images/arrow_white.svg" alt="">
-						</div>
-    					<div class="swiper-button-prev">
-							<img src="https://todstudio.thecode.com.tr/wp-content/themes/todstudio/assets/images/arrow_white.svg" alt="">
-						</div>
+					<div class="swiper-button-next">
+						<img src="https://todstudio.thecode.com.tr/wp-content/themes/todstudio/assets/images/arrow_white.svg" alt="">
 					</div>
+					<div class="swiper-button-prev">
+						<img src="https://todstudio.thecode.com.tr/wp-content/themes/todstudio/assets/images/arrow_white.svg" alt="">
+					</div>
+				</div>
 			</section>
 
 	<?php
@@ -336,7 +339,7 @@ $slider = get_field('slider');
 				<div class="feature-text">
 					<h3>Who Are We</h3>
 					<p>
-						TOD Studios is the original content label of the digital entertainment platform TOD and beIN Media Group. 
+						TOD Studios is the original content label of the digital entertainment platform TOD and beIN Media Group.
 
 					</p>
 					<div class="see-details"><a href="/about/">For More <img src="<?= asset('images/arrow_white.svg') ?>" alt=""></a></div>

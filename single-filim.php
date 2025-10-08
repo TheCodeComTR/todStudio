@@ -5,6 +5,13 @@ view('header/header');
 $seasons = get_field('film_block');
 $seasonData = json_encode($seasons);
 
+$categories = get_the_category();     // Yazının kategorilerini al
+  if (! empty($categories)) {
+    $cat      = $categories[0];       // İlk kategoriyi seç
+    $cat_link = "/productions/" . $cat->slug . "/"; //get_category_link($cat->term_id); // Kategori linki
+    $cat_name = $cat->name;           // Kategori adı
+  }
+
 $video = get_field("trailer");
 $mimg  = get_field("main-img");
 $director = get_field("director");
@@ -199,6 +206,7 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
         </div>
       </div>
     </div>
+
     <div class="hero-content">
       <h1 id="detail-title"><?= get_the_title(); ?></h1>
       <div id="detail-about"><?= get_the_content(); ?></div>
@@ -371,7 +379,17 @@ if ($season):
   if ($related_query->have_posts()): ?>
     <!-- Related -->
     <section class="pd-related">
-      <h2>Related</h2>
+      <div class="productions-header">
+        <div class="productions-header-left">
+          <h2>Related</h2>
+          <p></p>
+        </div>
+        <div class="productions-header-right">
+          <a href="<?=$cat_link?>" class="see-all">
+            <img src="/core/views/9d15c80482/assets/images/film_rulo.svg" alt="arrow"> See All
+          </a>
+        </div>
+      </div>
       <div class="swiper pd-related-swiper">
         <div class="swiper-wrapper">
 
@@ -410,6 +428,19 @@ if ($season):
     </div>
   </div>
 </main>
+<div class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-wrapper">
+      
+      <a href="/">Home</a> /
+      <!--<a href="/productions">Productions</a> /-->
+      <a href="<?= esc_url($cat_link); ?>" id="detail-title-bc">
+        <?= esc_html($cat_name); ?>
+      </a>
+      / <span id="detail-title-bc2"><?= mb_convert_case(get_the_title(), MB_CASE_TITLE, 'UTF-8'); ?></span>
+    </div>
+  </div>
+</div>
 
 <script type="module" src="https://cdn.jsdelivr.net/npm/media-chrome/+esm"></script>
 <script type="module" src="https://cdn.jsdelivr.net/npm/media-chrome/menu/+esm"></script>

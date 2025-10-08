@@ -85,12 +85,12 @@ $(function () {
       },
     });
 
-    var seriesSwiper = new Swiper(".life-style-swiper", {
+    var seriesSwiper = new Swiper(".factual-lifestyle-swiper", {
       slidesPerView: "auto",
       spaceBetween: 16,
       loop: false,
       pagination: {
-        el: ".life-style-pagination",
+        el: ".factual-lifestyle-pagination",
         clickable: true,
         renderBullet: function (index, className) {
           return (
@@ -99,8 +99,8 @@ $(function () {
         },
       },
       navigation: {
-        nextEl: ".productions .life-style-swiper-arrow .swiper-button-next",
-        prevEl: ".productions .life-style-swiper-arrow .swiper-button-prev",
+        nextEl: ".productions .factual-lifestyle-swiper-arrow .swiper-button-next",
+        prevEl: ".productions .factual-lifestyle-swiper-arrow .swiper-button-prev",
       },
       autoplay: { delay: 4000, disableOnInteraction: false },
       /*breakpoints: {
@@ -115,13 +115,13 @@ $(function () {
       },*/
       on: {
         init: function () {
-          $(".life-style-pagination .fill").css("width", "0%");
+          $(".factual-lifestyle-pagination .fill").css("width", "0%");
         },
         slideChangeTransitionStart: function () {
-          $(".life-style-pagination .fill").css("width", "0%");
+          $(".factual-lifestyle-pagination .fill").css("width", "0%");
         },
         autoplayTimeLeft: function (s, time, progress) {
-          var $active = $(".life-style-pagination .swiper-pagination-bullet")
+          var $active = $(".factual-lifestyle-pagination .swiper-pagination-bullet")
             .eq(s.realIndex)
             .find(".fill");
           var pct = Math.max(0, Math.min(100, (1 - progress) * 100));
