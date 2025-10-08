@@ -16,11 +16,11 @@
   display: grid;
   width: 100%;
   gap: 24px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 @media (max-width: 768px) {
   .categoryPage-wrapper {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 .categoryPage-wrapper .catItem {
