@@ -295,4 +295,32 @@ $(function () {
       updatePosition();
     });
   });
+
+
+
+
+
+   var todRelated = new Swiper(".todRelated-swiper", {
+      slidesPerView: 3,
+      spaceBetween: 24,
+      loop: false,
+      navigation: {
+          nextEl: ".todRelated-arrow-next",
+          prevEl: ".todRelated-arrow-prev",
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1.3,
+          spaceBetween: 16,
+        },
+        768: {
+          slidesPerView: 2.2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 24,
+        },
+      },
+    });
 });

@@ -15,6 +15,18 @@
   width: 100%;
   margin: 0 auto;
 }
+@media (max-width: 768px) {
+  .todBlog .hero-content .container {
+    padding: 0 !important;
+  }
+  .todBlog .hero-content h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  .todBlog .hero-content p {
+    font-size: 12px;
+  }
+}
 .todBlog-content {
   width: 100%;
 }
@@ -170,9 +182,8 @@
   top: 591px;
   left: 48px;
   background: rgb(255, 188, 0);
-  -webkit-filter: blur(300px);
-          filter: blur(300px);
-  backdrop-filter: blur(300px);
+  -webkit-filter: blur(100px);
+          filter: blur(100px);
   border-radius: 50%;
 }
 .todSingleBlog .container {
@@ -183,6 +194,20 @@
 .todSingleBlog-content {
   position: relative;
 }
+@media (max-width: 768px) {
+  .todSingleBlog::after {
+    left: -61px;
+    top: 308px;
+    width: 100px;
+    height: 100px;
+    -webkit-filter: blur(60px);
+            filter: blur(60px);
+  }
+  .todSingleBlog .container {
+    padding: 0 16px;
+  }
+}
+
 .todPost {
   width: 100%;
   display: block;
@@ -263,6 +288,7 @@
   letter-spacing: 0%;
   text-align: justify;
   color: #fff;
+  line-height: 24px;
 }
 .todPost-content-box p:not(:first-child) {
   margin-top: 24px;
@@ -307,9 +333,48 @@
   top: 40px;
   right: -64px;
   background: rgb(255, 188, 0);
-  -webkit-filter: blur(300px);
-          filter: blur(300px);
-  backdrop-filter: blur(300px);
+  -webkit-filter: blur(100px);
+          filter: blur(100px);
+}
+@media (max-width: 768px) {
+  .todPost::after {
+    width: 100px;
+    height: 100px;
+    -webkit-filter: blur(56px);
+            filter: blur(56px);
+  }
+  .todPost-thumbnail {
+    min-width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  .todPost-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    row-gap: 16px;
+    padding: 32px 0 0 0;
+  }
+  .todPost-content {
+    row-gap: 8px;
+  }
+  .todPost-content-header {
+    row-gap: 8px;
+  }
+  .todPost-content-header h1 {
+    font-size: 24px;
+  }
+  .todPost-content-header p {
+    font-size: 16px;
+  }
+  .todPost-content-box p {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .todPost-content-box p:not(:first-child) {
+    margin-top: 14px;
+  }
 }
 
 .todRelated {
@@ -376,4 +441,14 @@
   letter-spacing: 8%;
   text-transform: uppercase;
   color: rgb(255, 188, 0);
+}
+@media (max-width: 768px) {
+  .todRelated {
+    row-gap: 16px;
+    padding: 16px 0;
+  }
+  .todRelated-header span {
+    font-size: 18px;
+    letter-spacing: 8%;
+  }
 }
