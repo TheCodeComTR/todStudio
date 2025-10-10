@@ -71,12 +71,12 @@ $filmArray['genre'] = $genre;
 $filmArray['year'] = $year;
 $filmArray['episode'] =  preg_replace('/(?<!^)(Season\s*\d+)/', '<br>$1', $episode);
 $filmArray['company'] = $company;
-$filmArray['presented'] = $presented;
+$filmArray['presented'] = strpos($presented, ',') !== false?str_replace(',', '<br>', $presented):$presented;
 $filmArray['language'] = $language;
 $filmArray = array_filter($filmArray);
 
 
-$titleArray['director'] = "Directors";
+$titleArray['director'] = "Director";
 $titleArray['scriptwriter'] = "Scriptwriter";
 $titleArray['cast'] = "Cast";
 $titleArray['genre'] = "Genre";
@@ -183,7 +183,7 @@ $FilmTitle = get_the_title();
                     crossorigin="anonymous"
                     class="swiperHero-video"
                     slot="media"
-                    src="<?= $trailer ?>" loop playsinline preload="metadata" poster="<?= esc_url($poster) ?>"></video>
+                    src="<?= $trailer ?>" playsinline preload="metadata" poster="<?= esc_url($poster) ?>"></video>
                 </media-theme>
               <? } else { ?>
                 <img src="<?= esc_url($poster) ?>" alt="hero image">

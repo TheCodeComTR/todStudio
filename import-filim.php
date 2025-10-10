@@ -3,7 +3,7 @@ require_once( dirname(__FILE__) . '/wp-load.php' );
 require_once( ABSPATH . 'wp-admin/includes/taxonomy.php' );
 require_once( ABSPATH . 'wp-admin/includes/post.php' );
 
-$filePath = __DIR__ . '/sonicerik.csv';
+$filePath = __DIR__ . '/sonicerik2.csv';
 $do_import = isset($_GET['import']) && $_GET['import'] == 1;
 
 if (!file_exists($filePath)) {
@@ -28,45 +28,51 @@ if (($handle = fopen($filePath, "r")) !== FALSE) {
         $post_content = trim($data['EnglishDescription'] ?? '');
         $turkish_name = trim($data['OriginalTitle'] ?? '');
         $director     = $data['Director'] ?? '';
-        $scriptwriter = $data['Writer'] ?? '';
+        $writer       = $data['Writer'] ?? '';
         $cast         = $data['Cast'] ?? '';
         $genre        = $data['Genre'] ?? '';
         $language     = $data['OriginalLanguage'] ?? '';
         $year         = $data['ProductionYear'] ?? '';
         $company      = $data['Producer'] ?? '';
-        $presented    = ''; // İstendiği gibi boş bırakıldı
-        $notes         = $data['Poster']." - ".$data['Promo']." - ".$data['Notlar']." - ".$data['PromoLink']?? '';
+        $presented    = $data['Host'] ?? '';
+        $notes        = $data['Poster']." - ".$data['Promo']." - ".$data['Notlar']." - ".$data['PromoLink']?? '';
+        $note1        = $data['notlar1'] ?? '';
 
         // Episodes x Duration alanından bölüm sayısını ayıkla
         $episode = "1 Season, ".$data['Episodes']."x".$data['Duration']." mins" ?? '';
         $existing = get_page_by_title($post_title, OBJECT, 'filim');
+        //print_r($existing);
         
         // Verileri göster (önizleme)
         echo "-----------------------------------------\n";
-        echo "Row: {$row_num}\n";
+        echo "Row: {$row_num} -> <a target='_blank' href=".$existing->guid."> Görüntüle</a>\n";
         echo '<a href="https://todstudio.thecode.com.tr/wp-admin/post.php?post='.$existing->ID.'&action=edit" target="_blank"> Düzenle </a>'."\n";
         echo "Title (English): {$post_title}\n";
         echo "desc (English): {$post_content}\n";
         echo "Turkish Name: <b>{$turkish_name}</b>\n";
         echo "Director: {$director}\n";
-        echo "Writer: {$scriptwriter}\n";
+        echo "Writer: {$writer}\n";
         echo "Cast: {$cast}\n";
         echo "Genre: {$genre}\n";
         echo "Language: {$language}\n";
         echo "Episode: {$episode}\n";
         echo "Year: {$year}\n";
         echo "Company: {$company}\n";
-        echo "Presented: (empty)\n";
-        echo "Notes: {$notes}\n";
+        echo "Presented: ($presented)\n";
+        echo "Notes: <b>{$note1}</b>\n";
         echo "-----------------------------------------\n\n";
 
         // Eğer ?import=1 parametresi varsa kayıt işlemini yap
 
+         if(strpos($post_title ,"Season") !== false)
+         {
+            echo "season var kaydetme \n";
+            continue;
+         }
+         //&& strpos($post_title,"Cooking by") !== false do_import
+        if ($efess == 3213213211) {
          
-
-        if ($do_import == 10000) {
-         
-
+            
             if ($existing) {
                 // Güncelleme
                 $post_id = $existing->ID;
@@ -75,7 +81,7 @@ if (($handle = fopen($filePath, "r")) !== FALSE) {
                     'post_content' => $post_content,
                     'post_status'  => 'publish',
                 ]);
-                echo "🔁 {$post_title} güncellendi.\n";
+                echo "✅ {$post_title} güncellendi.\n";
             } else {
                 // Yeni ekleme
                 $post_id = wp_insert_post([
@@ -97,9 +103,10 @@ if (($handle = fopen($filePath, "r")) !== FALSE) {
             wp_set_post_terms($post_id, [$category_id], 'category', false);
 
             // ACF alanlarını güncelle
+            //$writer = $row_num > 73?"-":$writer;
             update_field('turkish_name', $turkish_name, $post_id);
             update_field('director', $director, $post_id);
-            update_field('scriptwriter', $scriptwriter, $post_id);
+            update_field('scriprwriter', $writer, $post_id);
             update_field('cast', $cast, $post_id);
             update_field('genre', $genre, $post_id);
             update_field('language', $language, $post_id);
@@ -109,7 +116,7 @@ if (($handle = fopen($filePath, "r")) !== FALSE) {
             update_field('presented', $presented, $post_id);
             update_field('notes', $notes, $post_id);
 
-            echo "✅ {$post_title} başarıyla eklendi.\n\n";
+            //echo "✅ {$post_title} başarıyla eklendi.\n\n";
         }
     }
 

@@ -46,9 +46,9 @@ $slider = get_field('slider');
 								<img src="<?= $imageD ?>" alt="">
 							</picture>
 						</div>
-						<div class="hero-content">
+						<?/*<div class="hero-content">
 							<h1><?= $title ?></h1>
-						</div>
+						</div>*/?>
 					</div>
 				<?php
 				}
