@@ -56,7 +56,13 @@ $category_slug = $cat->post_name;
                 ?>
                         <a href="<? the_permalink()?>" class="catItem">
                             <div class="catItem-thumbnail">
-                                <?php the_post_thumbnail('medium_large'); ?>
+                                <?php 
+                                if(has_post_thumbnail()):
+                                the_post_thumbnail('medium_large'); 
+                                else:
+                                    echo '<img src="'.asset('images/poster.png').'" alt="<?php the_title(); ?>">';
+                                endif;
+                                ?>
                             </div>
                             <div class="catItem-title">
                                 <span>

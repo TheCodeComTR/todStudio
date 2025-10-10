@@ -84,12 +84,13 @@ $titleArray['episode'] = "Total Episodes";
 $titleArray['year'] = "Year of Production";
 $titleArray['company'] = "Production Company";
 $titleArray['presented'] = "Presented by";
-$titleArray['language'] = "Orginal language";
+$titleArray['language'] = "Original language";
 
 if (is_array($video)) {
   $trailer = $video[0]['url'];
 }
 $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
+$FilmTitle = get_the_title();
 //print_r($mobilimg);
 //echo "mobilimg: " . $featured_img_url;
 ?>
@@ -208,8 +209,17 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
     </div>
 
     <div class="hero-content">
-      <h1 id="detail-title"><?= get_the_title(); ?></h1>
-      <div id="detail-about"><?= get_the_content(); ?></div>
+      <h1 id="detail-title"><?= $FilmTitle ?></h1>
+      <div id="detail-about">
+        <?  $content =  get_the_content(); 
+        if(strpos($content, '<p>') === false)
+        {
+          echo "<p>".$content."</p>";
+        } else {
+          echo $content;
+        }
+        ?>
+      </div>
     </div>
   </section>
 
@@ -386,7 +396,7 @@ if ($season):
         </div>
         <div class="productions-header-right">
           <a href="<?=$cat_link?>" class="see-all">
-            <img src="/core/views/9d15c80482/assets/images/film_rulo.svg" alt="arrow"> See All
+            <img src="/wp-content/themes/todstudio/assets/images/film_rulo.svg" alt="arrow"> See All
           </a>
         </div>
       </div>
@@ -437,7 +447,7 @@ if ($season):
       <a href="<?= esc_url($cat_link); ?>" id="detail-title-bc">
         <?= esc_html($cat_name); ?>
       </a>
-      / <span id="detail-title-bc2"><?= mb_convert_case(get_the_title(), MB_CASE_TITLE, 'UTF-8'); ?></span>
+      / <span id="detail-title-bc2"><?= mb_convert_case($FilmTitle, MB_CASE_TITLE, 'UTF-8'); ?></span>
     </div>
   </div>
 </div>
