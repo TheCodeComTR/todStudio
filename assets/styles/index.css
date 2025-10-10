@@ -786,9 +786,9 @@
   margin-left: 32px;
 }
 .swiperHasArrow-box .swiper-button-prev img {
-  -webkit-transform: translateY(-50%) rotate(180deg);
-      -ms-transform: translateY(-50%) rotate(180deg);
-          transform: translateY(-50%) rotate(180deg);
+  -webkit-transform: translateY(0) rotate(180deg);
+      -ms-transform: translateY(0) rotate(180deg);
+          transform: translateY(0) rotate(180deg);
 }
 .swiperHasArrow-box .swiper-button-prev::after {
   display: none;

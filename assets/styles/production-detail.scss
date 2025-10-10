@@ -88,6 +88,15 @@
   margin-top: 10px;
   &:not(:has(.pd-info-stats)){
     grid-template-columns: 1fr 1fr 1fr 1fr !important;
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(1 , 1fr) !important;
+      .pd-info-card{
+        &:nth-last-child(1){
+          flex-direction: revert;
+          justify-content: flex-start;
+        }
+      }
+    }
   }
   .pd-info-card {
     display: flex;
@@ -371,7 +380,7 @@
     .swiper-button-prev{
       margin-left: 32px;
       img{
-        transform: translateY(-50%) rotate(180deg);
+        transform: translateY(0%) rotate(180deg);
       }
       &::after{
         display: none;

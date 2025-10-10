@@ -731,7 +731,7 @@
     .swiper-button-prev{
       margin-left: 32px;
       img{
-        transform: translateY(-50%) rotate(180deg);
+        transform: translateY(0) rotate(180deg);
       }
       &::after{
         display: none;
