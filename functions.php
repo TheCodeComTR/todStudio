@@ -275,7 +275,7 @@ function start_session_wp()
 remove_action('wpcf7_swv_create_schema', 'wpcf7_swv_add_select_enum_rules', 20, 2);
 
 // Filmleri year alanındaki ilk yılı baz alarak sıralamak
-add_filter('posts_clauses', 'orderby_year_field_as_last_number', 10, 2);
+/*add_filter('posts_clauses', 'orderby_year_field_as_last_number', 10, 2);
 function orderby_year_field_as_last_number($clauses, $query) {
     global $wpdb;
 
@@ -286,7 +286,7 @@ function orderby_year_field_as_last_number($clauses, $query) {
     }
 
     return $clauses;
-}
+}*/
 
 /*
 ini_set( 'error_reporting', -1 );
@@ -399,9 +399,102 @@ add_action( 'rest_api_init', function() {
 }, 15);*/
 
 add_action('init', function() {
-  //header("Access-Control-Allow-Origin: https://www.todstudio.com");
+  header("Access-Control-Allow-Origin: https://todstudios.com");
+  $allowed_origins = ['https://todstudios.com'];
+    $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+    if (in_array($origin, $allowed_origins)) {
+        header("Access-Control-Allow-Origin: $origin");
+        header("Access-Control-Allow-Credentials: true");
+        header("Content-Security-Policy: frame-ancestors 'self'");
+    }
 });
 
+
+// 1) Kötü amaçlı desenleri tanımla
+function efes_cf7_malicious_patterns() {
+    return array(
+        // XSS
+        '/<\s*script\b/i',
+        '/<\/\s*script\s*>/i',
+        '/javascript:/i',
+        // SQLi tipik desenleri
+        '/\bwhere\s+1\s*=\s*1\b/i',
+        '/\bunion\b\s*\bselect\b/i',
+        '/\bselect\b.+\bfrom\b/i',
+        '/;\s*(drop|truncate|delete|alter)\b/i',
+        '/--\s*$/m',
+        // Genel tehlikeli tokenlar
+        '/\bexec\b\s*\(/i',
+        '/\bdeclare\b/i',
+        '/\bbenchmark\b\s*\(/i'
+    );
+}
+
+// 2) CF7 alan doğrulayıcı — text, email, textarea gibi türlere uygulanır
+function efes_cf7_block_malicious_inputs( $result, $tag ) {
+    // $tag bir WPCF7_FormTag nesnesi
+    $name = $tag->name;
+
+    // POST içinde aynı isimde bir alan yoksa devam et
+    if ( empty( $name ) || ! isset( $_POST[$name] ) ) {
+        return $result;
+    }
+
+    $value = trim( (string) $_POST[$name] );
+    if ( $value === '' ) {
+        return $result;
+    }
+
+    $patterns = efes_cf7_malicious_patterns();
+
+    foreach ( $patterns as $re ) {
+        if ( preg_match( $re, $value ) ) {
+            // Alanı geçersiz kıl ve kullanıcıya gösterilecek hata mesajını ayarla
+            $result->invalidate( $tag, 'Girdi güvenlik kurallarını ihlal ediyor — işlem reddedildi.' );
+
+            // İsteğe bağlı: saldırı girişimini logla (wp-content/debug.log aktifse görülecektir)
+            if ( function_exists( 'error_log' ) ) {
+                $ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 'unknown';
+                error_log( sprintf(
+                    '[CF7-SEC] Blocked malicious input on field "%s" from %s — value: %s',
+                    $name, $ip, mb_substr($value, 0, 200)
+                ) );
+            }
+
+            return $result;
+        }
+    }
+
+    return $result;
+}
+// Hook'ları ekle — yıldızlı (*) olanlar required/optional inputlar için
+add_filter( 'wpcf7_validate_text', 'efes_cf7_block_malicious_inputs', 20, 2 );
+add_filter( 'wpcf7_validate_text*', 'efes_cf7_block_malicious_inputs', 20, 2 );
+add_filter( 'wpcf7_validate_textarea', 'efes_cf7_block_malicious_inputs', 20, 2 );
+add_filter( 'wpcf7_validate_textarea*', 'efes_cf7_block_malicious_inputs', 20, 2 );
+add_filter( 'wpcf7_validate_email', 'efes_cf7_block_malicious_inputs', 20, 2 );
+add_filter( 'wpcf7_validate_email*', 'efes_cf7_block_malicious_inputs', 20, 2 );
+
+// 3) Ek: gönderilen veriyi sunucuda temizle (HTML tag'lerini kaldır vs.)
+function efes_cf7_sanitize_posted_data( $posted_data ) {
+    foreach ( $posted_data as $key => $value ) {
+        if ( is_string( $value ) ) {
+            // 1) Strip tags (aksi halde <b> vb HTML'ler kalır)
+            $clean = wp_strip_all_tags( $value );
+
+            // 2) Fazla kontrollü: SQLi tokenlarını tamamen silmek istersen:
+            $patterns = efes_cf7_malicious_patterns();
+            foreach ( $patterns as $re ) {
+                $clean = preg_replace( $re, '[blocked]', $clean );
+            }
+
+            // 3) Trim ve tekrar ata
+            $posted_data[$key] = trim( $clean );
+        }
+    }
+    return $posted_data;
+}
+add_filter( 'wpcf7_posted_data', 'efes_cf7_sanitize_posted_data' );
 
 // ======= 5) Prevent public author link generation (optional, UX friendly) =======
 add_filter('author_link', function($link) {
@@ -426,7 +519,14 @@ add_action('after_setup_theme', function() {
     }
 });
 
-
+remove_action('template_redirect', 'redirect_canonical');
+remove_filter('template_redirect', 'redirect_canonical');
+add_action(
+    'init',
+    function () {
+        remove_action('template_redirect', 'wp_redirect_admin_locations', 1000);
+    }
+);
 
 
 // ======= End of access control helpers =======

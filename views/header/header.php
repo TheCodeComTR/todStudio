@@ -54,6 +54,11 @@
     {
      echo '<link rel="stylesheet" href="' . asset('styles/index.css?v=') .time() . '">';
     }
+    else if(is_home() || is_single( ))
+    {
+        echo '<link rel="stylesheet" href="' . asset('styles/blog.css?v=') .time() . '">';
+    }
+
 
 
     wp_head();

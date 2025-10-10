@@ -103,13 +103,19 @@ $slider = get_field('slider');
 
 		$args = [
 			'post_type'      => 'filim',
-			'posts_per_page' => 32,
+			'posts_per_page' => 15,
 			'post_status'    => 'publish',
 			'tax_query'      => [
 				[
 					'taxonomy' => 'category',
 					'field'    => 'slug',
 					'terms'    => $cat_slug,
+				]
+			],
+			'meta_query' => [
+				[
+					'key'     => '_thumbnail_id',  // featured image alanı
+					'compare' => 'EXISTS',         // sadece thumb’u olanları getir
 				]
 			],
 			//'meta_key'       => 'year',           // ACF alanı
@@ -135,18 +141,21 @@ $slider = get_field('slider');
 
 				<div class="swiper <?= esc_attr($cat_slug) ?>-swiper ">
 					<div class="swiper-wrapper">
-						<?php while ($filim_query->have_posts()): $filim_query->the_post(); ?>
+						<?php while ($filim_query->have_posts()): $filim_query->the_post(); 
+						if (has_post_thumbnail()):
+						?>
 							<div class="swiper-slide">
 								<a href="<?php the_permalink(); ?>" class="swiper-card">
 									<?php if (has_post_thumbnail()): ?>
 										<?php the_post_thumbnail('medium'); ?>
 									<?php else: ?>
-										<img src="<?= asset('images/placeholder.png') ?>" alt="<?php the_title(); ?>">
+										<img src="<?= asset('images/poster.png') ?>" alt="<?php the_title(); ?>">
 									<?php endif; ?>
 									<span class="swiper-caption"><?php the_title(); ?></span>
 								</a>
 							</div>
-						<?php endwhile; ?>
+						<?php endif; 
+					endwhile; ?>
 					</div>
 					<div class="<?= esc_attr($cat_slug) ?>-pagination swiper-pagination"></div>
 				</div>
