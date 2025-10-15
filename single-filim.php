@@ -381,7 +381,7 @@ if ($season):
     'post__not_in'   => [$current_id],
     'category__in'   => $categories,
     'orderby'        => 'menu_order',
-    'order'          => 'asc',
+    'order'          => 'desc',
   ];
 
   $related_query = new WP_Query($args);

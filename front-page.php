@@ -120,7 +120,7 @@ $slider = get_field('slider');
 			],
 			//'meta_key'       => 'year',           // ACF alanı
 			'orderby'        => 'menu_order', // sayısal sıralama tetikleyici
-			'order'          => 'asc',
+			'order'          => 'desc',
 		];
 
 		$filim_query = new WP_Query($args);
