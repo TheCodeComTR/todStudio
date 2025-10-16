@@ -424,6 +424,52 @@
   font-weight: 400;
   font-size: 1.2rem;
   text-transform: uppercase;
+  position: relative;
+  svg{
+    path{
+      transition: 300ms all ease-in-out;
+    }
+  }
+  &::after{
+    content: '';
+    width: 0px;
+    height: 1px;
+    background: #ffbc00;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 300ms all ease-in-out;
+  }
+  &::before{
+    content: '';
+    width: 0px;
+    height: 1px;
+    background: #ffbc00;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: 300ms all ease-in-out;
+  }
+  &:hover{
+    svg{
+    path{
+      stroke: #ffbc00;
+      transition: 300ms all ease-in-out;
+    }
+  }
+    &::after{
+      width: 100%;
+      transition: 300ms all ease-in-out;
+    }
+    &::before{
+      width: 100%;
+      transition: 300ms all ease-in-out;
+    }
+    
+    
+    color: #ffbc00;
+  }
+
 }
 
 /* Who We Are */

@@ -146,25 +146,43 @@
 
                         <img src="<?= asset('images/search.svg') ?>" alt="search" class="search-icon">
                         <input type="text" placeholder="SEARCH" class="search-input" id="search-input" name="s">
-                        <button type="submit" class="search-close-btn" id="search-close-btn">
+                        <div class="search-close-btn" id="search-close-btn">
                             <span>
                                 <img src="<?= asset('images/close-button.svg') ?>" alt="close">
                             </span>
-                        </button>
+                        </div>
                     </form>
                 </div>
             </div>
             <div class="search-buttons">
                 <button class="search-category-btn">
-                    <img src="<?= asset('images/sorgu.svg') ?>" alt="search">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.16683 4.49999V1.83333H1.8335V7.16666H4.50016" stroke="#FFBC00"/>
+                        <path d="M7.16683 15.1667H1.8335V9.83333H4.50016" stroke="#FFBC00"/>
+                        <path d="M15.1668 6.49999V1.83333H9.8335V4.49999" stroke="#FFBC00"/>
+                        <path d="M13.9667 10.2333C13.9667 12.2952 12.2952 13.9667 10.2333 13.9667C8.17147 13.9667 6.5 12.2952 6.5 10.2333C6.5 8.17147 8.17147 6.5 10.2333 6.5C12.2952 6.5 13.9667 8.17147 13.9667 10.2333Z" stroke="#FFBC00"/>
+                        <path d="M15.8332 15.8332L12.873 12.8731" stroke="#FFBC00"/>
+                    </svg>
                     BENEATH THE SURFACE
                 </button>
                 <button class="search-category-btn">
-                    <img src="<?= asset('images/sorgu.svg') ?>" alt="search">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.16683 4.49999V1.83333H1.8335V7.16666H4.50016" stroke="#FFBC00"/>
+                        <path d="M7.16683 15.1667H1.8335V9.83333H4.50016" stroke="#FFBC00"/>
+                        <path d="M15.1668 6.49999V1.83333H9.8335V4.49999" stroke="#FFBC00"/>
+                        <path d="M13.9667 10.2333C13.9667 12.2952 12.2952 13.9667 10.2333 13.9667C8.17147 13.9667 6.5 12.2952 6.5 10.2333C6.5 8.17147 8.17147 6.5 10.2333 6.5C12.2952 6.5 13.9667 8.17147 13.9667 10.2333Z" stroke="#FFBC00"/>
+                        <path d="M15.8332 15.8332L12.873 12.8731" stroke="#FFBC00"/>
+                    </svg>
                     DOORS OF DESTINY
                 </button>
                 <button class="search-category-btn">
-                    <img src="<?= asset('images/sorgu.svg') ?>" alt="search">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.16683 4.49999V1.83333H1.8335V7.16666H4.50016" stroke="#FFBC00"/>
+                        <path d="M7.16683 15.1667H1.8335V9.83333H4.50016" stroke="#FFBC00"/>
+                        <path d="M15.1668 6.49999V1.83333H9.8335V4.49999" stroke="#FFBC00"/>
+                        <path d="M13.9667 10.2333C13.9667 12.2952 12.2952 13.9667 10.2333 13.9667C8.17147 13.9667 6.5 12.2952 6.5 10.2333C6.5 8.17147 8.17147 6.5 10.2333 6.5C12.2952 6.5 13.9667 8.17147 13.9667 10.2333Z" stroke="#FFBC00"/>
+                        <path d="M15.8332 15.8332L12.873 12.8731" stroke="#FFBC00"/>
+                    </svg>
                     IT HAPPENS
                 </button>
             </div>
